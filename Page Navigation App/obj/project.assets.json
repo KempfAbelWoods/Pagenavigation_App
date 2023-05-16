@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Page Navigation App\\Page Navigation App\\Page Navigation App.csproj",
+      "projectUniqueName": "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
       "projectName": "Page Navigation App",
-      "projectPath": "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Page Navigation App\\Page Navigation App\\Page Navigation App.csproj",
+      "projectPath": "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
       "packagesPath": "C:\\Users\\david.kempf\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Page Navigation App\\Page Navigation App\\obj\\",
+      "outputPath": "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

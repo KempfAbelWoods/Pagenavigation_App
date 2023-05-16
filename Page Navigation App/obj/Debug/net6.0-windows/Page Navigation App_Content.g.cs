@@ -7,6 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("obj/debug/net6.0-windows/page%20navigation%20app_markupcompile.lref")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/customer_page.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/home_page.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/img_customer.png")]
