@@ -34,8 +34,8 @@
             <!--// Base Grid //-->
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="228" />
-                <ColumnDefinition Width="622" />
+                <ColumnDefinition Width="0.22*" MaxWidth="240"/>
+                <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
             <!--// Navigation Panel //-->
@@ -181,10 +181,6 @@
             </Grid>
 
         </Grid>
-
-        <Button x:Name="CloseApp"
-                Style="{StaticResource ExitApp}"
-                Click="CloseApp_Click" />
 
     </Grid>
 

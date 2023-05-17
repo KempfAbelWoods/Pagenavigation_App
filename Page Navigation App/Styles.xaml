@@ -1717,11 +1717,11 @@
     <!--#endregion-->
 
     <ImageBrush x:Key="close_app_def"
-                ImageSource="Assets/shutdown_def.png"
+                ImageSource="/Assets/shutdown_def.png"
                 Stretch="None" />
 
     <ImageBrush x:Key="close_app_mo"
-                ImageSource="Assets/shutdown_mo.png"
+                ImageSource="/Assets/shutdown_mo.png"
                 Stretch="None" />
 
     <Style x:Key="CloseAppStyle"

@@ -40,12 +40,7 @@
                                Height="0.02*" />
 
             </Grid.RowDefinitions>
-
-            <Button Grid.Row="0"
-                    Grid.Column="1"
-                    Command="{Binding MaxAppCommand}"
-                    CommandParameter="{Binding ElementName=ResponsiveWindow}"
-                    Style="{StaticResource MaxAppStyle}" />
+            
 
             <Grid Grid.Row="0"
                   Grid.Column="1"
@@ -214,12 +209,7 @@
                                Height="0.02*" />
 
             </Grid.RowDefinitions>
-
-            <Button Grid.Row="0"
-                    Grid.Column="1"
-                    Command="{Binding MaxAppCommand}"
-                    CommandParameter="{Binding ElementName=ResponsiveWindow}"
-                    Style="{StaticResource MaxAppStyle}" />
+            
 
             <Grid Grid.Row="0"
                   Grid.Column="1"

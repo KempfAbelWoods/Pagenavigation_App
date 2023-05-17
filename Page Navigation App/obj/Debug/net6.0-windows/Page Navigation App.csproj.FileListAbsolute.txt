@@ -236,3 +236,64 @@ C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Nav
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\ref\Page Navigation App.dll
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\DataTemplates.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Styles.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.exe
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\customer_page.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\home_page.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_customer.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_home.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_order.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_product.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_setting.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_shipment.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_transaction.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\order_page.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\product_page.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\setting_page.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\shipment_page.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\shutdown_def.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\shutdown_mo.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\transaction_page.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.deps.json
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.runtimeconfig.json
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.dll
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.pdb
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.csproj.AssemblyReference.cache
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\DataTemplates.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Styles.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Styles\Button.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Styles\Image.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Styles\Page.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Styles\Text.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\MainWindow.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Customers.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Home.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Orders.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Products.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Settings.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Shipments.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Transactions.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\App.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App_Content.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App_MarkupCompile.cache
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App_MarkupCompile.lref
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\App.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\MainWindow.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Utilities\DataTemplate.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Customers.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Home.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Orders.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Products.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Settings.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Shipments.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Transactions.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.g.resources
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.GeneratedMSBuildEditorConfig.editorconfig
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.AssemblyInfoInputs.cache
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.AssemblyInfo.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.csproj.CoreCompileInputs.cache
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.dll
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\refint\Page Navigation App.dll
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.pdb
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.genruntimeconfig.cache
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\ref\Page Navigation App.dll

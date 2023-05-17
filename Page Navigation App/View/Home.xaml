@@ -115,12 +115,7 @@
             </ContentControl.Style>
 
         </ContentControl>
-
-        <!--// Close App Button //-->
-
-        <Button Command="{Binding CloseAppCommand}"
-                CommandParameter="{Binding ElementName=ResponsiveWindow}"
-                Style="{StaticResource CloseAppStyle}" />
+        
 
     </Grid>
 </UserControl>
