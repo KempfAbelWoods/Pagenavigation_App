@@ -4,18 +4,123 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Page_Navigation_App.View"
+             xmlns:viewModel="clr-namespace:Page_Navigation_App.ViewModel"
+             xmlns:helper="clr-namespace:Page_Navigation_App.Helper"
              mc:Ignorable="d"
              d:DesignHeight="600"
              d:DesignWidth="622">
 
+ <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <viewModel:MainViewModel />
+    </UserControl.DataContext>
+    
     <Grid>
 
-        <Border CornerRadius="0,20,20,0" Margin="0,5,5,0">
+        <Border Background="#282D33"
+                BorderBrush="#3A4149"
+                BorderThickness="5"
+                CornerRadius="8,8,0,8" /> 
+        
+        <!--// Responsive Layouts //-->
 
-            <Image Source="/Images/home_page.png"
-                   Stretch="Fill" />
+        <ContentControl Content="{Binding}">
 
-        </Border>
+            <ContentControl.Style>
+
+                <Style TargetType="ContentControl">
+                    
+                    <!--// Default Layout //-->
+
+                    <Setter Property="ContentTemplate"
+                            Value="{StaticResource Laptop_Layout}" />
+
+                    <Style.Triggers>
+                        
+                        <!--// Desktop Layout // {width > 1400px}-->
+
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static helper:IsGreaterThanConverter.Instance}, ConverterParameter=1400}"
+                                     Value="True">
+
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource Desktop_Layout}" />
+
+                        </DataTrigger>      
+                        
+                        <!--// Tablet Landscape Layout // {width < 1200px}-->
+
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static helper:IsLessThanConverter.Instance}, ConverterParameter=1200}"
+                                     Value="True">
+
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource Tablet_Landscape_Layout}" />
+
+                        </DataTrigger>
+
+                        <!--// Tablet Portrait Layout // {width < 1024px}-->
+
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static helper:IsLessThanConverter.Instance}, ConverterParameter=1024}"
+                                     Value="True">
+
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource Tablet_Portrait_Layout}" />
+
+                        </DataTrigger>
+
+                        <!--// Mobile Landscape Layout // {width < 812px}-->
+
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static helper:IsLessThanConverter.Instance}, ConverterParameter=812}"
+                                     Value="True">
+
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource Mobile_Landscape_Layout}" />
+
+                        </DataTrigger>
+
+                        <!--// Mobile Portrait Layout // {width < 667px}-->
+
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static helper:IsLessThanConverter.Instance}, ConverterParameter=667}"
+                                     Value="True">
+
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource Mobile_Portrait_Layout}" />
+
+                        </DataTrigger>                     
+
+                    </Style.Triggers>                    
+
+                </Style>
+                
+            </ContentControl.Style>
+            
+        </ContentControl>
+        
+        <!--// Side Menu // [ For Tablet, Mobile Layouts ]-->
+
+        <ContentControl Content="{Binding}"
+                        Visibility="{Binding IsPanelVisible, Converter={StaticResource BooleanToVisibility}}">
+
+            <ContentControl.Style>
+
+                <Style TargetType="ContentControl">
+
+                    <Setter Property="ContentTemplate"
+                            Value="{StaticResource MenuTemplate}" />
+
+                </Style>
+
+            </ContentControl.Style>
+
+        </ContentControl>
+
+        <!--// Close App Button //-->
+
+        <Button Command="{Binding CloseAppCommand}"
+                CommandParameter="{Binding ElementName=ResponsiveWindow}"
+                Style="{StaticResource CloseAppStyle}" />
 
     </Grid>
 </UserControl>
