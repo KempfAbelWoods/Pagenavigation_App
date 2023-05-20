@@ -18,9 +18,9 @@ namespace Page_Navigation_App.View
     /// <summary>
     /// Interaction logic for Transactions.xaml
     /// </summary>
-    public partial class Transactions : UserControl
+    public partial class Bills : UserControl
     {
-        public Transactions()
+        public Bills()
         {
             InitializeComponent();
         }

@@ -1513,7 +1513,7 @@
 
                 </StackPanel>
 
-                <TextBlock Text="D E S I G N   T H E   I N T E R F A C E"
+                <TextBlock Text="Kempf / Abel / Woods"
                            FontFamily="Fonts/#Saira SemiBold"
                            FontSize="10"
                            VerticalAlignment="Bottom"
@@ -1663,8 +1663,7 @@
                         Style="{StaticResource CloseMenuButton}" />
 
                 <StackPanel Style="{StaticResource MenuStackPanelStyle}">
-
-                    <Button Style="{StaticResource MenuButton1Style}" />
+                        <Button Style="{StaticResource MenuButton1Style}"/>
                     <Button Style="{StaticResource MenuButton2Style}" />
                     <Button Style="{StaticResource MenuButton3Style}" />
                     <Button Style="{StaticResource MenuButton4Style}" />
@@ -1672,7 +1671,7 @@
 
                 </StackPanel>
 
-                <TextBlock Text="D E S I G N   T H E   I N T E R F A C E"
+                <TextBlock Text="Kempf / Abel / Woods"
                            FontFamily="Fonts/#Saira SemiBold"
                            FontSize="10"
                            VerticalAlignment="Bottom"

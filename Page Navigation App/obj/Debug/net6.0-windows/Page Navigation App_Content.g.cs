@@ -24,5 +24,6 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/shutdown_def.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/shutdown_mo.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/transaction_page.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/database.png")]
 
 

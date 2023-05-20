@@ -15,6 +15,8 @@
         Title="MainWindow"
         Height="600"
         Width="850"
+        MinWidth="650"
+        MinHeight="428"
         WindowStartupLocation="CenterScreen"
         Background="Transparent">
 
@@ -26,28 +28,25 @@
 
         <!--// Window Border //-->
 
-        <Border Background="#212529"
-                CornerRadius="20" />
+        <Border Background="#212529"/>
 
         <Grid>
 
             <!--// Base Grid //-->
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.22*" MaxWidth="240"/>
+                <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
             <!--// Navigation Panel //-->
 
-            <Grid HorizontalAlignment="Left"
-                  Width="228">
+            <Grid HorizontalAlignment="Left">
 
-                <Border Background="#272B2F"
-                        CornerRadius="20,0,0,20" />
+                <Border Background="#272B2F"/>
 
                 <StackPanel Height="400"
-                            Width="228">
+                            Width="200">
 
                     <!--// Home //-->
 
@@ -66,7 +65,7 @@
                         </Grid>
 
                     </Menu:Btn>
-
+                   
                     <!--// Customer //-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
@@ -83,23 +82,7 @@
                         </Grid>
 
                     </Menu:Btn>
-
-                    <!--// Products //-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding ProductsCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_product.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Products"
-                                       Style="{StaticResource Text_Style}" />
-
-                        </Grid>
-
-                    </Menu:Btn>
+                    
 
                     <!--// Orders //-->
 
@@ -118,7 +101,7 @@
 
                     </Menu:Btn>
 
-                    <!--// Transactions //-->
+                    <!--// Rechnungen //-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding TransactionsCommand}">
@@ -128,24 +111,24 @@
                             <Image Source="Images/img_transaction.png"
                                    Style="{StaticResource Image_Style}" />
 
-                            <TextBlock Text="Transactions"
+                            <TextBlock Text="Bills"
                                        Style="{StaticResource Text_Style}" />
 
                         </Grid>
 
                     </Menu:Btn>
 
-                    <!--// Shipments //-->
+                    <!--// Stammdaten //-->
 
                     <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding ShipmentsCommand}">
 
                         <Grid>
 
-                            <Image Source="Images/img_shipment.png"
+                            <Image Source="Images/database.png"
                                    Style="{StaticResource Image_Style}" />
 
-                            <TextBlock Text="Shipments"
+                            <TextBlock Text="Base Data"
                                        Style="{StaticResource Text_Style}" />
 
                         </Grid>
@@ -163,6 +146,23 @@
                                    Style="{StaticResource Image_Style}" />
 
                             <TextBlock Text="Settings"
+                                       Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
+                    
+                    <!--// Products //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding ProductsCommand}">
+
+                        <Grid>
+
+                            <Image Source="Images/img_product.png"
+                                   Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Reserve"
                                        Style="{StaticResource Text_Style}" />
 
                         </Grid>

@@ -17,7 +17,7 @@
 
                     <Border x:Name="border"
                             Height="50"
-                            Width="228"
+                            Width="200"
                             BorderThickness="0">
 
                         <Border.Background>

@@ -268,10 +268,7 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\M
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Customers.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Home.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Orders.g.cs
-D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Products.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Settings.g.cs
-D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Shipments.g.cs
-D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Transactions.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\App.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App_Content.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -283,10 +280,7 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\U
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Customers.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Home.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Orders.baml
-D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Products.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Settings.baml
-D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Shipments.baml
-D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Transactions.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.g.resources
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.GeneratedMSBuildEditorConfig.editorconfig
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.AssemblyInfoInputs.cache
@@ -297,3 +291,10 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\r
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.pdb
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.genruntimeconfig.cache
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\ref\Page Navigation App.dll
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\database.png
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Base_Data.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Base_Data.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.baml

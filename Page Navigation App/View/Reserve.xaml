@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Page_Navigation_App.View.Products"
+﻿<UserControl x:Class="Page_Navigation_App.View.Reserve"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -13,22 +13,8 @@
         <vm:ProductVM />
     </UserControl.DataContext>
     
-    <Grid Margin="15">
-
-        <Border CornerRadius="0,20,20,0">
-            <Border.Background>
-                <ImageBrush ImageSource="/Images/product_page.png"
-                            Stretch="None" />
-            </Border.Background>
-        </Border>
-
-        <TextBlock Text="{Binding ProductAvailability}"
-                   Foreground="#F25E68"
-                   FontSize="12"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   FontFamily="/Fonts/#Rubik Medium"
-                   Margin="261,300,0,0" />
+    <Grid >
+        
 
     </Grid>
 </UserControl>

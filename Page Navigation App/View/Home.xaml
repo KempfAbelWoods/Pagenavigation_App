@@ -20,10 +20,7 @@
     
     <Grid>
 
-        <Border Background="#282D33"
-                BorderBrush="#3A4149"
-                BorderThickness="5"
-                CornerRadius="8,8,0,8" /> 
+        <Border Background="#282D33"/> 
         
         <!--// Responsive Layouts //-->
 
@@ -98,23 +95,6 @@
             
         </ContentControl>
         
-        <!--// Side Menu // [ For Tablet, Mobile Layouts ]-->
-
-        <ContentControl Content="{Binding}"
-                        Visibility="{Binding IsPanelVisible, Converter={StaticResource BooleanToVisibility}}">
-
-            <ContentControl.Style>
-
-                <Style TargetType="ContentControl">
-
-                    <Setter Property="ContentTemplate"
-                            Value="{StaticResource MenuTemplate}" />
-
-                </Style>
-
-            </ContentControl.Style>
-
-        </ContentControl>
         
 
     </Grid>

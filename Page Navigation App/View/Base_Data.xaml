@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Page_Navigation_App.View.Customers"
+﻿<UserControl x:Class="Page_Navigation_App.View.Base_Data"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,12 +10,12 @@
              Style="{StaticResource Page_Style}">
 
     <UserControl.DataContext>
-        <vm:CustomerVM />
+        <vm:ShipmentVM />
     </UserControl.DataContext>
     
     <Grid>
 
-     
-
+  
+        
     </Grid>
 </UserControl>

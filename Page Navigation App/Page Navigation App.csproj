@@ -152,6 +152,10 @@
     <Resource Include="Assets\stocks_icon.png" />
     <None Remove="Assets\user_icon.png" />
     <Resource Include="Assets\user_icon.png" />
+    <None Remove="Images\database.png" />
+    <Content Include="Images\database.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

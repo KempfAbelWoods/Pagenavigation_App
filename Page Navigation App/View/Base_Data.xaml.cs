@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Page_Navigation_App.View
 {
     /// <summary>
-    /// Interaction logic for Products.xaml
+    /// Interaction logic for Shipments.xaml
     /// </summary>
-    public partial class Products : UserControl
+    public partial class Base_Data : UserControl
     {
-        public Products()
+        public Base_Data()
         {
             InitializeComponent();
         }
