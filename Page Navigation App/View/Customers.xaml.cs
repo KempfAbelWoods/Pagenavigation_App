@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace Page_Navigation_App.View
 {
@@ -29,10 +30,12 @@ namespace Page_Navigation_App.View
             ObservableCollection<Member> members = new ObservableCollection<Member>();
 
             members.Add(new Member { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
-            members.Add(new Member { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
+            members.Add(new Member { ID = "2", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
 
             membersDataGrid.ItemsSource = members;
+            
         }
+
     }
     
     public class Member
@@ -45,4 +48,5 @@ namespace Page_Navigation_App.View
         public string Mail { get; set; }
         public string Phone { get; set; }
     }
+    
 }
