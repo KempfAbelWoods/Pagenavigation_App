@@ -298,3 +298,7 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\V
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Base_Data.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Styles\Table_Dicitonary.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\MahApps.Metro.IconPacks.Core.dll
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\MahApps.Metro.IconPacks.Material.dll
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.csproj.CopyComplete

@@ -22,4 +22,6 @@ namespace Page_Navigation_App.ViewModel
             CustomerID = 100528;
         }
     }
+    
+    
 }

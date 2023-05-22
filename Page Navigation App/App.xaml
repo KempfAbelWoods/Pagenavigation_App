@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="Utilities/DataTemplate.xaml" />
                 <ResourceDictionary Source="Styles.xaml" />
                 <ResourceDictionary Source="DataTemplates.xaml" />
+                <ResourceDictionary Source="Styles/Table_Dicitonary.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
             

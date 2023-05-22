@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace Page_Navigation_App.View
 {
@@ -23,6 +24,25 @@ namespace Page_Navigation_App.View
         public Customers()
         {
             InitializeComponent();
+            
+            var converter = new BrushConverter();
+            ObservableCollection<Member> members = new ObservableCollection<Member>();
+
+            members.Add(new Member { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
+            members.Add(new Member { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
+
+            membersDataGrid.ItemsSource = members;
         }
+    }
+    
+    public class Member
+    {
+        public string Character { get; set; }
+        public Brush BgColor { get; set; }
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public string Adress { get; set; }
+        public string Mail { get; set; }
+        public string Phone { get; set; }
     }
 }
