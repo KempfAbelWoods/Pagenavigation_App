@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 using Page_Navigation_App.Model;
+using Page_Navigation_App.Utilities;
 
 namespace Page_Navigation_App.ViewModel
 {
@@ -21,16 +25,12 @@ namespace Page_Navigation_App.ViewModel
         {
             _pageModel = new PageModel();
             CustomerID = 100528;
-        }
-        
-        public ICommand EditCustomerCommand { get; set; }
-
-        private void EditCustomer(string ID)
-        {
             
         }
+
         
+
     }
-    
-    
+
+
 }

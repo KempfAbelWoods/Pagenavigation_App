@@ -31,13 +31,21 @@ namespace Page_Navigation_App.View
 
             members.Add(new Member { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
             members.Add(new Member { ID = "2", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
-
             membersDataGrid.ItemsSource = members;
-            
+
+        }
+        
+      /*  void EditCustomer(object sender, RoutedEventArgs e)
+        {
+            Trace.WriteLine(sender.GetHashCode());
+        } */
+        void EditCustomer(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show(e.Parameter.ToString());
         }
 
     }
-    
+
     public class Member
     {
         public string Character { get; set; }

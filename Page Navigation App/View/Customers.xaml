@@ -19,6 +19,9 @@
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.New" Executed="EditCustomer"/>
+    </UserControl.CommandBindings>
     
     <Grid>
             <Grid.ColumnDefinitions>
@@ -91,11 +94,17 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <!-- TODO Edit und Delete Commands für jede Zeile-->
-                                        <Button Style="{StaticResource gridEditButton}" Command="{Binding EditCustomerCommand}">
+                                        <!-- TODO Edit und Delete Commands für jede Zeile https://dariosantarelli.wordpress.com/2010/11/07/wpf-binding-multiple-command-parameters-using-multibinding/-->
+                                        <Button x:Name="EditCustomer" Style="{StaticResource gridEditButton}" Command="ApplicationCommands.New">
+                                            <Button.CommandParameter>
+                                                <MultiBinding>
+                                                    <Binding ElementName="ID"/>
+                                                    <Binding ElementName="EditCustomer"/>
+                                                </MultiBinding>
+                                            </Button.CommandParameter>
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
-                                        <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" >
+                                        <Button x:Name="DeleteCustomer" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" Command="ApplicationCommands.Delete" CommandParameter="{Binding ID}">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                         </Button> 
                                     </StackPanel>
