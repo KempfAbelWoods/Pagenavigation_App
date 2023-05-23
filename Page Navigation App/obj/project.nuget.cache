@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qjt+PXEXuFOuxoQ74cU1kjcyKEgW+BaJBG4SZa+cmXoZhuoREGUrYRlpyyXsLdDb8CXqB4XMu4ymQWgbKJ4USQ==",
+  "dgSpecHash": "JAHkV5l6mS/UlBcG8Ql8+5+zk6C+/23XiuHx1cjuJA6e/EZ1KYBZ/s9he9bQN9Aa15wrApf9PpzZX7H6g6Xdxg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
+  "projectFilePath": "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\david.kempf\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512"
+    "C:\\Users\\David Kempf\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512"
   ],
   "logs": []
 }

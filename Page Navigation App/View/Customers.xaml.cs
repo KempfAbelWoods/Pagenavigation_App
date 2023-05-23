@@ -35,16 +35,18 @@ namespace Page_Navigation_App.View
             membersDataGrid.ItemsSource = members;
 
         }
-        
-      /*  void EditCustomer(object sender, RoutedEventArgs e)
-        {
-            Trace.WriteLine(sender.GetHashCode());
-        } */
         void EditCustomer(object sender, ExecutedRoutedEventArgs e)
         {
 
-            MessageBox.Show(e.Parameter.ToString());
+            MessageBox.Show("edit:"+e.Parameter.ToString());
             
+        }
+        
+        void DeleteCustomer(object sender, ExecutedRoutedEventArgs e)
+        {
+
+            MessageBox.Show("delete:"+e.Parameter.ToString());
+
         }
 
     }
@@ -60,18 +62,6 @@ namespace Page_Navigation_App.View
         public string Phone { get; set; }
     }
     
-    public class ArrayMultiValueConverter : IMultiValueConverter {
-
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture) {
-             Trace.WriteLine(values);
-            return values.ToArray();
-        }
-
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture) {
-            throw new NotImplementedException();
-        }
-        
-    }
 
 
 }

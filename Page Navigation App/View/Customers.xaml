@@ -16,134 +16,150 @@
     <UserControl.DataContext>
         <vm:CustomerVM />
     </UserControl.DataContext>
-    
+
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </UserControl.Resources>
-    <UserControl.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.New" Executed="EditCustomer"/>
-    </UserControl.CommandBindings>
-    
+
     <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-            <!--Main Section-->
-            <Grid Margin="10 10 10 10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
+        <!--Main Section-->
+        <Grid Margin="10 10 10 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
 
-                <!--Page Title-->
-                <TextBlock Text="Members" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
 
-                <!--Add Button-->
-             <!--   <Button Style="{StaticResource addButton}">
-                    <StackPanel Orientation="Horizontal">
-                        <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
-                        <TextBlock Text="Add New Member"/>
-                    </StackPanel>
-                </Button> -->
+            <!--Page Title-->
+            <TextBlock Text="Customers" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
+                       Foreground="#121518" HorizontalAlignment="Left" />
 
-                <!--Seprator-->
-                <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
-                
-                <!--Filter Textbox-->
-                <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
+            <!--Seprator-->
+            <Separator Height="1" Grid.Row="2" Background="#DAE2EA" Margin="0 -1 0 10" />
+
+            <!--Filter Textbox-->
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Width="200" Grid.Column="1" HorizontalAlignment="Right">
                     <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
-                           Panel.ZIndex="1" Text="Search in Members ..."
-                           Visibility="{Binding ElementName=textBoxFilter, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
-
-                    <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}"/>
+                               Panel.ZIndex="1" Text="Search in Customers ..."
+                               Visibility="{Binding ElementName=textBoxFilter, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
+                    <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}" />
                 </Grid>
-
-                <!--Members Data Grid-->
-                <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}">
-                    <DataGrid.Columns>
-                        <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
-                            <DataGridCheckBoxColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
-                                </DataTemplate>
-                            </DataGridCheckBoxColumn.HeaderTemplate>
-                        </DataGridCheckBoxColumn>
-                        <DataGridTextColumn x:Name="CustomerID" Header="ID" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding ID}"/>
-                        <DataGridTemplateColumn Header="Name" IsReadOnly="True" Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="{Binding BgColor}">
-                                            <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
-                                        </Border>
-
-                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Adress" Binding="{Binding Adress}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Email Address" Binding="{Binding Mail}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                        <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <!-- TODO Edit und Delete Commands für jede Zeile https://dariosantarelli.wordpress.com/2010/11/07/wpf-binding-multiple-command-parameters-using-multibinding/-->
-                                        <Button x:Name="EditCustomer" Style="{StaticResource gridEditButton}" Command="ApplicationCommands.New">
-                                           <Button.Resources>
-                                               <ui:ArrayMultiValueConverter x:Key="ArrayMultiValueConverter"/>
-                                           </Button.Resources>
-                                            <Button.CommandParameter>
-                                                <MultiBinding Converter="{StaticResource ArrayMultiValueConverter}">
-                                                    <Binding ElementName="CustomerID" Path="Binding"/>
-                                                    <Binding ElementName="EditCustomer" Path="Name"/>
-                                                </MultiBinding>
-                                            </Button.CommandParameter>
-                                            <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
-                                        </Button>
-                                        <Button x:Name="DeleteCustomer" Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}" Command="ApplicationCommands.Delete" CommandParameter="{Binding ID}">
-                                            <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
-                                        </Button> 
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-
-                <!--Pagingation Section-->
-                <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#DEE4EC" BorderThickness="1" CornerRadius="5" Padding="5" Background="#ffffff" Margin="0 10 10 10">
+                <!-- Add New Member -->
+      
+          <Button Grid.Column="0" Style="{StaticResource addButton}" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource pagingButton}">
-                         <!--   <Icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource pagingButtonIcon}"/> -->
-                        </Button>
-                        <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7"/>
-
-                        <Button Style="{StaticResource pagingButton}" Content="1"/>
-                        <Button Style="{StaticResource pagingButton}" Content="2" Background="#7950F2" Foreground="#ffffff"/>
-                        <Button Style="{StaticResource pagingButton}" Content="3"/>
-
-                        <TextBlock Text="..." Foreground="#6C7682" VerticalAlignment="Center" Margin="10 0" FontSize="15"/>
-
-                        <Button Style="{StaticResource pagingButton}" Content="7"/>
-                        <Button Style="{StaticResource pagingButton}" Content="8"/>
-                        <Button Style="{StaticResource pagingButton}" Content="9"/>
-
-                        <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7"/>
-                        <Button Style="{StaticResource pagingButton}">
-                          <!--  <Icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource pagingButtonIcon}"/> -->
-                        </Button>
+                        <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11"
+                                               Height="11" />
+                        <TextBlock Text="Add New Member" />
                     </StackPanel>
-                </Border>
-
+                </Button>
             </Grid>
 
+
+            <!--Members Data Grid-->
+            <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"
+                      ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                      CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid"
+                      Style="{DynamicResource DataGridStyle1}">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto"
+                                            ElementStyle="{StaticResource CheckBoxStyle1}">
+                        <DataGridCheckBoxColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource CheckBoxStyle1}" />
+                            </DataTemplate>
+                        </DataGridCheckBoxColumn.HeaderTemplate>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn x:Name="CustomerID" Header="ID" IsReadOnly="True" CanUserResize="False"
+                                        Width="auto" Binding="{Binding ID}" />
+                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0"
+                                            Background="{Binding BgColor}">
+                                        <TextBlock Text="{Binding Character}" VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" />
+                                    </Border>
+
+                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Adress" Binding="{Binding Adress}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Email Address" Binding="{Binding Mail}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone}" IsReadOnly="True" Width="*" />
+                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- TODO Edit und Delete Commands für jede Zeile https://dariosantarelli.wordpress.com/2010/11/07/wpf-binding-multiple-command-parameters-using-multibinding/-->
+                                    <Button x:Name="EditCustomer" Style="{StaticResource gridEditButton}"
+                                            Command="ApplicationCommands.New" CommandParameter="{Binding ID}">
+                                        <Button.CommandBindings>
+                                            <CommandBinding Command="ApplicationCommands.New" Executed="EditCustomer" />
+                                        </Button.CommandBindings>
+                                        <Icon:PackIconMaterial Kind="PencilOutline"
+                                                               Style="{StaticResource gridButtonIcon}" />
+                                    </Button>
+                                    <Button x:Name="DeleteCustomer" Margin="5 0 0 0"
+                                            Style="{StaticResource gridRemoveButton}" Command="ApplicationCommands.New"
+                                            CommandParameter="{Binding ID}">
+                                        <Button.CommandBindings>
+                                            <CommandBinding Command="ApplicationCommands.New" Executed="DeleteCustomer" />
+                                        </Button.CommandBindings>
+                                        <Icon:PackIconMaterial Kind="DeleteOutline"
+                                                               Style="{StaticResource gridButtonIcon}" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!--Pagingation Section-->
+            <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#DEE4EC" BorderThickness="1" CornerRadius="5"
+                    Padding="5" Background="#ffffff" Margin="0 10 10 10">
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource pagingButton}">
+                        <!--   <Icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource pagingButtonIcon}"/> -->
+                    </Button>
+                    <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7" />
+
+                    <Button Style="{StaticResource pagingButton}" Content="1" />
+                    <Button Style="{StaticResource pagingButton}" Content="2" Background="#7950F2" Foreground="#ffffff" />
+                    <Button Style="{StaticResource pagingButton}" Content="3" />
+
+                    <TextBlock Text="..." Foreground="#6C7682" VerticalAlignment="Center" Margin="10 0" FontSize="15" />
+
+                    <Button Style="{StaticResource pagingButton}" Content="7" />
+                    <Button Style="{StaticResource pagingButton}" Content="8" />
+                    <Button Style="{StaticResource pagingButton}" Content="9" />
+
+                    <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7" />
+                    <Button Style="{StaticResource pagingButton}">
+                        <!--  <Icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource pagingButtonIcon}"/> -->
+                    </Button>
+                </StackPanel>
+            </Border>
+
         </Grid>
+
+    </Grid>
 </UserControl>
