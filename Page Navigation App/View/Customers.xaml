@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:vm="clr-namespace:Page_Navigation_App.ViewModel"
+             xmlns:ui="clr-namespace:Page_Navigation_App.View"
              xmlns:pageNavigationApp="clr-namespace:Page_Navigation_App"
              mc:Ignorable="d"
              d:DesignHeight="600"
@@ -73,7 +74,7 @@
                                 </DataTemplate>
                             </DataGridCheckBoxColumn.HeaderTemplate>
                         </DataGridCheckBoxColumn>
-                        <DataGridTextColumn Header="ID" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding ID}"/>
+                        <DataGridTextColumn x:Name="CustomerID" Header="ID" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding ID}"/>
                         <DataGridTemplateColumn Header="Name" IsReadOnly="True" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -96,10 +97,13 @@
                                     <StackPanel Orientation="Horizontal">
                                         <!-- TODO Edit und Delete Commands für jede Zeile https://dariosantarelli.wordpress.com/2010/11/07/wpf-binding-multiple-command-parameters-using-multibinding/-->
                                         <Button x:Name="EditCustomer" Style="{StaticResource gridEditButton}" Command="ApplicationCommands.New">
+                                           <Button.Resources>
+                                               <ui:ArrayMultiValueConverter x:Key="ArrayMultiValueConverter"/>
+                                           </Button.Resources>
                                             <Button.CommandParameter>
-                                                <MultiBinding>
-                                                    <Binding ElementName="ID"/>
-                                                    <Binding ElementName="EditCustomer"/>
+                                                <MultiBinding Converter="{StaticResource ArrayMultiValueConverter}">
+                                                    <Binding ElementName="CustomerID" Path="Binding"/>
+                                                    <Binding ElementName="EditCustomer" Path="Name"/>
                                                 </MultiBinding>
                                             </Button.CommandParameter>
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>

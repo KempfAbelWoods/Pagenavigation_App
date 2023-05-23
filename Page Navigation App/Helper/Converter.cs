@@ -47,4 +47,5 @@ namespace Page_Navigation_App.Helper
             throw new NotImplementedException();
         }
     }
+    
 }
