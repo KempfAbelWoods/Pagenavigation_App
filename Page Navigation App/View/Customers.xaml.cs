@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
+using Page_Navigation_App.Popups;
 
 namespace Page_Navigation_App.View
 {
@@ -38,8 +39,11 @@ namespace Page_Navigation_App.View
         void EditCustomer(object sender, ExecutedRoutedEventArgs e)
         {
 
-            MessageBox.Show("edit:"+e.Parameter.ToString());
-            
+           // MessageBox.Show("edit:"+e.Parameter.ToString());
+           Edit_Customer editCustomer = new Edit_Customer();
+           editCustomer.Owner = Application.Current.MainWindow;
+           editCustomer.ShowDialog();
+
         }
         
         void DeleteCustomer(object sender, ExecutedRoutedEventArgs e)
