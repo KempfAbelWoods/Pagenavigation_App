@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="Styles.xaml" />
                 <ResourceDictionary Source="DataTemplates.xaml" />
                 <ResourceDictionary Source="Styles/Table_Dicitonary.xaml"/>
+                <ResourceDictionary Source="Styles/Popup_Resources.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
             

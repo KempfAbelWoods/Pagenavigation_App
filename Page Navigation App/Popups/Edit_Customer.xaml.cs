@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Page_Navigation_App.Popups;
@@ -12,13 +13,17 @@ public partial class Edit_Customer : Window
 
     void Save_and_Close_Window( object sender, ExecutedRoutedEventArgs e)
     {
-        MessageBox.Show("save");
         this.Close();
     }
     
     void Close_Window( object sender, ExecutedRoutedEventArgs e)
     {
-        MessageBox.Show("cancel");
         this.Close();
+    }
+    
+    private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+    {
+        Regex regex = new Regex("[^0-9]+");
+        e.Handled = regex.IsMatch(e.Text);
     }
 }
