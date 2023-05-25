@@ -39,17 +39,21 @@ namespace Page_Navigation_App.View
         void EditCustomer(object sender, ExecutedRoutedEventArgs e)
         {
 
-           // MessageBox.Show("edit:"+e.Parameter.ToString());
-           Edit_Customer editCustomer = new Edit_Customer();
+           //hier anhand von Parameter Daten des Kunden auslesen und als Parameter mitgeben
+           Edit_Customer editCustomer = new Edit_Customer(e.Parameter.ToString(),"Name","adress","Mail","Phone");
            editCustomer.Owner = Application.Current.MainWindow;
            editCustomer.ShowDialog();
+           //hier dann Daten neu laden in Tabelle, da aktualisiert
 
         }
         
         void DeleteCustomer(object sender, ExecutedRoutedEventArgs e)
         {
-
-            MessageBox.Show("delete:"+e.Parameter.ToString());
+            //hier auch noch Kundennamen mitgeben
+            Delete_Customer deleteCustomer = new Delete_Customer(e.Parameter.ToString());
+            deleteCustomer.Owner = Application.Current.MainWindow;
+            deleteCustomer.ShowDialog();
+            //hier dann Daten neu laden in Tabelle, da aktualisiert
 
         }
 

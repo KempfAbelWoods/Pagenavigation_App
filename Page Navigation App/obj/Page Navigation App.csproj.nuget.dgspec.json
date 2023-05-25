@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj": {}
+    "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj": {}
   },
   "projects": {
-    "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj": {
+    "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
+        "projectUniqueName": "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
         "projectName": "Page Navigation App",
-        "projectPath": "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
-        "packagesPath": "C:\\Users\\David Kempf\\.nuget\\packages\\",
-        "outputPath": "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\obj\\",
+        "projectPath": "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
+        "packagesPath": "C:\\Users\\david.kempf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\David Kempf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\david.kempf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
