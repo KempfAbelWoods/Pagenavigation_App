@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,7 +9,7 @@ namespace Page_Navigation_App.Popups;
 
 public partial class Edit_Customer : Window
 {
-    public string Initial_ID;
+    private string Initial_ID;
     public Edit_Customer(string Customer_ID, string name, string adress, string mail, string phone)
     {
         Initial_ID = Customer_ID;
@@ -27,9 +28,17 @@ public partial class Edit_Customer : Window
         string adress = Adress_Field.Text;
         string mail = Mail_Field.Text;
         string phone = Phone_Field.Text;
-        //error einfügen wenn was leer ist oder so
-        MessageBox.Show(ID + name + adress + mail + phone);
-        this.Close();
+        
+        if (ID!="" && name!="" && adress !="" && mail !="" && phone!= "")
+        {
+            //hier abspeichern der Daten
+            this.Close();
+        }
+        else
+        {
+            MessageBox.Show("An Empty Textbox is not allowed!"+Initial_ID);
+        }
+        
     }
 
     void Close_Window(object sender, ExecutedRoutedEventArgs e)
@@ -42,10 +51,14 @@ public partial class Edit_Customer : Window
         //hier wird geprüft ob die ID in der Datenbank schon vergeben ist.
         //wobei die ID eventuell nicht änderbar gemacht werden sollte ??
         //nur abfragen bei neuerstellung eines Kundens?
-        if (Initial_ID != ID_Field.Text)
+        string ID = ID_Field.Text;
+        
+        if (Initial_ID != ID && ID != "")
         {
            MessageBox.Show("hallo du hast den Text geändert"); 
         }
+        
+        
     }
 
     private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -53,4 +66,6 @@ public partial class Edit_Customer : Window
         Regex regex = new Regex("[^0-9]+");
         e.Handled = regex.IsMatch(e.Text);
     }
+    
+    
 }

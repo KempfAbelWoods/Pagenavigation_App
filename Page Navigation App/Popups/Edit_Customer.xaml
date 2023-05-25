@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:Btn="clr-namespace:Page_Navigation_App.Utilities"
+        xmlns:vm = "Page_Navigation_App.Helper"
         xmlns:local="clr-namespace:Page_Navigation_App.Popups"
         mc:Ignorable="d"
         Title="Edit_Customer" 
@@ -13,6 +13,7 @@
         ShowInTaskbar="False"
         Background="#3f4c61"
         ResizeMode="NoResize">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.8*"></RowDefinition>
@@ -30,8 +31,8 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.05*"></ColumnDefinition>
-                <ColumnDefinition Width="0.3*"></ColumnDefinition>
-                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition Width="0.7*"></ColumnDefinition>
                 <ColumnDefinition Width="0.05*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
              <!-- Labels -->
@@ -48,10 +49,10 @@
             
              <!-- Input Fields -->
              <TextBox  PreviewTextInput="NumberValidationTextBox" Grid.Column="2" Height="30" x:Name="ID_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" TextChanged="ID_Field_OnTextChanged"></TextBox>
-             <TextBox Grid.Column="2" Grid.Row="1" Height="30" x:Name="Name_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center"></TextBox>
-             <TextBox Grid.Column="2" Grid.Row="2" Height="30" x:Name="Adress_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center"></TextBox>
-             <TextBox Grid.Column="2" Grid.Row="3" Height="30" x:Name="Mail_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center"></TextBox>
-             <TextBox Grid.Column="2" Grid.Row="4" Height="30" x:Name="Phone_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center"></TextBox>
+             <TextBox Grid.Column="2" Grid.Row="1" Height="30" x:Name="Name_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
+             <TextBox Grid.Column="2" Grid.Row="2" Height="30" x:Name="Adress_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
+             <TextBox Grid.Column="2" Grid.Row="3" Height="30" x:Name="Mail_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
+             <TextBox Grid.Column="2" Grid.Row="4" Height="30" x:Name="Phone_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
             
         </Grid>
         
@@ -61,13 +62,13 @@
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button  Grid.Row="1" Command="ApplicationCommands.Close" Grid.Column="0" Content="Save" Style="{StaticResource PopupButton}" HorizontalAlignment="Center">
+            <Button  x:Name="Save" Grid.Row="1" Command="ApplicationCommands.Close" Grid.Column="0" Content="Save" Style="{StaticResource PopupButton}" HorizontalAlignment="Center">
                 <Button.CommandBindings>
                     <CommandBinding Command="ApplicationCommands.Close" Executed="Save_and_Close_Window"/>
                 </Button.CommandBindings>
             </Button>
         
-            <Button Grid.Row="1" Command="ApplicationCommands.Close" Grid.Column="1" Content="Cancel" Style="{StaticResource PopupButton}" HorizontalAlignment="Center">
+            <Button x:Name="Close" Grid.Row="1" Command="ApplicationCommands.Close" Grid.Column="1" Content="Cancel" Style="{StaticResource PopupButton}" HorizontalAlignment="Center">
                 <Button.CommandBindings>
                     <CommandBinding Command="ApplicationCommands.Close" Executed="Close_Window"/>
                 </Button.CommandBindings>

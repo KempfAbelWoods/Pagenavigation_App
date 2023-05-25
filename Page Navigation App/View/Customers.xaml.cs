@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
+using System.Runtime.InteropServices.ObjectiveC;
 using Page_Navigation_App.Popups;
 
 namespace Page_Navigation_App.View
@@ -24,17 +25,32 @@ namespace Page_Navigation_App.View
     /// </summary>
     public partial class Customers : UserControl
     {
+        ObservableCollection<Member> members = new ObservableCollection<Member>();
+        ObservableCollection<Member> shownmembers = new ObservableCollection<Member>();
         public Customers()
         {
             InitializeComponent();
             
+            Load_Data(true);
+
+        }
+
+        void Load_Data(bool dbread)
+        { 
             var converter = new BrushConverter();
-            ObservableCollection<Member> members = new ObservableCollection<Member>();
+            members.Clear();
+                //hier aus Datenbank lesen
+                for (int i = 0; i < 5; i++) 
+                {
+                      members.Add(new Member { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" }); 
+                      members.Add(new Member { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "FCB", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
+                }
+           if (dbread)
+            {
+                shownmembers = members;
+            }
 
-            members.Add(new Member { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
-            members.Add(new Member { ID = "2", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
-            membersDataGrid.ItemsSource = members;
-
+            membersDataGrid.ItemsSource = shownmembers;
         }
         void EditCustomer(object sender, ExecutedRoutedEventArgs e)
         {
@@ -44,6 +60,17 @@ namespace Page_Navigation_App.View
            editCustomer.Owner = Application.Current.MainWindow;
            editCustomer.ShowDialog();
            //hier dann Daten neu laden in Tabelle, da aktualisiert
+
+        }
+        
+        void AddCustomer(object sender, RoutedEventArgs e)
+        {
+
+            //hier anhand von Parameter Daten des Kunden auslesen und als Parameter mitgeben
+            Edit_Customer editCustomer = new Edit_Customer("1","Max Mustermann","adress","max.mustermann@online.de","Phone Number");
+            editCustomer.Owner = Application.Current.MainWindow;
+            editCustomer.ShowDialog();
+            //hier dann Daten neu laden in Tabelle, da aktualisiert
 
         }
         
@@ -57,6 +84,30 @@ namespace Page_Navigation_App.View
 
         }
 
+        private void TextBoxFilter_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            ObservableCollection<Member> tempMembers = new ObservableCollection<Member>();
+            tempMembers.Clear();
+            if (textBoxFilter.Text=="")
+            {
+                tempMembers = members;
+            }
+            else
+            {
+                foreach (var  x in members)
+                {
+                    if (x.Name.Contains(textBoxFilter.Text))
+                    {
+                        tempMembers.Add(x);
+                    }
+                }
+            }
+            shownmembers.Clear();
+            shownmembers = tempMembers;
+            
+            Load_Data(false);
+        }
+        
     }
 
     public class Member
