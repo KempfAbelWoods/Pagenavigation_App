@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "JAHkV5l6mS/UlBcG8Ql8+5+zk6C+/23XiuHx1cjuJA6e/EZ1KYBZ/s9he9bQN9Aa15wrApf9PpzZX7H6g6Xdxg==",
+  "dgSpecHash": "m5dEq3HHgFOjEnWry1jTBOHOszHyDW8EhHoMLjkOwjwyhpdWZQt0/x6b/DjxuLtaofkzDHBUVGqxchmk07m4YA==",
   "success": true,
-  "projectFilePath": "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
+  "projectFilePath": "C:\\Users\\Sean\\Documents\\Hochschule\\Projektlabor\\Code\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\David Kempf\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512"
+    "C:\\Users\\Sean\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
+    "C:\\Users\\Sean\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Sean\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Sean\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\Sean\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.16\\microsoft.netcore.app.host.win-x64.6.0.16.nupkg.sha512"
   ],
   "logs": []
 }
