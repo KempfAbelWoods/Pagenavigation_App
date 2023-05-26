@@ -48,9 +48,10 @@ namespace Page_Navigation_App.View
            if (dbread)
             {
                 shownmembers = members;
+                textBoxFilter.Text = "";
             }
 
-            membersDataGrid.ItemsSource = shownmembers;
+           membersDataGrid.ItemsSource = shownmembers;
         }
         void EditCustomer(object sender, ExecutedRoutedEventArgs e)
         {
@@ -70,7 +71,7 @@ namespace Page_Navigation_App.View
             Edit_Customer editCustomer = new Edit_Customer("1","Max Mustermann","adress","max.mustermann@online.de","Phone Number");
             editCustomer.Owner = Application.Current.MainWindow;
             editCustomer.ShowDialog();
-            //hier dann Daten neu laden in Tabelle, da aktualisiert
+            //hier dann Daten abspeichern
 
         }
         
