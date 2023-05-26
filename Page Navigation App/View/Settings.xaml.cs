@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Page_Navigation_App.Configs;
+using Page_Navigation_App.DB;
 
 namespace Page_Navigation_App.View
 {
@@ -23,6 +25,11 @@ namespace Page_Navigation_App.View
         public Settings()
         {
             InitializeComponent();
+        }
+
+        private void Create_Table(object sender, RoutedEventArgs e)
+        {
+            DbCustomer.CreateTable(Paths.sqlite_path);
         }
     }
 }

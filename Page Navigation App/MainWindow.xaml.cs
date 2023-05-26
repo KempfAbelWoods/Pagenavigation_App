@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Page_Navigation_App.Configs;
+using Page_Navigation_App.DB;
+using Page_Navigation_App.Configs;
 
 namespace Page_Navigation_App
 {
@@ -23,11 +26,8 @@ namespace Page_Navigation_App
         public MainWindow()
         {
             InitializeComponent();
+            
         }
-
-        private void CloseApp_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        
     }
 }

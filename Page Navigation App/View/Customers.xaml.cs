@@ -16,6 +16,9 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.InteropServices.ObjectiveC;
+using Page_Navigation_App.Configs;
+using Page_Navigation_App.DB;
+using Page_Navigation_App.Helper;
 using Page_Navigation_App.Popups;
 
 namespace Page_Navigation_App.View
@@ -35,15 +38,21 @@ namespace Page_Navigation_App.View
 
         }
 
+        /// <summary>
+        /// Lade Daten aus Datenbank in Tabelle
+        /// </summary>
+        /// <param name="dbread"></param>
         void Load_Data(bool dbread)
         { 
             var converter = new BrushConverter();
             members.Clear();
-                //hier aus Datenbank lesen
-                for (int i = 0; i < 5; i++) 
+            
+            var (list, err) = RW_Customer.Read("",Paths.sqlite_path);
+
+                for (int i = 0; i < list.Count; i++)
                 {
-                      members.Add(new Member { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "John Doe", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" }); 
-                      members.Add(new Member { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Name = "FCB", Adress = "Bergstraße 26", Mail = "john.doe@gmail.com", Phone = "415-954-1475" });
+                    var color =(Brush)converter.ConvertFromString(list[i].BgColor);
+                      members.Add(new Member { ID = list[i].ID, Character = list[i].Character, BgColor = list[i].BgColor, Name = list[i].Name, Adress = list[i].Adress, Mail = list[i].Mail, Phone = list[i].Phone }); 
                 }
            if (dbread)
             {
@@ -53,6 +62,7 @@ namespace Page_Navigation_App.View
 
            membersDataGrid.ItemsSource = shownmembers;
         }
+        
         void EditCustomer(object sender, ExecutedRoutedEventArgs e)
         {
 
@@ -66,12 +76,10 @@ namespace Page_Navigation_App.View
         
         void AddCustomer(object sender, RoutedEventArgs e)
         {
-
-            //hier anhand von Parameter Daten des Kunden auslesen und als Parameter mitgeben
+            
             Edit_Customer editCustomer = new Edit_Customer("1","Max Mustermann","adress","max.mustermann@online.de","Phone Number");
             editCustomer.Owner = Application.Current.MainWindow;
             editCustomer.ShowDialog();
-            //hier dann Daten abspeichern
 
         }
         
@@ -114,7 +122,7 @@ namespace Page_Navigation_App.View
     public class Member
     {
         public string Character { get; set; }
-        public Brush BgColor { get; set; }
+        public string BgColor { get; set; }
         public string ID { get; set; }
         public string Name { get; set; }
         public string Adress { get; set; }

@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "JAHkV5l6mS/UlBcG8Ql8+5+zk6C+/23XiuHx1cjuJA6e/EZ1KYBZ/s9he9bQN9Aa15wrApf9PpzZX7H6g6Xdxg==",
+  "dgSpecHash": "uSCK2F+haf3OATrv9F9pxWaJEazB1mYQz7jPPcL8vIfY9G5pgbxdsXpP53ghgKTRiJ0DMZ9d2AVgCDoc02BNkQ==",
   "success": true,
   "projectFilePath": "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\David Kempf\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512"
+    "C:\\Users\\David Kempf\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
+    "C:\\Users\\David Kempf\\.nuget\\packages\\sqlite-net-pcl\\1.9.141-beta\\sqlite-net-pcl.1.9.141-beta.nupkg.sha512",
+    "C:\\Users\\David Kempf\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.1.2\\sqlitepclraw.bundle_green.2.1.2.nupkg.sha512",
+    "C:\\Users\\David Kempf\\.nuget\\packages\\sqlitepclraw.core\\2.1.2\\sqlitepclraw.core.2.1.2.nupkg.sha512",
+    "C:\\Users\\David Kempf\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.2\\sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",
+    "C:\\Users\\David Kempf\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.2\\sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512",
+    "C:\\Users\\David Kempf\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
   ],
   "logs": []
 }

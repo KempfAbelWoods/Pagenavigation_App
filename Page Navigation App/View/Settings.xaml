@@ -14,6 +14,8 @@
     </UserControl.DataContext>
     
     <Grid>
+        
+        <Button Click="Create_Table" Background="Blue" Height="20" Width="100">Datenbank löschen / einfügen</Button>
 
         
     </Grid>

@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using Page_Navigation_App.Configs;
+using Page_Navigation_App.DB;
+using Page_Navigation_App.View;
+
 
 namespace Page_Navigation_App.Popups;
 
@@ -28,10 +34,20 @@ public partial class Edit_Customer : Window
         string adress = Adress_Field.Text;
         string mail = Mail_Field.Text;
         string phone = Phone_Field.Text;
-        
+        var converter = new BrushConverter();
         if (ID!="" && name!="" && adress !="" && mail !="" && phone!= "")
         {
-            //hier abspeichern der Daten
+            var data = new Member
+            {
+                ID = ID,
+                Name = name,
+                Mail = mail,
+                Adress = adress,
+                Phone = phone,
+                BgColor = "#0CA678"
+            };
+            var err = RW_Customer.Write(new List<Member> { data }, Paths.sqlite_path);
+
             this.Close();
         }
         else
@@ -66,6 +82,5 @@ public partial class Edit_Customer : Window
         Regex regex = new Regex("[^0-9]+");
         e.Handled = regex.IsMatch(e.Text);
     }
-    
     
 }

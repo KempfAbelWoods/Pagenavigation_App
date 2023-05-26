@@ -37,7 +37,7 @@
             </Grid.ColumnDefinitions>
              <!-- Labels -->
             <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
-                       FontSize="18" Foreground="White">ID:</TextBlock>
+                       FontSize="18" Foreground="White" >ID:</TextBlock>
              <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
                         FontSize="18" Foreground="White">Name:</TextBlock>
              <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
