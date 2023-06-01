@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Input;
+using Page_Navigation_App.Configs;
+using Page_Navigation_App.DB;
+using Page_Navigation_App.View;
 
 namespace Page_Navigation_App.Popups;
 
@@ -15,7 +19,11 @@ public partial class Delete_Customer : Window
 
     private void Delete_Customer_Btn(object sender, ExecutedRoutedEventArgs e)
     {
-        // anhand Initial_ID löschen
+        var data = new Member
+        {
+            ID = Initial_ID,
+        };
+        var err = RW_Customer.Delete(new List<Member> { data },Paths.sqlite_path);
         this.Close();
     }
 

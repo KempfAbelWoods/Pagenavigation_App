@@ -49,10 +49,11 @@
             <!--Filter Textbox-->
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Grid Width="200" Grid.Column="1" HorizontalAlignment="Right">
+                <Grid Width="200" Grid.Column="2" HorizontalAlignment="Right">
                     <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
                                Panel.ZIndex="1" Text="Search in Customers ..."
                                Visibility="{Binding ElementName=textBoxFilter, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />

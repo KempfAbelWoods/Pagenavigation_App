@@ -51,6 +51,46 @@ public static class RW_Customer
             conn?.Close();
         }
     }
+
+    /// <summary>
+    /// Löscht die ausgewählte Reihe
+    /// </summary>
+    /// <param name="rows"></param>
+    /// <param name="dataSource"></param>
+    /// <returns></returns>
+    public static Error Delete(List<Member> rows, string dataSource)
+    {
+        
+        SQLiteConnection conn = null;
+
+        try
+        {
+            conn = new SQLiteConnection(dataSource);
+               
+            foreach (var row in rows)
+            {
+                string where = $"WHERE ID='{row.ID}'";
+
+                // pruefen ob Item vorhanden ist
+                var item = conn.Query<Member>($"SELECT * FROM {nameof(Member)} {where}").FirstOrDefault();
+                if (item != null)
+                {
+                    // schon vorhanden, loeschen
+                    conn.Execute($"DELETE FROM {nameof(Member)} {where}");
+                }
+            }
+            return null;
+        }
+        catch (Exception ex)
+        {
+            return new Error(ex.ToString());
+        }
+        finally
+        {
+            conn?.Close();
+        }
+        
+    }
    
     /// <summary>
     /// Reihen mit SerialNumber lesen

@@ -64,14 +64,29 @@ public partial class Edit_Customer : Window
 
     private void ID_Field_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        //hier wird geprüft ob die ID in der Datenbank schon vergeben ist.
-        //wobei die ID eventuell nicht änderbar gemacht werden sollte ??
-        //nur abfragen bei neuerstellung eines Kundens?
         string ID = ID_Field.Text;
         
-        if (Initial_ID != ID && ID != "")
+        if (ID != "" && (Initial_ID == "" || ID != Initial_ID))
         {
-           MessageBox.Show("hallo du hast den Text geändert"); 
+           //check if ID is already in Database
+           var (data,err) =RW_Customer.ReadwithID(ID, Paths.sqlite_path);
+           if (data.Count !=0)
+           {
+               Save.IsEnabled = false;
+               Save.Content = "ID already used";
+               ID_Field.ToolTip = "ID already used";
+           }
+           else
+           {
+               Save.Content = "Save";
+               Save.IsEnabled = true;
+           }
+        }
+
+        if (ID == Initial_ID)
+        {
+            Save.Content = "Save";
+            Save.IsEnabled = true;
         }
         
         

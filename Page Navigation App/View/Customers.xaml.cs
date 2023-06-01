@@ -70,16 +70,17 @@ namespace Page_Navigation_App.View
            Edit_Customer editCustomer = new Edit_Customer(e.Parameter.ToString(),"Name","adress","Mail","Phone");
            editCustomer.Owner = Application.Current.MainWindow;
            editCustomer.ShowDialog();
-           //hier dann Daten neu laden in Tabelle, da aktualisiert
+           Load_Data(true);
 
         }
         
         void AddCustomer(object sender, RoutedEventArgs e)
         {
             
-            Edit_Customer editCustomer = new Edit_Customer("1","Max Mustermann","adress","max.mustermann@online.de","Phone Number");
+            Edit_Customer editCustomer = new Edit_Customer("","Max Mustermann","adress","max.mustermann@online.de","Phone Number");
             editCustomer.Owner = Application.Current.MainWindow;
             editCustomer.ShowDialog();
+            Load_Data(true);
 
         }
         
@@ -89,7 +90,7 @@ namespace Page_Navigation_App.View
             Delete_Customer deleteCustomer = new Delete_Customer(e.Parameter.ToString());
             deleteCustomer.Owner = Application.Current.MainWindow;
             deleteCustomer.ShowDialog();
-            //hier dann Daten neu laden in Tabelle, da aktualisiert
+            Load_Data(true);
 
         }
 

@@ -343,3 +343,5 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\r
 D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
 D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Order.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Order.baml
