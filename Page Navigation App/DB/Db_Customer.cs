@@ -19,26 +19,10 @@ public class Db_Customer
         public string Mail { get; set; }
         public string Phone { get; set; }
     }
-    
-        [PrimaryKey, AutoIncrement]
-        public uint ID { get; set; }
-
-        public string Character { get; set; }
-        
-        public string BGColor { get; set; }
-
-        public string Name { get; set; }
-
-        public string Adress { get; set; }
-        
-        public string Mail { get; set; }
-        
-        public string Phone { get; set; }
-
-        
 
 
-        public static Error CreateTable(string dataSource)
+
+    public static Error CreateTable(string dataSource)
         {
             SQLiteConnection conn = null;
 

@@ -29,7 +29,7 @@ public class Db_Order
             try
             {
                 conn = new SQLiteConnection(dataSource);
-                conn.CreateTable<Db_Customer.Customer>();
+                conn.CreateTable<Order>();
 
                 return null;
             }
