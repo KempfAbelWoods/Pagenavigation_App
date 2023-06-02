@@ -9,6 +9,7 @@ using System.Windows.Media;
 using Page_Navigation_App.Configs;
 using Page_Navigation_App.DB;
 using Page_Navigation_App.View;
+using Page_Navigation_App.Helper;
 
 
 namespace Page_Navigation_App.Popups;
@@ -44,7 +45,7 @@ public partial class Edit_Customer : Window
                 Mail = mail,
                 Adress = adress,
                 Phone = phone,
-                BgColor = "#0CA678"
+                BgColor = RandomColor.GenerateColor()
             };
             //Spalte mit alten Daten löschen
             var (list, err1) = RW_Customer.ReadwithID(Initial_ID, Paths.sqlite_path);

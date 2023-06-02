@@ -3,18 +3,12 @@ using System.Drawing;
 
 namespace Page_Navigation_App.Helper;
 
-public class RandomColor
+public static class RandomColor
 {
-    private string Color;
-    private Random random;
-
-    public RandomColor()
+    public static string GenerateColor()
     {
-        random = new Random();
-    }
-
-    public string GenerateColor()
-    {
+        string Color = null;
+        var random = new Random();
         int randomNumber = random.Next(0, 21);
 
         switch (randomNumber)
