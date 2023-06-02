@@ -17,7 +17,7 @@ public static class RW_Customer
     /// <summary>
     /// Reihen in DB schreiben
     /// </summary>
-    public static Error Write(List<Member> rows, string dataSource)
+    public static Error Write(List<Db_Customer.Customer> rows, string dataSource)
     {
         SQLiteConnection conn = null;
 
@@ -30,11 +30,11 @@ public static class RW_Customer
                 string where = $"WHERE ID='{row.ID}'";
 
                 // pruefen ob Item vorhanden ist
-                var item = conn.Query<Member>($"SELECT * FROM {nameof(Member)} {where}").FirstOrDefault();
+                var item = conn.Query<Db_Customer.Customer>($"SELECT * FROM {nameof(Db_Customer.Customer)} {where}").FirstOrDefault();
                 if (item != null)
                 {
                     // schon vorhanden, loeschen
-                    conn.Execute($"DELETE FROM {nameof(Member)} {where}");
+                    conn.Execute($"DELETE FROM {nameof(Db_Customer.Customer)} {where}");
                 }
 
                 conn.Insert(row);
@@ -58,7 +58,7 @@ public static class RW_Customer
     /// <param name="rows"></param>
     /// <param name="dataSource"></param>
     /// <returns></returns>
-    public static Error Delete(List<Member> rows, string dataSource)
+    public static Error Delete(List<Db_Customer.Customer> rows, string dataSource)
     {
         
         SQLiteConnection conn = null;
@@ -72,11 +72,11 @@ public static class RW_Customer
                 string where = $"WHERE ID='{row.ID}'";
 
                 // pruefen ob Item vorhanden ist
-                var item = conn.Query<Member>($"SELECT * FROM {nameof(Member)} {where}").FirstOrDefault();
+                var item = conn.Query<Db_Customer.Customer>($"SELECT * FROM {nameof(Db_Customer.Customer)} {where}").FirstOrDefault();
                 if (item != null)
                 {
                     // schon vorhanden, loeschen
-                    conn.Execute($"DELETE FROM {nameof(Member)} {where}");
+                    conn.Execute($"DELETE FROM {nameof(Db_Customer.Customer)} {where}");
                 }
             }
             return null;
@@ -95,19 +95,19 @@ public static class RW_Customer
     /// <summary>
     /// Reihen mit SerialNumber lesen
     /// </summary>
-    public static (List<Member>, Error) ReadwithID(string ID, string dataSource)
+    public static (List<Db_Customer.Customer>, Error) ReadwithID(string ID, string dataSource)
     {
         var where = $"ID='{ID}'";
         return Read(where, dataSource);
     }
     
-    public static (List<Member>, Error) ReadwithName(string Name, string dataSource)
+    public static (List<Db_Customer.Customer>, Error) ReadwithName(string Name, string dataSource)
     {
         var where = $"Name='{Name}'";
         return Read(where, dataSource);
     }
     
-    public static (List<Member>, Error) Read(string where, string dataSource)
+    public static (List<Db_Customer.Customer>, Error) Read(string where, string dataSource)
     {
         SQLiteConnection conn = null;
 
@@ -115,17 +115,17 @@ public static class RW_Customer
         {
             conn = new SQLiteConnection(dataSource);
 
-            string query = $"SELECT * FROM {nameof(Member)} ";
+            string query = $"SELECT * FROM {nameof(Db_Customer.Customer)} ";
             if (where != "")
             {
                 query += "WHERE " + where;
             }
 
-            return (conn.Query<Member>(query), null);
+            return (conn.Query<Db_Customer.Customer>(query), null);
         }
         catch (Exception ex)
         {
-            return (new List<Member>(), new Error(ex.ToString()));
+            return (new List<Db_Customer.Customer>(), new Error(ex.ToString()));
         }
         finally
         {

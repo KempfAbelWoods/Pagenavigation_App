@@ -37,7 +37,7 @@ public partial class Edit_Customer : Window
         var converter = new BrushConverter();
         if (ID!="" && name!="" && adress !="" && mail !="" && phone!= "")
         {
-            var data = new Member
+            var data = new Db_Customer.Customer
             {
                 ID = ID,
                 Name = name,
@@ -46,7 +46,15 @@ public partial class Edit_Customer : Window
                 Phone = phone,
                 BgColor = "#0CA678"
             };
-            var err = RW_Customer.Write(new List<Member> { data }, Paths.sqlite_path);
+            //Spalte mit alten Daten löschen
+            var (list, err1) = RW_Customer.ReadwithID(Initial_ID, Paths.sqlite_path);
+            if (err1 == null)
+            {
+                var error = RW_Customer.Delete(list,Paths.sqlite_path);
+            }
+
+            //neue Spalte einfügen
+            var err = RW_Customer.Write(new List<Db_Customer.Customer> { data }, Paths.sqlite_path);
 
             this.Close();
         }

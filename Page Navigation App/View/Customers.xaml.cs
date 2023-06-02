@@ -28,8 +28,9 @@ namespace Page_Navigation_App.View
     /// </summary>
     public partial class Customers : UserControl
     {
-        ObservableCollection<Member> members = new ObservableCollection<Member>();
-        ObservableCollection<Member> shownmembers = new ObservableCollection<Member>();
+        ObservableCollection<Db_Customer.Customer> members = new ObservableCollection<Db_Customer.Customer>();
+        ObservableCollection<Db_Customer.Customer> shownmembers = new ObservableCollection<Db_Customer.Customer>();
+        private int SearchId = 1;
         public Customers()
         {
             InitializeComponent();
@@ -52,7 +53,7 @@ namespace Page_Navigation_App.View
                 for (int i = 0; i < list.Count; i++)
                 {
                     var color =(Brush)converter.ConvertFromString(list[i].BgColor);
-                      members.Add(new Member { ID = list[i].ID, Character = list[i].Character, BgColor = list[i].BgColor, Name = list[i].Name, Adress = list[i].Adress, Mail = list[i].Mail, Phone = list[i].Phone }); 
+                      members.Add(new Db_Customer.Customer { ID = list[i].ID, Character = list[i].Character, BgColor = list[i].BgColor, Name = list[i].Name, Adress = list[i].Adress, Mail = list[i].Mail, Phone = list[i].Phone }); 
                 }
            if (dbread)
             {
@@ -66,12 +67,14 @@ namespace Page_Navigation_App.View
         void EditCustomer(object sender, ExecutedRoutedEventArgs e)
         {
 
-           //hier anhand von Parameter Daten des Kunden auslesen und als Parameter mitgeben
-           Edit_Customer editCustomer = new Edit_Customer(e.Parameter.ToString(),"Name","adress","Mail","Phone");
-           editCustomer.Owner = Application.Current.MainWindow;
-           editCustomer.ShowDialog();
-           Load_Data(true);
-
+            var (list,err) = RW_Customer.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
+            if (list.Count==1)
+            {
+                Edit_Customer editCustomer = new Edit_Customer(list[0].ID,list[0].Name,list[0].Adress,list[0].Mail,list[0].Phone);
+                editCustomer.Owner = Application.Current.MainWindow;
+                editCustomer.ShowDialog();
+                Load_Data(true);
+            }
         }
         
         void AddCustomer(object sender, RoutedEventArgs e)
@@ -96,7 +99,7 @@ namespace Page_Navigation_App.View
 
         private void TextBoxFilter_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            ObservableCollection<Member> tempMembers = new ObservableCollection<Member>();
+            ObservableCollection<Db_Customer.Customer> tempMembers = new ObservableCollection<Db_Customer.Customer>();
             tempMembers.Clear();
             if (textBoxFilter.Text=="")
             {
@@ -106,9 +109,39 @@ namespace Page_Navigation_App.View
             {
                 foreach (var  x in members)
                 {
-                    if (x.Name.Contains(textBoxFilter.Text))
+                    switch (SearchId)
                     {
-                        tempMembers.Add(x);
+                        case 0:
+                            if (x.ID.Contains(textBoxFilter.Text))
+                            {
+                                tempMembers.Add(x);
+                            }
+                            break;
+                        case 1:
+                            if (x.Name.Contains(textBoxFilter.Text))
+                            {
+                                tempMembers.Add(x);
+                            }
+                            break;
+                        case 2:
+                            if (x.Adress.Contains(textBoxFilter.Text))
+                            {
+                                tempMembers.Add(x);
+                            }
+                            break;
+                        case 3:
+                            if (x.Mail.Contains(textBoxFilter.Text))
+                            {
+                                tempMembers.Add(x);
+                            }
+                            break;
+                        case 4:
+                            if (x.Phone.Contains(textBoxFilter.Text))
+                            {
+                                tempMembers.Add(x);
+                            }
+                            break;
+                        
                     }
                 }
             }
@@ -117,19 +150,14 @@ namespace Page_Navigation_App.View
             
             Load_Data(false);
         }
-        
+
+        private void SearchFor_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SearchId = SearchFor.SelectedIndex;
+        }
     }
 
-    public class Member
-    {
-        public string Character { get; set; }
-        public string BgColor { get; set; }
-        public string ID { get; set; }
-        public string Name { get; set; }
-        public string Adress { get; set; }
-        public string Mail { get; set; }
-        public string Phone { get; set; }
-    }
+
     
 
 

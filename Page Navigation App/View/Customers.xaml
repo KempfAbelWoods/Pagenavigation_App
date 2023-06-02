@@ -46,33 +46,44 @@
             <!--Seprator-->
             <Separator Height="1" Grid.Row="2" Background="#DAE2EA" Margin="0 -1 0 10" />
 
-            <!--Filter Textbox-->
+            
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.33*"></ColumnDefinition>
                     <ColumnDefinition Width="0.33*"></ColumnDefinition>
                     <ColumnDefinition Width="0.33*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <!--Filter Textbox-->
                 <Grid Width="200" Grid.Column="2" HorizontalAlignment="Right">
                     <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
                                Panel.ZIndex="1" Text="Search in Customers ..."
                                Visibility="{Binding ElementName=textBoxFilter, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
                     <TextBox Name="textBoxFilter"  Style="{StaticResource filterTextBox}" TextChanged="TextBoxFilter_OnTextChanged"/>
                 </Grid>
+                
+                <!-- Search after ? -->
+                <ComboBox Grid.Column="1" x:Name="SearchFor" Width="150" Height="35" HorizontalAlignment="Right" FontSize="15" FontFamily="Fonts/#Saira SemiBold" 
+                          VerticalContentAlignment="Center" SelectionChanged="SearchFor_OnSelectionChanged">
+                    <ComboBoxItem Content="ID" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem IsSelected="True" Content="Name" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem Content="Adress" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem Content="E-mail Adress" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem Content="Phone Number" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                </ComboBox>
+                
                 <!-- Add New Member -->
-      
-          <Button Grid.Column="0" Style="{StaticResource addButton}" HorizontalAlignment="Left" Click="AddCustomer">
+                <Button Grid.Column="0" Style="{StaticResource addButton}" HorizontalAlignment="Left" Click="AddCustomer">
                     <StackPanel Orientation="Horizontal">
                         <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11"
                                                Height="11" />
-                        <TextBlock Text="Add New Member" />
+                        <TextBlock Text="Add New Customer" />
                     </StackPanel>
                 </Button>
             </Grid>
 
 
             <!--Members Data Grid-->
-            <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"
+            <DataGrid Grid.Row="4" RowStyle="{DynamicResource DataGridRowStyle1}"
                       ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                       CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid"
                       Style="{DynamicResource DataGridStyle1}">
@@ -103,13 +114,12 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTextColumn Header="Adress" Binding="{Binding Adress}" IsReadOnly="True" Width="*" />
-                    <DataGridTextColumn Header="Email Address" Binding="{Binding Mail}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="E-mail Address" Binding="{Binding Mail}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone}" IsReadOnly="True" Width="*" />
                     <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <!-- TODO Edit und Delete Commands für jede Zeile https://dariosantarelli.wordpress.com/2010/11/07/wpf-binding-multiple-command-parameters-using-multibinding/-->
                                     <Button x:Name="EditCustomer" Style="{StaticResource gridEditButton}"
                                             Command="ApplicationCommands.New" CommandParameter="{Binding ID}">
                                         <Button.CommandBindings>

@@ -16,6 +16,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.InteropServices.ObjectiveC;
+using Page_Navigation_App.DB;
 using Page_Navigation_App.Popups;
 
 namespace Page_Navigation_App.View
@@ -25,8 +26,8 @@ namespace Page_Navigation_App.View
     /// </summary>
     public partial class Orders : UserControl
     {
-        ObservableCollection<Member1> members = new ObservableCollection<Member1>();
-        ObservableCollection<Member1> shownmembers = new ObservableCollection<Member1>();
+        ObservableCollection<Db_Order.Order> members = new ObservableCollection<Db_Order.Order>();
+        ObservableCollection<Db_Order.Order> shownmembers = new ObservableCollection<Db_Order.Order>();
         public Orders()
         {
             InitializeComponent();
@@ -39,8 +40,8 @@ namespace Page_Navigation_App.View
             //hier aus Datenbank lesen
             for (int i = 0; i < 5; i++) 
             {
-                members.Add(new Member1 { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Kunde = "John Doe", Description = "Baum fällen", Ressources = "Kettensäge", EndDate = "23.12.23" }); 
-                members.Add(new Member1 { ID = "1", Character = "J", BgColor = (Brush)converter.ConvertFromString("#1098AD"), Kunde = "FCB", Description = "Mähen", Ressources = "Rasenmäher", EndDate = "31.12.23" });
+                members.Add(new Db_Order.Order { ID = "1", Character = "J", BgColor = "#1098AD", Kunde = "John Doe", Description = "Baum fällen", Ressources = "Kettensäge", EndDate = "23.12.23" }); 
+                members.Add(new Db_Order.Order { ID = "1", Character = "J", BgColor = "#1098AD", Kunde = "FCB", Description = "Mähen", Ressources = "Rasenmäher", EndDate = "31.12.23" });
             }
             if (dbread)
             {
@@ -63,7 +64,7 @@ namespace Page_Navigation_App.View
         private void TextBoxFilter_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             {
-                ObservableCollection<Member1> tempMembers = new ObservableCollection<Member1>();
+                ObservableCollection<Db_Order.Order> tempMembers = new ObservableCollection<Db_Order.Order>();
                 tempMembers.Clear();
                 if (textBoxFilter.Text=="")
                 {
@@ -101,14 +102,4 @@ namespace Page_Navigation_App.View
         }
     }
     
-    public class Member1
-    {
-        public string Character { get; set; }
-        public Brush BgColor { get; set; }
-        public string ID { get; set; }
-        public string Kunde { get; set; }
-        public string Description { get; set; }
-        public string Ressources { get; set; }
-        public string EndDate { get; set; }
-    }
 }
