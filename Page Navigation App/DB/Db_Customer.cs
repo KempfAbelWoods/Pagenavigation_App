@@ -8,7 +8,7 @@ namespace Page_Navigation_App.DB;
 
 public class Db_Customer
 {
-    
+
     public class Customer
     {
         public string Character { get; set; }
@@ -18,11 +18,11 @@ public class Db_Customer
         public string Adress { get; set; }
         public string Mail { get; set; }
         public string Phone { get; set; }
-    }
 
 
 
-    public static Error CreateTable(string dataSource)
+
+        public static Error CreateTable(string dataSource)
         {
             SQLiteConnection conn = null;
 
@@ -43,4 +43,5 @@ public class Db_Customer
             }
         }
     }
+}
     

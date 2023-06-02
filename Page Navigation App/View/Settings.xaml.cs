@@ -29,7 +29,7 @@ namespace Page_Navigation_App.View
 
         private void Create_Table(object sender, RoutedEventArgs e)
         {
-            Db_Customer.CreateTable(Paths.sqlite_path);
+            var err = Db_Customer.Customer.CreateTable(Paths.sqlite_path);
         }
     }
 }

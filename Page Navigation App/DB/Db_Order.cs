@@ -17,9 +17,9 @@ public class Db_Order
         public string Description { get; set; }
         public string Ressources { get; set; }
         public string EndDate { get; set; }
-    }
 
-        
+
+
 
 
         public static Error CreateTable(string dataSource)
@@ -42,4 +42,5 @@ public class Db_Order
                 conn?.Close();
             }
         }
+    }
 }
