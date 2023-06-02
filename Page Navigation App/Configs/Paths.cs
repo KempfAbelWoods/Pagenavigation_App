@@ -2,7 +2,7 @@
 
 public static class Paths
 {
-    public const string sqlite_path =  "/identifier.sqlite";
+    public const string sqlite_path =  "/identifier.sqlite"; //  /Page Navigation App/data/data.sqlite;
 
     
 }
