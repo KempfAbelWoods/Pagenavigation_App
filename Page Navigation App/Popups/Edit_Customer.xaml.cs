@@ -37,7 +37,7 @@ public partial class Edit_Customer : Window
         var converter = new BrushConverter();
         if (ID!="" && name!="" && adress !="" && mail !="" && phone!= "")
         {
-            var data = new Db_Customer.Customer
+            var data = new Db_Customer
             {
                 ID = ID,
                 Name = name,
@@ -54,7 +54,7 @@ public partial class Edit_Customer : Window
             }
 
             //neue Spalte einfügen
-            var err = RW_Customer.Write(new List<Db_Customer.Customer> { data }, Paths.sqlite_path);
+            var err = RW_Customer.Write(new List<Db_Customer> { data }, Paths.sqlite_path);
 
             this.Close();
         }

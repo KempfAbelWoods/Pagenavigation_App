@@ -28,8 +28,8 @@ namespace Page_Navigation_App.View
     /// </summary>
     public partial class Customers : UserControl
     {
-        ObservableCollection<Db_Customer.Customer> members = new ObservableCollection<Db_Customer.Customer>();
-        ObservableCollection<Db_Customer.Customer> shownmembers = new ObservableCollection<Db_Customer.Customer>();
+        ObservableCollection<Db_Customer> members = new ObservableCollection<Db_Customer>();
+        ObservableCollection<Db_Customer> shownmembers = new ObservableCollection<Db_Customer>();
         private int SearchId = 1;
         public Customers()
         {
@@ -53,7 +53,7 @@ namespace Page_Navigation_App.View
                 for (int i = 0; i < list.Count; i++)
                 {
                     var color =(Brush)converter.ConvertFromString(list[i].BgColor);
-                      members.Add(new Db_Customer.Customer { ID = list[i].ID, Character = list[i].Character, BgColor = list[i].BgColor, Name = list[i].Name, Adress = list[i].Adress, Mail = list[i].Mail, Phone = list[i].Phone }); 
+                      members.Add(new Db_Customer { ID = list[i].ID, Character = list[i].Character, BgColor = list[i].BgColor, Name = list[i].Name, Adress = list[i].Adress, Mail = list[i].Mail, Phone = list[i].Phone }); 
                 }
            if (dbread)
             {
@@ -99,7 +99,7 @@ namespace Page_Navigation_App.View
 
         private void TextBoxFilter_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            ObservableCollection<Db_Customer.Customer> tempMembers = new ObservableCollection<Db_Customer.Customer>();
+            ObservableCollection<Db_Customer> tempMembers = new ObservableCollection<Db_Customer>();
             tempMembers.Clear();
             if (textBoxFilter.Text=="")
             {

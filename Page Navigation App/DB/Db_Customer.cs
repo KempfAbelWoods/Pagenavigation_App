@@ -8,9 +8,7 @@ namespace Page_Navigation_App.DB;
 
 public class Db_Customer
 {
-
-    public class Customer
-    {
+    
         public string Character { get; set; }
         public string BgColor { get; set; }
         public string ID { get; set; }
@@ -29,7 +27,7 @@ public class Db_Customer
             try
             {
                 conn = new SQLiteConnection(dataSource);
-                conn.CreateTable<Customer>();
+                conn.CreateTable<Db_Customer>();
 
                 return null;
             }
@@ -42,6 +40,5 @@ public class Db_Customer
                 conn?.Close();
             }
         }
-    }
 }
     

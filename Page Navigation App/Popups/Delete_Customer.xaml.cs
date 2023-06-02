@@ -19,11 +19,11 @@ public partial class Delete_Customer : Window
 
     private void Delete_Customer_Btn(object sender, ExecutedRoutedEventArgs e)
     {
-        var data = new Db_Customer.Customer()
+        var data = new Db_Customer()
         {
             ID = Initial_ID,
         };
-        var err = RW_Customer.Delete(new List<Db_Customer.Customer> { data },Paths.sqlite_path);
+        var err = RW_Customer.Delete(new List<Db_Customer> { data },Paths.sqlite_path);
         this.Close();
     }
 
