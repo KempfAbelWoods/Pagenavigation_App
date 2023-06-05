@@ -56,6 +56,10 @@ public partial class Edit_Customer : Window
 
             //neue Spalte einfügen
             var err = RW_Customer.Write(new List<Db_Customer> { data }, Paths.sqlite_path);
+            if (err != null)
+            {
+                MessageBox.Show(err.ToString());
+            }
 
             this.Close();
         }

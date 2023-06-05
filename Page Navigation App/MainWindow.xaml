@@ -100,6 +100,23 @@
                         </Grid>
 
                     </Menu:Btn>
+                    
+                    <!--// Tasks //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding ProductsCommand}">
+
+                        <Grid>
+
+                            <Image Source="Images/img_product.png"
+                                   Style="{StaticResource Image_Style}" />
+
+                            <TextBlock Text="Tasks"
+                                       Style="{StaticResource Text_Style}" />
+
+                        </Grid>
+
+                    </Menu:Btn>
 
                     <!--// Rechnungen //-->
 
@@ -152,22 +169,6 @@
 
                     </Menu:Btn>
                     
-                    <!--// Products //-->
-
-                    <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding ProductsCommand}">
-
-                        <Grid>
-
-                            <Image Source="Images/img_product.png"
-                                   Style="{StaticResource Image_Style}" />
-
-                            <TextBlock Text="Reserve"
-                                       Style="{StaticResource Text_Style}" />
-
-                        </Grid>
-
-                    </Menu:Btn>
 
                 </StackPanel>
 
