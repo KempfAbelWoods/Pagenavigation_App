@@ -44,6 +44,7 @@ public partial class Edit_Customer : Window
                 Mail = mail,
                 Adress = adress,
                 Phone = phone,
+                Character = name.Substring(0,1),
                 BgColor = RandomColor.GenerateColor()
             };
             //Spalte mit alten Daten löschen

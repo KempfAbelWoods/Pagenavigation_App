@@ -131,7 +131,7 @@
     <Style x:Key="C105Style"
            TargetType="Image">
         <Setter Property="Source"
-                Value="Assets/order32.png" />
+                Value="Images/img_order.png" />
         <Setter Property="VerticalAlignment"
                 Value="Top" />
         <Setter Property="HorizontalAlignment"
@@ -180,14 +180,14 @@
            TargetType="TextBlock"
            BasedOn="{StaticResource C103Style}">
         <Setter Property="Text"
-                Value="SALES" />
+                Value="BILLS" />
     </Style>
 
     <Style x:Key="C203Style_Desktop"
            TargetType="TextBlock"
            BasedOn="{StaticResource C103Style_Desktop}">
         <Setter Property="Text"
-                Value="SALES" />
+                Value="BILLS" />
     </Style>
 
     <Style x:Key="C204Style"
@@ -219,7 +219,7 @@
            TargetType="Image"
            BasedOn="{StaticResource C105Style}">
         <Setter Property="Source"
-                Value="Assets/sales_icon.png" />
+                Value="Images/img_transaction.png" />
     </Style>
 
     <!--#endregion-->
@@ -260,14 +260,14 @@
            TargetType="TextBlock"
            BasedOn="{StaticResource C103Style}">
         <Setter Property="Text"
-                Value="PRODUCTS" />
+                Value="TASKS" />
     </Style>
 
     <Style x:Key="C303Style_Desktop"
            TargetType="TextBlock"
            BasedOn="{StaticResource C103Style_Desktop}">
         <Setter Property="Text"
-                Value="PRODUCTS" />
+                Value="TASKS" />
     </Style>
 
     <Style x:Key="Card303Style"
@@ -281,14 +281,14 @@
            TargetType="Image"
            BasedOn="{StaticResource C105Style}">
         <Setter Property="Source"
-                Value="Assets/product_icon.png" />
+                Value="Images/img_product.png" />
     </Style>
 
     <Style x:Key="C305Style"
            TargetType="Image"
            BasedOn="{StaticResource C105Style}">
         <Setter Property="Source"
-                Value="Assets/product_icon.png" />
+                Value="Images/img_product.png" />
     </Style>
 
     <Style x:Key="C304Style_Desktop"
@@ -347,14 +347,14 @@
            TargetType="TextBlock"
            BasedOn="{StaticResource C103Style}">
         <Setter Property="Text"
-                Value="USERS" />
+                Value="CUSTOMERS" />
     </Style>
 
     <Style x:Key="C403Style_Desktop"
            TargetType="TextBlock"
            BasedOn="{StaticResource C103Style_Desktop}">
         <Setter Property="Text"
-                Value="USERS" />
+                Value="CUSTOMERS" />
     </Style>
 
     <Style x:Key="Card403Style"
@@ -368,14 +368,14 @@
            TargetType="Image"
            BasedOn="{StaticResource C105Style}">
         <Setter Property="Source"
-                Value="Assets/user_icon.png" />
+                Value="Images/img_customer.png" />
     </Style>
 
     <Style x:Key="C405Style"
            TargetType="Image"
            BasedOn="{StaticResource C105Style}">
         <Setter Property="Source"
-                Value="Assets/user_icon.png" />
+                Value="Images/img_customer.png" />
     </Style>
 
     <Style x:Key="C404Style_Desktop"
@@ -701,7 +701,7 @@
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Source"
-                Value="Assets/calendar_icon.png" />
+                Value="" />
         <Setter Property="Stretch"
                 Value="None" />
         <Setter Property="Margin"
@@ -761,7 +761,7 @@
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Source"
-                Value="Assets/reports_icon.png" />
+                Value="" />
         <Setter Property="Stretch"
                 Value="None" />
         <Setter Property="Margin"
@@ -821,7 +821,7 @@
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Source"
-                Value="Assets/stats_icon.png" />
+                Value="" />
         <Setter Property="Stretch"
                 Value="None" />
         <Setter Property="Margin"
@@ -992,7 +992,7 @@
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Source"
-                Value="Assets/line_chart.png" />
+                Value="" />
         <Setter Property="Stretch"
                 Value="None" />
 
@@ -1116,7 +1116,7 @@
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Source"
-                Value="Assets/delivery_icon.png" />
+                Value="" />
         <Setter Property="Stretch"
                 Value="None" />
     </Style>
@@ -1220,7 +1220,7 @@
                             <ContentPresenter />
                         </Border>
 
-                        <Image Source="Assets/dashboard_icon.png"
+                        <Image Source=""
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="20,0,0,0"
@@ -1275,7 +1275,7 @@
                             <ContentPresenter />
                         </Border>
 
-                        <Image Source="Assets/stocks_icon.png"
+                        <Image Source=""
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="20,0,0,0"
@@ -1330,7 +1330,7 @@
                             <ContentPresenter />
                         </Border>
 
-                        <Image Source="Assets/analytics_icon.png"
+                        <Image Source=""
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="20,0,0,0"
@@ -1385,7 +1385,7 @@
                             <ContentPresenter />
                         </Border>
 
-                        <Image Source="Assets/discount_icon.png"
+                        <Image Source=""
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="20,0,0,0"
@@ -1440,7 +1440,7 @@
                             <ContentPresenter />
                         </Border>
 
-                        <Image Source="Assets/categories_icon.png"
+                        <Image Source=""
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="20,0,0,0"
@@ -1527,11 +1527,11 @@
     </ControlTemplate>
 
     <ImageBrush x:Key="hamburger_def"
-                ImageSource="Assets/hamburger_icon.png"
+                ImageSource=""
                 Stretch="None" />
 
     <ImageBrush x:Key="hamburger_mo"
-                ImageSource="Assets/hamburger_mo.png"
+                ImageSource=""
                 Stretch="None" />
 
     <Style x:Key="HamburgerMenuButton"
@@ -1590,11 +1590,11 @@
     </Style>
 
     <ImageBrush x:Key="close_def"
-                ImageSource="Assets/close_menu_def.png"
+                ImageSource=""
                 Stretch="None" />
 
     <ImageBrush x:Key="close_mo"
-                ImageSource="Assets/close_menu_mo.png"
+                ImageSource=""
                 Stretch="None" />
 
     <Style x:Key="CloseMenuButton"
@@ -1716,11 +1716,11 @@
     <!--#endregion-->
 
     <ImageBrush x:Key="close_app_def"
-                ImageSource="/Assets/shutdown_def.png"
+                ImageSource=""
                 Stretch="None" />
 
     <ImageBrush x:Key="close_app_mo"
-                ImageSource="/Assets/shutdown_mo.png"
+                ImageSource=""
                 Stretch="None" />
 
     <Style x:Key="CloseAppStyle"
@@ -1781,11 +1781,11 @@
 
 
     <ImageBrush x:Key="max_app_def"
-                ImageSource="Assets/max_def.png"
+                ImageSource=""
                 Stretch="None" />
 
     <ImageBrush x:Key="max_app_mo"
-                ImageSource="Assets/max_mo.png"
+                ImageSource=""
                 Stretch="None" />
 
     <Style x:Key="MaxAppStyle"
@@ -2202,7 +2202,7 @@
                 <Viewbox  Grid.Column="1"
                           Grid.Row="0"
                           Grid.RowSpan="4">
-                    <Image Source="Assets/Devices_Image.png"
+                    <Image Source=""
                            Stretch="None"
                            Margin="50" />
                 </Viewbox>
@@ -2346,7 +2346,7 @@
                 <Viewbox  Grid.Column="1"
                           Grid.Row="0"
                           Grid.RowSpan="4">
-                    <Image Source="Assets/Devices_Image.png"
+                    <Image Source=""
                            Stretch="None"
                            Margin="50" />
                 </Viewbox>
@@ -2490,7 +2490,7 @@
 
                 <Viewbox  Grid.Column="0"
                           Grid.Row="0">
-                    <Image Source="Assets/Devices_Image.png"
+                    <Image Source=""
                            Stretch="None"
                            Margin="10,50,10,0" />
                 </Viewbox>
