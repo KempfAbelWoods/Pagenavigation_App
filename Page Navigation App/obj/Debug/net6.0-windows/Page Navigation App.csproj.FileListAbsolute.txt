@@ -472,3 +472,5 @@ C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Nav
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Order.g.cs
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Order.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Order.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Order.baml

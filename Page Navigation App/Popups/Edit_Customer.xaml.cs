@@ -35,7 +35,6 @@ public partial class Edit_Customer : Window
         string adress = Adress_Field.Text;
         string mail = Mail_Field.Text;
         string phone = Phone_Field.Text;
-        var converter = new BrushConverter();
         if (ID!="" && name!="" && adress !="" && mail !="" && phone!= "")
         {
             var data = new Db_Customer

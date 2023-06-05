@@ -27,9 +27,14 @@ namespace Page_Navigation_App.View
             InitializeComponent();
         }
 
-        private void Create_Table(object sender, RoutedEventArgs e)
+        private void Create_Table_Customer(object sender, RoutedEventArgs e)
         {
             var err = Db_Customer.CreateTable(Paths.sqlite_path);
+        }
+        
+        private void Create_Table_Order(object sender, RoutedEventArgs e)
+        {
+            var err = Db_Order.CreateTable(Paths.sqlite_path);
         }
     }
 }
