@@ -462,7 +462,7 @@
         <Setter Property="Foreground"
                 Value="#DCE0E4" />
         <Setter Property="Text"
-                Value="Build A Responsive WPF App With Visual Studio!" />
+                Value="Bills" />
         <Setter Property="FontSize"
                 Value="28" />
         <Setter Property="TextWrapping"
@@ -480,7 +480,7 @@
         <Setter Property="Foreground"
                 Value="#DCE0E4" />
         <Setter Property="Text"
-                Value="Build A Responsive WPF App With Visual Studio!" />
+                Value="Bills" />
         <Setter Property="FontSize"
                 Value="44" />
         <Setter Property="TextWrapping"
@@ -498,7 +498,7 @@
         <Setter Property="Foreground"
                 Value="#DCE0E4" />
         <Setter Property="Text"
-                Value="Build A Responsive WPF App With Visual Studio!" />
+                Value="Bills" />
         <Setter Property="FontSize"
                 Value="26" />
         <Setter Property="TextWrapping"
@@ -560,7 +560,7 @@
         <Setter Property="TextWrapping"
                 Value="Wrap" />
         <Setter Property="Text"
-                Value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut ligula eget ante condimentum ultrices ut ut nibh. Aliquam leo." />
+                Value="Satz" />
         <Setter Property="Margin"
                 Value="20,0,0,0" />
     </Style>
@@ -577,7 +577,7 @@
         <Setter Property="TextWrapping"
                 Value="Wrap" />
         <Setter Property="Text"
-                Value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut ligula eget ante condimentum ultrices ut ut nibh. Aliquam leo." />
+                Value="Satz" />
         <Setter Property="Margin"
                 Value="40,0,100,0" />
 
@@ -597,7 +597,7 @@
         <Setter Property="TextAlignment"
                 Value="Center" />
         <Setter Property="Text"
-                Value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut ligula eget ante condimentum ultrices ut ut nibh. Aliquam leo." />
+                Value="Satz" />
         <Setter Property="Margin"
                 Value="10,5,10,15" />
 
@@ -701,7 +701,7 @@
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Source"
-                Value="" />
+                Value="Images/img_setting.png" />
         <Setter Property="Stretch"
                 Value="None" />
         <Setter Property="Margin"
@@ -761,7 +761,7 @@
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Source"
-                Value="" />
+                Value="Images/img_setting.png" />
         <Setter Property="Stretch"
                 Value="None" />
         <Setter Property="Margin"
@@ -821,7 +821,7 @@
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Source"
-                Value="" />
+                Value="Images/img_setting.png" />
         <Setter Property="Stretch"
                 Value="None" />
         <Setter Property="Margin"
@@ -992,7 +992,7 @@
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Source"
-                Value="" />
+                Value="Images/img_setting.png" />
         <Setter Property="Stretch"
                 Value="None" />
 
@@ -1116,7 +1116,7 @@
         <Setter Property="VerticalAlignment"
                 Value="Center" />
         <Setter Property="Source"
-                Value="" />
+                Value="Images/img_setting.png" />
         <Setter Property="Stretch"
                 Value="None" />
     </Style>
@@ -1220,7 +1220,7 @@
                             <ContentPresenter />
                         </Border>
 
-                        <Image Source=""
+                        <Image Source="Images/img_setting.png"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="20,0,0,0"
@@ -1275,7 +1275,7 @@
                             <ContentPresenter />
                         </Border>
 
-                        <Image Source=""
+                        <Image Source="Images/img_setting.png"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="20,0,0,0"
@@ -1330,7 +1330,7 @@
                             <ContentPresenter />
                         </Border>
 
-                        <Image Source=""
+                        <Image Source="Images/img_setting.png"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="20,0,0,0"
@@ -1385,7 +1385,7 @@
                             <ContentPresenter />
                         </Border>
 
-                        <Image Source=""
+                        <Image Source="Images/img_setting.png"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="20,0,0,0"
@@ -1440,7 +1440,7 @@
                             <ContentPresenter />
                         </Border>
 
-                        <Image Source=""
+                        <Image Source="Images/img_setting.png"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
                                Margin="20,0,0,0"
@@ -1527,11 +1527,11 @@
     </ControlTemplate>
 
     <ImageBrush x:Key="hamburger_def"
-                ImageSource=""
+                ImageSource="Images/img_setting.png"
                 Stretch="None" />
 
     <ImageBrush x:Key="hamburger_mo"
-                ImageSource=""
+                ImageSource="Images/img_setting.png"
                 Stretch="None" />
 
     <Style x:Key="HamburgerMenuButton"
@@ -1590,11 +1590,11 @@
     </Style>
 
     <ImageBrush x:Key="close_def"
-                ImageSource=""
+                ImageSource="Images/img_setting.png"
                 Stretch="None" />
 
     <ImageBrush x:Key="close_mo"
-                ImageSource=""
+                ImageSource="Images/img_setting.png"
                 Stretch="None" />
 
     <Style x:Key="CloseMenuButton"
@@ -1716,11 +1716,11 @@
     <!--#endregion-->
 
     <ImageBrush x:Key="close_app_def"
-                ImageSource=""
+                ImageSource="Images/img_setting.png"
                 Stretch="None" />
 
     <ImageBrush x:Key="close_app_mo"
-                ImageSource=""
+                ImageSource="Images/img_setting.png"
                 Stretch="None" />
 
     <Style x:Key="CloseAppStyle"
@@ -1781,11 +1781,11 @@
 
 
     <ImageBrush x:Key="max_app_def"
-                ImageSource=""
+                ImageSource="Images/img_setting.png"
                 Stretch="None" />
 
     <ImageBrush x:Key="max_app_mo"
-                ImageSource=""
+                ImageSource="Images/img_setting.png"
                 Stretch="None" />
 
     <Style x:Key="MaxAppStyle"
@@ -2202,7 +2202,7 @@
                 <Viewbox  Grid.Column="1"
                           Grid.Row="0"
                           Grid.RowSpan="4">
-                    <Image Source=""
+                    <Image Source="Images/img_transaction.png"
                            Stretch="None"
                            Margin="50" />
                 </Viewbox>
@@ -2346,7 +2346,7 @@
                 <Viewbox  Grid.Column="1"
                           Grid.Row="0"
                           Grid.RowSpan="4">
-                    <Image Source=""
+                    <Image Source="Images/img_transaction.png"
                            Stretch="None"
                            Margin="50" />
                 </Viewbox>
@@ -2490,7 +2490,7 @@
 
                 <Viewbox  Grid.Column="0"
                           Grid.Row="0">
-                    <Image Source=""
+                    <Image Source="Images/img_transaction.png"
                            Stretch="None"
                            Margin="10,50,10,0" />
                 </Viewbox>
