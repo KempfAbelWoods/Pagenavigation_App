@@ -1,6 +1,11 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Page_Navigation_App.Configs;
+using Page_Navigation_App.DB;
+using Page_Navigation_App.Helper;
 
 namespace Page_Navigation_App.Popups;
 
@@ -19,16 +24,6 @@ public partial class Edit_Order : Window
         Enddatum_Field.Text = date;
     }
 
-    private void ID_Field_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    private void CommandBinding_OnExecuted(object sender, ExecutedRoutedEventArgs e)
-    {
-        throw new System.NotImplementedException();
-    }
-
     private void Save_and_Close_Window(object sender, ExecutedRoutedEventArgs e)
     {
         string ID = ID_Field.Text;
@@ -37,9 +32,30 @@ public partial class Edit_Order : Window
         string ressourcen = Ressourcen_Field.Text;
         string date = Enddatum_Field.Text;
         
-        if (ID!="" && kunde!="" && beschreibung !="" && ressourcen !="" && date!= "")
+        if (ID!="" && beschreibung!="" && kunde !="" && ressourcen !="" && date!= "")
         {
-            //hier abspeichern der Daten
+            var data = new Db_Order
+            {
+                ID = ID,
+                Description = beschreibung,
+                Customer = kunde,
+                Ressources = ressourcen,
+                EndDate = date,
+            };
+            //Spalte mit alten Daten löschen
+            var (list, err1) = RW_Order.ReadwithID(Initial_ID, Paths.sqlite_path);
+            if (err1 == null)
+            {
+                var error = RW_Order.Delete(list,Paths.sqlite_path);
+            }
+
+            //neue Spalte einfügen
+            var err = RW_Order.Write(new List<Db_Order> { data }, Paths.sqlite_path);
+            if (err != null)
+            {
+                MessageBox.Show(err.ToString());
+            }
+
             this.Close();
         }
         else
@@ -55,14 +71,37 @@ public partial class Edit_Order : Window
 
     private void ID_Field_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        //hier wird geprüft ob die ID in der Datenbank schon vergeben ist.
-        //wobei die ID eventuell nicht änderbar gemacht werden sollte ??
-        //nur abfragen bei neuerstellung eines Kundens?
         string ID = ID_Field.Text;
         
-        if (Initial_ID != ID && ID != "")
+        if (ID != "" && (Initial_ID == "" || ID != Initial_ID))
         {
-            MessageBox.Show("hallo du hast den Text geändert"); 
+            //check if ID is already in Database
+            var (data,err) =RW_Order.ReadwithID(ID, Paths.sqlite_path);
+            if (data.Count !=0)
+            {
+                Save.IsEnabled = false;
+                Save.Content = "ID already used";
+                ID_Field.ToolTip = "ID already used";
+            }
+            else
+            {
+                Save.Content = "Save";
+                Save.IsEnabled = true;
+            }
         }
+
+        if (ID == Initial_ID)
+        {
+            Save.Content = "Save";
+            Save.IsEnabled = true;
+        }
+        
+        
+    }
+    
+    private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+    {
+        Regex regex = new Regex("[^0-9]+");
+        e.Handled = regex.IsMatch(e.Text);
     }
 }

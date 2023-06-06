@@ -16,6 +16,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.InteropServices.ObjectiveC;
+using Page_Navigation_App.Configs;
 using Page_Navigation_App.DB;
 using Page_Navigation_App.Popups;
 
@@ -24,81 +25,134 @@ namespace Page_Navigation_App.View
     /// <summary>
     /// Interaction logic for Orders.xaml
     /// </summary>
+
     public partial class Orders : UserControl
     {
-        ObservableCollection<Db_Order.Order> members = new ObservableCollection<Db_Order.Order>();
-        ObservableCollection<Db_Order.Order> shownmembers = new ObservableCollection<Db_Order.Order>();
+        ObservableCollection<Db_Order> members = new ObservableCollection<Db_Order>();
+        ObservableCollection<Db_Order> shownmembers = new ObservableCollection<Db_Order>();
+        private int SearchId = 1;
         public Orders()
         {
             InitializeComponent();
+            
+            Load_Data(true);
+
         }
-        
+
+        /// <summary>
+        /// Lade Daten aus Datenbank in Tabelle
+        /// </summary>
+        /// <param name="dbread"></param>
         void Load_Data(bool dbread)
         { 
             var converter = new BrushConverter();
             members.Clear();
-            //hier aus Datenbank lesen
-            for (int i = 0; i < 5; i++) 
-            {
-                members.Add(new Db_Order.Order { ID = "1", Character = "J", BgColor = "#1098AD", Kunde = "John Doe", Description = "Baum fällen", Ressources = "Kettensäge", EndDate = "23.12.23" }); 
-                members.Add(new Db_Order.Order { ID = "1", Character = "J", BgColor = "#1098AD", Kunde = "FCB", Description = "Mähen", Ressources = "Rasenmäher", EndDate = "31.12.23" });
-            }
-            if (dbread)
+            
+            var (list, err) = RW_Order.Read("",Paths.sqlite_path);
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    members.Add(new Db_Order { ID= list[i].ID, Description = list[i].Description, Ressources = list[i].Ressources, Customer = list[i].Customer, EndDate = list[i].EndDate });
+                }
+           if (dbread)
             {
                 shownmembers = members;
                 textBoxFilter.Text = "";
             }
 
-            ordersDataGrid.ItemsSource = shownmembers;
+           ordersDataGrid.ItemsSource = shownmembers;
         }
-
-        private void AddOrder(object sender, RoutedEventArgs e)
+        
+        void EditOrder(object sender, ExecutedRoutedEventArgs e)
         {
-            //hier anhand von Parameter Daten des Kunden auslesen und als Parameter mitgeben
-            Edit_Order editCustomer = new Edit_Order("1","Max Mustermann","Rasen mähen","Aufsitzmäher","31.12.2023");
-            editCustomer.Owner = Application.Current.MainWindow;
-            editCustomer.ShowDialog();
-            //hier dann Daten abspeichern
+
+            var (list,err) = RW_Order.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
+            if (list.Count==1)
+            {
+                Edit_Order editOrder = new Edit_Order(list[0].ID,list[0].Customer,list[0].Description,list[0].Ressources,list[0].EndDate);
+                editOrder.Owner = Application.Current.MainWindow;
+                editOrder.ShowDialog();
+                Load_Data(true);
+            }
+        }
+        
+        void AddOrder(object sender, RoutedEventArgs e)
+        {
+            
+            Edit_Order editOrder = new Edit_Order("","Customer","Description","Ressources","Date");
+            editOrder.Owner = Application.Current.MainWindow;
+            editOrder.ShowDialog();
+            Load_Data(true);
+
+        }
+        
+        void DeleteOrder(object sender, ExecutedRoutedEventArgs e)
+        {
+            //hier auch noch Kundennamen mitgeben
+            Delete_Order deleteOrder = new Delete_Order(e.Parameter.ToString());
+            deleteOrder.Owner = Application.Current.MainWindow;
+            deleteOrder.ShowDialog();
+            Load_Data(true);
+
         }
 
         private void TextBoxFilter_OnTextChanged(object sender, TextChangedEventArgs e)
         {
+            ObservableCollection<Db_Order> tempMembers = new ObservableCollection<Db_Order>();
+            tempMembers.Clear();
+            if (textBoxFilter.Text=="")
             {
-                ObservableCollection<Db_Order.Order> tempMembers = new ObservableCollection<Db_Order.Order>();
-                tempMembers.Clear();
-                if (textBoxFilter.Text=="")
+                tempMembers = members;
+            }
+            else
+            {
+                foreach (var  x in members)
                 {
-                    tempMembers = members;
-                }
-                else
-                {
-                    foreach (var  x in members)
+                    switch (SearchId)
                     {
-                        if (x.Kunde.Contains(textBoxFilter.Text))
-                        {
-                            tempMembers.Add(x);
-                        }
+                        case 0:
+                            if (x.ID.Contains(textBoxFilter.Text))
+                            {
+                                tempMembers.Add(x);
+                            }
+                            break;
+                        case 1:
+                            if (x.Description.Contains(textBoxFilter.Text))
+                            {
+                                tempMembers.Add(x);
+                            }
+                            break;
+                        case 2:
+                            if (x.Ressources.Contains(textBoxFilter.Text))
+                            {
+                                tempMembers.Add(x);
+                            }
+                            break;
+                        case 3:
+                            if (x.EndDate.Contains(textBoxFilter.Text))
+                            {
+                                tempMembers.Add(x);
+                            }
+                            break;
+                        case 4:
+                            if (x.Customer.Contains(textBoxFilter.Text))
+                            {
+                                tempMembers.Add(x);
+                            }
+                            break;
+                        
                     }
                 }
-                shownmembers.Clear();
-                shownmembers = tempMembers;
-            
-                Load_Data(false);
             }
+            shownmembers.Clear();
+            shownmembers = tempMembers;
+            
+            Load_Data(false);
         }
 
-        private void EditOrder(object sender, ExecutedRoutedEventArgs e)
+        private void SearchFor_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //hier anhand von Parameter Daten des Kunden auslesen und als Parameter mitgeben
-            Edit_Order editOrder = new Edit_Order(e.Parameter.ToString(),"Kunde","Beschreibung","Ressourcen","Enddatum");
-            editOrder.Owner = Application.Current.MainWindow;
-            editOrder.ShowDialog();
-            //hier dann Daten neu laden in Tabelle, da aktualisiert
-        }
-
-        private void DeleteOrder(object sender, ExecutedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
+            SearchId = SearchFor.SelectedIndex;
         }
     }
     

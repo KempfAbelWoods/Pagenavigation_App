@@ -5,7 +5,9 @@
     /// </Summary>-->
 
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:Class="Templates123">
+    <!--TODO CLASS -->
 
     <!--// Desktop //-->
     
@@ -123,6 +125,7 @@
 
                     <ContentControl Grid.Row="0"
                                     Grid.Column="0"
+                                    
                                     Template="{StaticResource Card_1_Desktop}" />
 
                     <!--// Card - 2 //-->
@@ -285,6 +288,7 @@
 
                     <ContentControl Grid.Row="0"
                                     Grid.Column="0"
+                                    
                                     Template="{StaticResource Card_1}" />
 
                     <!--// Card - 2 //-->
@@ -454,6 +458,7 @@
 
                     <ContentControl Grid.Row="0"
                                     Grid.Column="0"
+                                    
                                     Template="{StaticResource Card_1}" />
 
                     <!--// Card - 2 //-->
@@ -620,6 +625,7 @@
 
                     <ContentControl Grid.Row="0"
                                     Grid.Column="0"
+                                    
                                     Template="{StaticResource Card_1}" />
 
                     <!--// Card - 2 //-->
@@ -787,6 +793,7 @@
                     <ContentControl Grid.Row="0"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="2"
+                                    
                                     Template="{StaticResource Card_1}" />
 
                     <!--// Card - 2 //-->
@@ -956,6 +963,7 @@
                     <ContentControl Grid.Row="0"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="2"
+                                    
                                     Template="{StaticResource Card_1}" />
 
                     <!--// Card - 2 //-->

@@ -8,6 +8,7 @@
              mc:Ignorable="d"
              d:DesignHeight="600"
              d:DesignWidth="622"
+             Background="#3f4c61"
              Style="{StaticResource Page_Style}">
 
     <UserControl.DataContext>
@@ -46,15 +47,26 @@
             <!--Filter Textbox-->
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.33*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Grid Width="200" Grid.Column="1" HorizontalAlignment="Right">
+                <Grid Width="200" Grid.Column="2" HorizontalAlignment="Right">
                     <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
                                Panel.ZIndex="1" Text="Search in Orders ..."
                                Visibility="{Binding ElementName=textBoxFilter, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
                     <TextBox Name="textBoxFilter"  Style="{StaticResource filterTextBox}" TextChanged="TextBoxFilter_OnTextChanged"/>
                 </Grid>
+                
+                <ComboBox Grid.Column="1" x:Name="SearchFor" Width="150" Height="35" HorizontalAlignment="Right" FontSize="15" FontFamily="Fonts/#Saira SemiBold" 
+                          VerticalContentAlignment="Center" SelectionChanged="SearchFor_OnSelectionChanged">
+                    <ComboBoxItem Content="ID" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem IsSelected="True" Content="Auftragsbeschr" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem Content="Ressourcen" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem Content="End Date" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem Content="Customer" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                </ComboBox>
+                
                 <!-- Add New Member -->
       
           <Button Grid.Column="0" Style="{StaticResource addButton}" HorizontalAlignment="Left" Click="AddOrder">
@@ -83,24 +95,10 @@
                     </DataGridCheckBoxColumn>
                     <DataGridTextColumn x:Name="OrderID" Header="ID" IsReadOnly="True" CanUserResize="False"
                                         Width="auto" Binding="{Binding ID}" />
-                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0"
-                                            Background="{Binding BgColor}">
-                                        <TextBlock Text="{Binding Character}" VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1" />
-                                    </Border>
-
-                                    <TextBlock Text="{Binding CustomerID}" VerticalAlignment="Center" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
                     <DataGridTextColumn Header="Auftragsbeschreibung" Binding="{Binding Description}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="Ressourcen" Binding="{Binding Ressources}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="End Datum" Binding="{Binding EndDate}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Customer" Binding="{Binding Customer}" IsReadOnly="True" Width="*" />
                     <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

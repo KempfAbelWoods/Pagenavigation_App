@@ -35,7 +35,6 @@ public partial class Edit_Customer : Window
         string adress = Adress_Field.Text;
         string mail = Mail_Field.Text;
         string phone = Phone_Field.Text;
-        var converter = new BrushConverter();
         if (ID!="" && name!="" && adress !="" && mail !="" && phone!= "")
         {
             var data = new Db_Customer
@@ -45,6 +44,7 @@ public partial class Edit_Customer : Window
                 Mail = mail,
                 Adress = adress,
                 Phone = phone,
+                Character = name.Substring(0,1),
                 BgColor = RandomColor.GenerateColor()
             };
             //Spalte mit alten Daten löschen
@@ -56,6 +56,10 @@ public partial class Edit_Customer : Window
 
             //neue Spalte einfügen
             var err = RW_Customer.Write(new List<Db_Customer> { data }, Paths.sqlite_path);
+            if (err != null)
+            {
+                MessageBox.Show(err.ToString());
+            }
 
             this.Close();
         }

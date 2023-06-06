@@ -14,8 +14,13 @@
     </UserControl.DataContext>
     
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
         
-        <Button Click="Create_Table" Background="Blue" Height="20" Width="100">Datenbank löschen / einfügen</Button>
+        <Button Grid.Row="0" Click="Create_Table_Customer" Background="Blue" Height="20" Width="100">Datenbank löschen / einfügen</Button>
+        <Button Grid.Row="1" Click="Create_Table_Order" Background="red" Height="20" Width="100">Datenbank löschen / einfügen</Button>
 
         
     </Grid>
