@@ -107,7 +107,6 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
-
                         <RowDefinition x:Name="CG_R1"
                                        Height="130" />
                         <RowDefinition x:Name="CG_R2"
@@ -116,8 +115,7 @@
                                        Height="462" />
                         <RowDefinition x:Name="CG_R4"
                                        Height="315" />
-
-
+                        
                     </Grid.RowDefinitions>
 
                     <!--// Card - 1 //-->
@@ -125,7 +123,6 @@
 
                     <ContentControl Grid.Row="0"
                                     Grid.Column="0"
-                                    
                                     Template="{StaticResource Card_1_Desktop}" />
 
                     <!--// Card - 2 //-->

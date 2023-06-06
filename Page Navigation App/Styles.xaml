@@ -5,13 +5,13 @@
     /// </Summary>-->
 
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-
-    <!--#region Card 1-->
-
-    <Style x:Key="C101Style"
-           TargetType="Border">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Page_Navigation_App.ViewModel">
+        <!--#region Card 1-->
+        <local:Dashboardstyle x:Key="Dashboardstyle"></local:Dashboardstyle>
+        
+        <Style x:Key="C101Style"
+               TargetType="Border">
         <Setter Property="Background"
                 Value="#373E46" />
         <Setter Property="CornerRadius"
@@ -94,8 +94,9 @@
 
     <Style x:Key="C104Style"
            TargetType="TextBlock">
-        <Setter Property="Foreground"
-                Value="#DCE0E4" />
+
+            <Setter Property="Foreground"
+                    Value="#DCE0E4" />
         <Setter Property="VerticalAlignment"
                 Value="Top" />
         <Setter Property="HorizontalAlignment"
@@ -103,7 +104,7 @@
         <Setter Property="FontSize"
                 Value="22" />
         <Setter Property="Text"
-                Value="31.5k" />
+                Value="{Binding Orders, Source={StaticResource Dashboardstyle}}" />
         <Setter Property="FontFamily"
                 Value="Fonts/#Saira Regular" />
         <Setter Property="Margin"
@@ -112,18 +113,18 @@
 
     <Style x:Key="C104Style_Desktop"
            TargetType="TextBlock">
-        <Setter Property="Foreground"
-                Value="White" />
+            <Setter Property="Foreground"
+                            Value="White" />
         <Setter Property="VerticalAlignment"
                 Value="Top" />
         <Setter Property="HorizontalAlignment"
                 Value="Left" />
         <Setter Property="FontSize"
                 Value="28" />
-        <Setter Property="Text"
-                Value="31.5k" />
-        <Setter Property="FontFamily"
-                Value="Fonts/#Saira Regular" />
+            <Setter Property="Text"
+                    Value="{Binding Orders, Source={StaticResource Dashboardstyle}}" />
+            <Setter Property="FontFamily"
+                    Value="Fonts/#Saira Regular" />
         <Setter Property="Margin"
                 Value="25,55,0,0" />
     </Style>
