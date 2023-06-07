@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[4.11.0, )"
             },
+            "Ookii.Dialogs.Wpf": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
             "sqlite-net-pcl": {
               "target": "Package",
               "version": "[1.9.141-beta, )"

@@ -23,6 +23,9 @@ namespace Page_Navigation_App.View
         public Bills()
         {
             InitializeComponent();
+            pdfWebViewer.Navigate(new Uri("about:blank"));
+            //pdfWebViewer.Navigate("D:/JH-Dokumente/Christbaumsingen_2022 Plakat.pdf");
         }
+        
     }
 }

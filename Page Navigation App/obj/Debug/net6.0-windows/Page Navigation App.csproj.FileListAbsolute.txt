@@ -231,22 +231,6 @@ C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Nav
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\DataTemplates.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Styles.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.exe
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\customer_page.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\home_page.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_customer.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_home.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_order.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_product.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_setting.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_shipment.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_transaction.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\order_page.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\product_page.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\setting_page.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\shipment_page.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\shutdown_def.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\shutdown_mo.png
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\transaction_page.png
 D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.deps.json
 D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.runtimeconfig.json
 D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.dll
@@ -285,7 +269,6 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\r
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.pdb
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.genruntimeconfig.cache
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\ref\Page Navigation App.dll
-D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\database.png
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Base_Data.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.g.cs
@@ -475,3 +458,4 @@ C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Nav
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Order.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Order.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\DataTemplates.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Ookii.Dialogs.Wpf.dll

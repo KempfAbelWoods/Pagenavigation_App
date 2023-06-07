@@ -7,6 +7,7 @@
              mc:Ignorable="d"
              d:DesignHeight="600"
              d:DesignWidth="622"
+             Background="#3f4c61"
              Style="{StaticResource Page_Style}">
 
     <UserControl.DataContext>
@@ -15,12 +16,22 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Width="150" Height="30" Click="Set_BillPath" FontSize="18">Set Bill-PDF Path</Button>
+            <TextBlock Grid.Column="1" Height="30" Background="DarkGray" Name="PDFPaths" VerticalAlignment="Center" FontSize="18"></TextBlock>
+        </Grid>
         
-        <Button Grid.Row="0" Click="Create_Table_Customer" Background="Blue" Height="20" Width="100">Datenbank löschen / einfügen</Button>
-        <Button Grid.Row="1" Click="Create_Table_Order" Background="red" Height="20" Width="100">Datenbank löschen / einfügen</Button>
+        
+        <Button Grid.Row="1" Click="Create_Table_Customer" Background="Blue" Height="20" Width="200">Datenbank löschen / einfügen</Button>
+        <Button Grid.Row="2" Click="Create_Table_Order" Background="red" Height="20" Width="200">Datenbank löschen / einfügen</Button>
 
         
     </Grid>

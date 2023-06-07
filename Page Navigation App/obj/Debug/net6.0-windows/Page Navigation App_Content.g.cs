@@ -8,22 +8,5 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("obj/debug/net6.0-windows/page%20navigation%20app_markupcompile.lref")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/customer_page.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/home_page.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/img_customer.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/img_home.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/img_order.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/img_product.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/img_setting.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/img_shipment.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/img_transaction.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/order_page.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/product_page.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/setting_page.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/shipment_page.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/shutdown_def.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/shutdown_mo.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/transaction_page.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/database.png")]
 
 

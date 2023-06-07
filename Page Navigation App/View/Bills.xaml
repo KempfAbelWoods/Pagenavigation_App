@@ -8,13 +8,14 @@
              d:DesignHeight="600"
              d:DesignWidth="622"
              Style="{StaticResource Page_Style}"
-             Background="Aquamarine">
+             Background="#3f4c61">
 
     <UserControl.DataContext>
         <vm:TransactionVM />
     </UserControl.DataContext>
     
     <Grid>
-
+        <WebBrowser x:Name="pdfWebViewer"></WebBrowser>
+        
     </Grid>
 </UserControl>
