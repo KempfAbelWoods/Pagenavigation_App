@@ -23,6 +23,10 @@ public partial class Delete_Order : Window
             ID = Initial_ID,
         };
         var err = RW_Order.Delete(new List<Db_Order> { data },Paths.sqlite_path);
+        if (err!=null)
+        {
+            MessageBox.Show(err.GetException().Message);
+        }
         this.Close();
     }
 

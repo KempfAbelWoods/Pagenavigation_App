@@ -53,12 +53,16 @@ public partial class Edit_Customer : Window
             {
                 var error = RW_Customer.Delete(list,Paths.sqlite_path);
             }
+            else
+            {
+                MessageBox.Show(err1.GetException().Message);
+            }
 
             //neue Spalte einfügen
             var err = RW_Customer.Write(new List<Db_Customer> { data }, Paths.sqlite_path);
             if (err != null)
             {
-                MessageBox.Show(err.ToString());
+                MessageBox.Show(err.GetException().Message);
             }
 
             this.Close();

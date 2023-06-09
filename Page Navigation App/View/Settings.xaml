@@ -16,7 +16,8 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
@@ -29,9 +30,9 @@
             <TextBlock Grid.Column="1" Height="30" Background="DarkGray" Name="PDFPaths" VerticalAlignment="Center" FontSize="18"></TextBlock>
         </Grid>
         
-        
-        <Button Grid.Row="1" Click="Create_Table_Customer" Background="Blue" Height="20" Width="200">Datenbank löschen / einfügen</Button>
-        <Button Grid.Row="2" Click="Create_Table_Order" Background="red" Height="20" Width="200">Datenbank löschen / einfügen</Button>
+        <Button Grid.Row="1" Click="Create_Table_Settings" Background="Green" Height="20" Width="200">Settings löschen / einfügen</Button>
+        <Button Grid.Row="2" Click="Create_Table_Customer" Background="Blue" Height="20" Width="200">Customer löschen / einfügen</Button>
+        <Button Grid.Row="3" Click="Create_Table_Order" Background="red" Height="20" Width="200">Order löschen / einfügen</Button>
 
         
     </Grid>

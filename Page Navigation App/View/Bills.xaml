@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:vm="clr-namespace:Page_Navigation_App.ViewModel"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d"
              d:DesignHeight="600"
              d:DesignWidth="622"
@@ -11,11 +12,54 @@
              Background="#3f4c61">
 
     <UserControl.DataContext>
-        <vm:TransactionVM />
+        <vm:Bills />
     </UserControl.DataContext>
     
     <Grid>
-        <WebBrowser x:Name="pdfWebViewer"></WebBrowser>
+        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"
+                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                  CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="PdfDataGrid"
+                  Style="{DynamicResource DataGridStyle1}">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto"
+                                            ElementStyle="{StaticResource CheckBoxStyle1}">
+                        <DataGridCheckBoxColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource CheckBoxStyle1}" />
+                            </DataTemplate>
+                        </DataGridCheckBoxColumn.HeaderTemplate>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn x:Name="PdfName" Header="Name" IsReadOnly="True" CanUserResize="False"
+                                        Width="auto" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Memory Size" Binding="{Binding Größe}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Modification Date" Binding="{Binding Änderungsdatum}" IsReadOnly="True" Width="*" />
+                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="EditCustomer" Style="{StaticResource gridEditButton}"
+                                            Command="ApplicationCommands.New" CommandParameter="{Binding Adress}">
+                                        <Button.CommandBindings>
+                                            <CommandBinding Command="ApplicationCommands.New" Executed="ViewFile" />
+                                        </Button.CommandBindings>
+                                        <iconPacks:PackIconMaterial Kind="Eye"
+                                                               Style="{StaticResource gridButtonIcon}" />
+                                    </Button>
+                                    <Button x:Name="DeleteCustomer" Margin="5 0 0 0"
+                                            Style="{StaticResource gridRemoveButton}" Command="ApplicationCommands.New"
+                                            CommandParameter="{Binding Adress}">
+                                        <Button.CommandBindings>
+                                            <CommandBinding Command="ApplicationCommands.New" Executed="DeleteFile" />
+                                        </Button.CommandBindings>
+                                        <iconPacks:PackIconMaterial Kind="DeleteOutline"
+                                                               Style="{StaticResource gridButtonIcon}" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         
     </Grid>
 </UserControl>

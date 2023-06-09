@@ -48,12 +48,16 @@ public partial class Edit_Order : Window
             {
                 var error = RW_Order.Delete(list,Paths.sqlite_path);
             }
+            else
+            {
+                MessageBox.Show(err1.GetException().Message);
+            }
 
             //neue Spalte einfügen
             var err = RW_Order.Write(new List<Db_Order> { data }, Paths.sqlite_path);
             if (err != null)
             {
-                MessageBox.Show(err.ToString());
+                MessageBox.Show(err.GetException().Message);
             }
 
             this.Close();
@@ -77,6 +81,10 @@ public partial class Edit_Order : Window
         {
             //check if ID is already in Database
             var (data,err) =RW_Order.ReadwithID(ID, Paths.sqlite_path);
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
             if (data.Count !=0)
             {
                 Save.IsEnabled = false;

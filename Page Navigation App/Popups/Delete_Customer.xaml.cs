@@ -24,6 +24,10 @@ public partial class Delete_Customer : Window
             ID = Initial_ID,
         };
         var err = RW_Customer.Delete(new List<Db_Customer> { data },Paths.sqlite_path);
+        if (err!=null)
+        {
+            MessageBox.Show(err.GetException().Message);
+        }
         this.Close();
     }
 

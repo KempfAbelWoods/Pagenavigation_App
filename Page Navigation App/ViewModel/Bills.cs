@@ -7,7 +7,7 @@ using Page_Navigation_App.Model;
 
 namespace Page_Navigation_App.ViewModel
 {
-    class TransactionVM : Utilities.ViewModelBase
+    class Bills : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
         public decimal TransactionAmount
@@ -16,7 +16,7 @@ namespace Page_Navigation_App.ViewModel
             set { _pageModel.TransactionValue = value; OnPropertyChanged(); }
         }
 
-        public TransactionVM()
+        public Bills()
         {
             _pageModel = new PageModel();
             TransactionAmount = 5638;
