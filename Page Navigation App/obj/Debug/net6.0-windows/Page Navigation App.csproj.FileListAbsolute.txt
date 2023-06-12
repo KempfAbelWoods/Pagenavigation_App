@@ -329,23 +329,6 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\r
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Order.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Order.baml
 C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.exe
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\customer_page.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\home_page.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_customer.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_home.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_order.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_product.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_setting.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_shipment.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\img_transaction.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\order_page.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\product_page.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\setting_page.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\shipment_page.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\shutdown_def.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\shutdown_mo.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\transaction_page.png
-C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Images\database.png
 C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.deps.json
 C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.runtimeconfig.json
 C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Page Navigation App.dll
@@ -463,3 +446,11 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\P
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Show_Bill.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Pdf.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Pdf.baml
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\DataTemplates.g.cs
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Order.g.cs
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Pdf.g.cs
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Show_Bill.g.cs
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\Ookii.Dialogs.Wpf.dll
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Order.baml
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Pdf.baml
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Show_Bill.baml

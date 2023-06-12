@@ -112,5 +112,73 @@ namespace Page_Navigation_App.View
                 PDFPaths.Text = Path;
             }
         }
+
+        private void Set_Password(object sender, RoutedEventArgs e)
+        {
+            string SetPassword = SocketPassword.Text;
+            //Spalte mit alten Daten löschen
+            var (list, err1) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
+            if (err1 != null)
+            {
+                MessageBox.Show(err1.GetException().Message);
+            }
+            var error = Rw_Settings.Delete(list,Paths.sqlite_path);
+            if (error != null)
+            {
+                MessageBox.Show(error.GetException().Message);
+            }
+            //Spalte mit neuen Daten speichern
+            var data = new Db_Settings
+            {
+                ID = "2",
+                Name = "Password",
+                Ressource = SetPassword,
+                Comment = "Passwort für Datenaustausch"
+
+            };
+            var err = Rw_Settings.Write(new List<Db_Settings>{data},Paths.sqlite_path);
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+            else
+            {
+                SocketPassword.Text = SetPassword;
+            }
+        }
+
+        private void Set_SocketIp(object sender, RoutedEventArgs e)
+        {
+            string SetIpAddress = SocketIpAddress.Text;
+            //Spalte mit alten Daten löschen
+            var (list, err1) = Rw_Settings.ReadwithID("3", Paths.sqlite_path);
+            if (err1 != null)
+            {
+                MessageBox.Show(err1.GetException().Message);
+            }
+            var error = Rw_Settings.Delete(list,Paths.sqlite_path);
+            if (error != null)
+            {
+                MessageBox.Show(error.GetException().Message);
+            }
+            //Spalte mit neuen Daten speichern
+            var data = new Db_Settings
+            {
+                ID = "3",
+                Name = "Socket IP",
+                Ressource = SetIpAddress,
+                Comment = "IP der Socket Verbindung"
+
+            };
+            var err = Rw_Settings.Write(new List<Db_Settings>{data},Paths.sqlite_path);
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+            else
+            {
+                SocketIpAddress.Text = SetIpAddress;
+            }
+        }
     }
 }
