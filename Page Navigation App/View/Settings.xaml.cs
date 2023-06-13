@@ -79,37 +79,40 @@ namespace Page_Navigation_App.View
             string Path ="";
             string correctedPath = "";
             var ookiiDialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog( );
-            if ( ookiiDialog.ShowDialog( ) == true )
+            if (ookiiDialog.ShowDialog() == true)
+            {
                 Path = ookiiDialog.SelectedPath;
-            
-            //Spalte mit alten Daten löschen
-            var (list, err1) = Rw_Settings.ReadwithID("1", Paths.sqlite_path);
-            if (err1 != null)
-            {
-                MessageBox.Show(err1.GetException().Message);
-            }
-            var error = Rw_Settings.Delete(list,Paths.sqlite_path);
-            if (error != null)
-            {
-                MessageBox.Show(error.GetException().Message);
-            }
-            //Spalte mit neuen Daten speichern
-            var data = new Db_Settings
-            {
-                ID = "1",
-                Name = "Billpath",
-                Ressource = Path,
-                Comment = "Pfad zum Ablegen der Rechnungspdfs"
+                //Spalte mit alten Daten löschen
+                var (list, err1) = Rw_Settings.ReadwithID("1", Paths.sqlite_path);
+                if (err1 != null)
+                {
+                    MessageBox.Show(err1.GetException().Message);
+                }
 
-            };
-            var err = Rw_Settings.Write(new List<Db_Settings>{data},Paths.sqlite_path);
-            if (err!=null)
-            {
-                MessageBox.Show(err.GetException().Message);
-            }
-            else
-            {
-                PDFPaths.Text = Path;
+                var error = Rw_Settings.Delete(list, Paths.sqlite_path);
+                if (error != null)
+                {
+                    MessageBox.Show(error.GetException().Message);
+                }
+
+                //Spalte mit neuen Daten speichern
+                var data = new Db_Settings
+                {
+                    ID = "1",
+                    Name = "Billpath",
+                    Ressource = Path,
+                    Comment = "Pfad zum Ablegen der Rechnungspdfs"
+
+                };
+                var err = Rw_Settings.Write(new List<Db_Settings> { data }, Paths.sqlite_path);
+                if (err != null)
+                {
+                    MessageBox.Show(err.GetException().Message);
+                }
+                else
+                {
+                    PDFPaths.Text = Path;
+                }
             }
         }
 

@@ -53,18 +53,24 @@ namespace Page_Navigation_App.View
 
         public void GetBills(string source)
         {
-            
-            DirectoryInfo directoryInfo = new DirectoryInfo(source);
-            FileInfo[] files = directoryInfo.GetFiles("*.pdf");
-            ObservableCollection<Sources> Filesource = new ObservableCollection<Sources>();
-            if (files.Length!=0)
+            try
             {
-                foreach (var file in files)
+                DirectoryInfo directoryInfo = new DirectoryInfo(source);
+                FileInfo[] files = directoryInfo.GetFiles("*.pdf");
+                ObservableCollection<Sources> Filesource = new ObservableCollection<Sources>();
+                if (files.Length!=0)
                 {
-                    Filesource.Add(new Sources{Adress = file.FullName, Name = file.Name, Größe = file.Length.ToString(), Änderungsdatum = file.LastWriteTime.ToString()});
+                    foreach (var file in files)
+                    {
+                        Filesource.Add(new Sources{Adress = file.FullName, Name = file.Name, Größe = file.Length.ToString(), Änderungsdatum = file.LastWriteTime.ToString()});
+                    }
                 }
+                PdfDataGrid.ItemsSource = Filesource;
             }
-            PdfDataGrid.ItemsSource = Filesource;
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         private void ViewFile(object sender, ExecutedRoutedEventArgs e)
