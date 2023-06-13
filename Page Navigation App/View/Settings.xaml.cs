@@ -28,23 +28,30 @@ namespace Page_Navigation_App.View
         public Settings()
         {
             InitializeComponent();
+            
+            //Bill-Path
             var (data,err) = Rw_Settings.ReadwithID("1", Paths.sqlite_path);
-            if (err!=null)
-            {
-                PDFPaths.Text = "You need to create a Table in your Database first.";
-            }
-            else if (data.Count == 0)
-            {
-                PDFPaths.Text = "No Directory specified";
-            }
-            else if (data.Count == 1)
-            {
-                PDFPaths.Text = data[0].Ressource;
-            }
-            else
-            {
-                PDFPaths.Text = "Somehow there exist 2 or more elements in the Database, pls call the support";
-            }
+            //errorhandling
+            if (err!=null) PDFPaths.Text = "You need to create a Table in your Database first.";
+            else if (data.Count == 0) PDFPaths.Text = "No Directory specified";
+            else if (data.Count == 1) PDFPaths.Text = data[0].Ressource;
+            else PDFPaths.Text = "Somehow there exist 2 or more elements in the Database, pls call the support"; 
+            
+            //IP-Adress
+            var (ipdata,err1) = Rw_Settings.ReadwithID("3", Paths.sqlite_path);
+            //errorhandling
+            if (err1!=null) SocketIpAddress.Text = "You need to create a Table in your Database first.";
+            else if (ipdata.Count == 0) SocketIpAddress.Text = "No IP specified";
+            else if (ipdata.Count == 1) SocketIpAddress.Text = ipdata[0].Ressource;
+            else SocketIpAddress.Text = "Somehow there exist 2 or more elements in the Database, pls call the support"; 
+            
+            //Passwort
+            var (passworddata,err2) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
+            //errorhandling
+            if (err2!=null) SocketPassword.Text = "You need to create a Table in your Database first.";
+            else if (passworddata.Count == 0) SocketPassword.Text = "No Password specified";
+            else if (passworddata.Count == 1) SocketPassword.Text = passworddata[0].Ressource;
+            else SocketPassword.Text = "Somehow there exist 2 or more elements in the Database, pls call the support"; 
         }
 
         private void Create_Table_Customer(object sender, RoutedEventArgs e)

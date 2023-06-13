@@ -105,8 +105,6 @@ public partial class Edit_Customer : Window
             Save.Content = "Save";
             Save.IsEnabled = true;
         }
-        
-        
     }
 
     private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)

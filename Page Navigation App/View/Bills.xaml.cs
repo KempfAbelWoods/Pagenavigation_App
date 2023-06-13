@@ -5,10 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -16,7 +15,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Page_Navigation_App.Configs;
 using Page_Navigation_App.DB;
+using Page_Navigation_App.Helper;
 using Page_Navigation_App.Popups;
+using Application = System.Windows.Application;
+using MessageBox = System.Windows.MessageBox;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace Page_Navigation_App.View
 {
@@ -69,6 +72,7 @@ namespace Page_Navigation_App.View
             }
             catch (Exception e)
             {
+                //TODO hier muss irgendwie noch die Exeption abgefange werden ohne das die ganze App abschmiert
                 MessageBox.Show(e.Message);
             }
         }
