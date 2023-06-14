@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using Page_Navigation_App.Configs;
+using Page_Navigation_App.Connection;
 using Page_Navigation_App.DB;
 
 namespace Page_Navigation_App.View
@@ -189,6 +190,11 @@ namespace Page_Navigation_App.View
             {
                 SocketIpAddress.Text = SetIpAddress;
             }
+        }
+
+        private void Start_Server(object sender, RoutedEventArgs e)
+        {
+            Server.SocketServer();
         }
     }
 }
