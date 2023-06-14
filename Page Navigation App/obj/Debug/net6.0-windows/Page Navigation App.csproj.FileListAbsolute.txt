@@ -253,10 +253,8 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\r
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.pdb
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.genruntimeconfig.cache
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\ref\Page Navigation App.dll
-D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Base_Data.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.g.cs
-D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Base_Data.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Base_Data.g.cs
@@ -449,3 +447,9 @@ C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Nav
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Ressource.g.cs
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Ressource.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Ressource.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Ressource.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Ressource.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Ressource.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Ressource.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Ressources.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Ressources.baml

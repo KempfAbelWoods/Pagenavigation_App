@@ -7,7 +7,7 @@ using Page_Navigation_App.Model;
 
 namespace Page_Navigation_App.ViewModel
 {
-    class ShipmentVM : Utilities.ViewModelBase
+    class RessourcesVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
         public TimeOnly ShipmentTracking
@@ -16,7 +16,7 @@ namespace Page_Navigation_App.ViewModel
             set { _pageModel.ShipmentDelivery = value; OnPropertyChanged(); }
         }
 
-        public ShipmentVM()
+        public RessourcesVM()
         {
             _pageModel = new PageModel();
             TimeOnly time = TimeOnly.FromDateTime(DateTime.Now);

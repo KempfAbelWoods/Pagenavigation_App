@@ -30,7 +30,7 @@ namespace Page_Navigation_App.ViewModel
         private void Product(object obj) => CurrentView = new ProductVM();
         private void Order(object obj) => CurrentView = new OrderVM();
         private void Transaction(object obj) => CurrentView = new Bills();
-        private void Shipment(object obj) => CurrentView = new ShipmentVM();
+        private void Shipment(object obj) => CurrentView = new RessourcesVM();
         private void Setting(object obj) => CurrentView = new SettingVM();
 
         public NavigationVM()

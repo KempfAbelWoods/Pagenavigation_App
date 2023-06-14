@@ -23,8 +23,8 @@
         <view:Bills />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:ShipmentVM}">
-        <view:Base_Data />
+    <DataTemplate DataType="{x:Type vm:RessourcesVM}">
+        <view:Ressources />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:SettingVM}">
