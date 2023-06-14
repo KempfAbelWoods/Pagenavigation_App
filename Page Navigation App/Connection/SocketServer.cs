@@ -19,7 +19,11 @@ public class Server
         string SetIpAddress = "";
         //IP Adresse auslesen
         var (list, err1) = Rw_Settings.ReadwithID("3", Paths.sqlite_path);
-        SetIpAddress = Paths.sqlite_path;
+        if (list.Count  == 1)
+        {
+            SetIpAddress = list[0].Ressource;
+        }
+        
         if (err1 != null)
         {
             MessageBox.Show(err1.GetException().Message);
