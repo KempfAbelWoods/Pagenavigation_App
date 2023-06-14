@@ -38,7 +38,7 @@
 
 
             <!--Page Title-->
-            <TextBlock Text="Orders" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
+            <TextBlock Text="Ressources" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
                        Foreground="#121518" HorizontalAlignment="Left" />
 
             <!--Seprator-->
@@ -61,10 +61,9 @@
                 <ComboBox Grid.Column="1" x:Name="SearchFor" Width="150" Height="35" HorizontalAlignment="Right" FontSize="15" FontFamily="Fonts/#Saira SemiBold" 
                           VerticalContentAlignment="Center" SelectionChanged="SearchFor_OnSelectionChanged">
                     <ComboBoxItem Content="ID" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
-                    <ComboBoxItem IsSelected="True" Content="Auftragsbeschr" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
-                    <ComboBoxItem Content="Ressourcen" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
-                    <ComboBoxItem Content="End Date" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
-                    <ComboBoxItem Content="Customer" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem IsSelected="True" Content="Name" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem Content="Description" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
+                    <ComboBoxItem Content="Ressourcetype" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
                 </ComboBox>
                 
                 <!-- Add New Member -->
@@ -73,7 +72,7 @@
                     <StackPanel Orientation="Horizontal">
                         <iconPacks:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11"
                                                Height="11" />
-                        <TextBlock Text="Add Order" />
+                        <TextBlock Text="Add Ressource" />
                     </StackPanel>
                 </Button>
             </Grid>
@@ -93,12 +92,13 @@
                             </DataTemplate>
                         </DataGridCheckBoxColumn.HeaderTemplate>
                     </DataGridCheckBoxColumn>
-                    <DataGridTextColumn x:Name="OrderID" Header="ID" IsReadOnly="True" CanUserResize="False"
+                    <DataGridTextColumn x:Name="ID" Header="ID" IsReadOnly="True" CanUserResize="False"
                                         Width="auto" Binding="{Binding ID}" />
-                    <DataGridTextColumn Header="Auftragsbeschreibung" Binding="{Binding Description}" IsReadOnly="True" Width="*" />
-                    <DataGridTextColumn Header="Ressourcen" Binding="{Binding Ressources}" IsReadOnly="True" Width="*" />
-                    <DataGridTextColumn Header="End Datum" Binding="{Binding EndDate}" IsReadOnly="True" Width="*" />
-                    <DataGridTextColumn Header="Customer" Binding="{Binding Customer}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Ressourcetype" Binding="{Binding Ressourcetype}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Costs" Binding="{Binding Costs}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Costtype" Binding="{Binding Costtype}" IsReadOnly="True" Width="*" />
                     <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
