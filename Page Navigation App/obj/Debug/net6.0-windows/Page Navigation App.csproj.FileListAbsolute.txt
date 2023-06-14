@@ -445,3 +445,7 @@ C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Nav
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Order.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Pdf.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Show_Bill.baml
+C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Ressource.g.cs
+C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Ressource.g.cs
+C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Ressource.baml
+C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Ressource.baml
