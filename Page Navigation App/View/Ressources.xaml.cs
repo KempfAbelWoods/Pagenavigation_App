@@ -55,8 +55,14 @@ namespace Page_Navigation_App.View
                 shownmembers = members;
                 textBoxFilter.Text = "";
             }
-            
            ressourcesDataGrid.ItemsSource = shownmembers;
+           string Costtype;
+         /*  if (shownmembers[0].Costtype)
+           { Costtype = "Per Hour"; }
+           else
+           { Costtype = "One-Time Costs";}
+
+           ressourcesDataGrid.Items[5] = Costtype;*/
         }
         
         void EditRessources(object sender, ExecutedRoutedEventArgs e)

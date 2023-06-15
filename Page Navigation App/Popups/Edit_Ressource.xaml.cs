@@ -23,8 +23,8 @@ public partial class Edit_Ressource : Window
         Costs_Field.Text = costs.ToString();
         
         if (Costtype) 
-        { Costtype_Field.SelectedIndex = 0; }
-        else { Costtype_Field.SelectedIndex = 1; }
+        { Costtype_Field.SelectedIndex = 1; }
+        else { Costtype_Field.SelectedIndex = 0; }
     }
 
     private void Close_Window(object sender, ExecutedRoutedEventArgs e)
@@ -38,7 +38,7 @@ public partial class Edit_Ressource : Window
         string name = Name_Field.Text;
         float costs = float.Parse(Costs_Field.Text);
         bool costtype;
-        if (Costtype_Field.SelectedIndex == 0)
+        if (Costtype_Field.SelectedIndex == 1)
         { costtype = true; }
         else
         { costtype = false; }
