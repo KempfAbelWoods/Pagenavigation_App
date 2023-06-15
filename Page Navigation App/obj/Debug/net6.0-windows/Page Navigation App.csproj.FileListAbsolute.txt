@@ -257,10 +257,8 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\V
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.baml
-C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Base_Data.g.cs
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.g.cs
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.g.cs
-C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Base_Data.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.baml
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Styles\Table_Dicitonary.baml
@@ -457,3 +455,5 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\V
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Ressources.baml
 C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Ressources.g.cs
 C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Ressources.baml
+C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Ressources.g.cs
+C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Ressources.baml

@@ -117,7 +117,8 @@ public partial class Edit_Ressource : Window
     
     private void FloatValidationTextBox(object sender, TextCompositionEventArgs e)
     {
-        Regex regex = new Regex("^[0-9]*[.][0-9]*$");
-        e.Handled = regex.IsMatch(e.Text);
+        // TODO irgendwie die scheiß validierung machen
+        Regex regex = new Regex(@"[-+]?[0-9]*\.?[0-9]+");
+        e.Handled = !regex.IsMatch(e.Text);
     }
 }
