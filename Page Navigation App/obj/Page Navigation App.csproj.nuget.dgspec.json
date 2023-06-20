@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj": {}
+    "C:\\Users\\Lauritz Abel\\Desktop\\Studium\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj": {}
   },
   "projects": {
-    "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj": {
+    "C:\\Users\\Lauritz Abel\\Desktop\\Studium\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
+        "projectUniqueName": "C:\\Users\\Lauritz Abel\\Desktop\\Studium\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
         "projectName": "Page Navigation App",
-        "projectPath": "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
-        "packagesPath": "C:\\Users\\David Kempf\\.nuget\\packages\\",
-        "outputPath": "D:\\Codedateien\\Pagenavigation_App\\Page Navigation App\\obj\\",
+        "projectPath": "C:\\Users\\Lauritz Abel\\Desktop\\Studium\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\Page Navigation App.csproj",
+        "packagesPath": "C:\\Users\\Lauritz Abel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lauritz Abel\\Desktop\\Studium\\Projektlabor\\Pagenavigation_App\\Page Navigation App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\David Kempf\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Lauritz Abel\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -48,6 +46,18 @@
               "target": "Package",
               "version": "[5.0.1, )"
             },
+            "PDFsharp-WPF": {
+              "target": "Package",
+              "version": "[6.0.0-preview-2, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[8.0.0-preview.2.23128.3, )"
+            },
+            "System.Text.Encoding.CodePages": {
+              "target": "Package",
+              "version": "[8.0.0-preview.5.23280.8, )"
+            },
             "sqlite-net-pcl": {
               "target": "Package",
               "version": "[1.9.141-beta, )"
@@ -64,24 +74,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.16, 6.0.16]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.16, 6.0.16]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.16, 6.0.16]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.16, 6.0.16]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -90,7 +82,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

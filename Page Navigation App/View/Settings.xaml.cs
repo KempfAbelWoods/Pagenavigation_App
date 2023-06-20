@@ -18,6 +18,7 @@ using Microsoft.Win32;
 using Page_Navigation_App.Configs;
 using Page_Navigation_App.Connection;
 using Page_Navigation_App.DB;
+using Page_Navigation_App.Utilities;
 
 namespace Page_Navigation_App.View
 {
@@ -214,6 +215,18 @@ namespace Page_Navigation_App.View
         {
             Server.SocketServer();
         }
-        
+
+        private void Start_create_PDF(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+        }
     }
 }
