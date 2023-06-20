@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Diagnostics;
+using System.Windows.Forms;
 using Page_Navigation_App.Configs;
 using Page_Navigation_App.DB;
 
@@ -10,70 +11,78 @@ using System.Text;
 
 public class Server
 {
-    private const int Port = 8888;
+    private const int Port = 8080;
 
     public static void SocketServer()
     {
-        byte[] buffer = new byte[1024];
-        
-        string SetIpAddress = "";
-        //IP Adresse auslesen
-        var (list, err1) = Rw_Settings.ReadwithID("3", Paths.sqlite_path);
-        if (list.Count  == 1)
-        {
-            SetIpAddress = list[0].Ressource;
-        }
-        
-        if (err1 != null)
-        {
-            MessageBox.Show(err1.GetException().Message);
-        }
-        
-        // IP-Adresse des Servers
-        IPAddress ipAddress = IPAddress.Parse(SetIpAddress);
 
-        // Erstelle einen TCP/IP-Socket
-        TcpListener listener = new TcpListener(ipAddress, Port);
-        listener.Start();
+            byte[] buffer = new byte[1024];
 
-        Console.WriteLine("Warte auf Verbindung...");
+            string SetIpAddress = "";
+            //IP Adresse auslesen
+            var (list, err1) = Rw_Settings.ReadwithID("3", Paths.sqlite_path);
+            if (list.Count == 1)
+            {
+                SetIpAddress = list[0].Ressource;
+            }
 
-        // Warte auf eine eingehende Verbindung
-        TcpClient client = listener.AcceptTcpClient();
+            if (err1 != null)
+            {
+                MessageBox.Show(err1.GetException().Message);
+            }
 
-        Console.WriteLine("Client verbunden.");
+            // IP-Adresse des Servers
+            IPAddress ipAddress = IPAddress.Parse(SetIpAddress);
 
-        // Erstelle ein NetworkStream-Objekt für die Kommunikation
-        NetworkStream networkStream = client.GetStream();
+            // Erstelle einen TCP/IP-Socket
+            TcpListener listener = new TcpListener(ipAddress, Port);
+            listener.Start();
 
-        // Lese die Daten vom Client
-        int passwordRead = networkStream.Read(buffer, 0, buffer.Length);
-        string dataReceived = Encoding.ASCII.GetString(buffer, 0, passwordRead);
+            MessageBox.Show("Warte auf Verbindung...");
 
-        string Password = "";
-        //IP Adresse auslesen
-        var (list1, err2) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
-        Password = Paths.sqlite_path;
-        if (err2 != null)
-        {
-            MessageBox.Show(err1.GetException().Message);
-        }
+            // Warte auf eine eingehende Verbindung
+            TcpClient client = listener.AcceptTcpClient();
 
-        if (dataReceived == Password)
-        {
-            Console.WriteLine("Passwort korrekt! ");
+            Console.WriteLine("Client verbunden.");
+
+            // Erstelle ein NetworkStream-Objekt für die Kommunikation
+            NetworkStream networkStream = client.GetStream();
+
+            // Lese die Daten vom Client
+            int passwordRead = networkStream.Read(buffer, 0, buffer.Length);
+            string dataReceived = Encoding.ASCII.GetString(buffer, 0, passwordRead);
             
-            // Sende eine Antwort an den Client
-            string response = "Hallo von Server!";
-            byte[] responseData = Encoding.ASCII.GetBytes(response);
-            networkStream.Write(responseData, 0, responseData.Length);
-
-            // Schließe die Verbindung
-            client.Close();
-            listener.Stop();
+            string Password = "";
+            //Passwort auslesen
+            var (list1, err2) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
+            if (list1.Count == 1)
+            {
+                Password = list1[0].Ressource;
+                MessageBox.Show(Password);
+            }
+            if (err2 != null)
+            {
+                MessageBox.Show(err2.GetException().Message);
+            }
             
-            Console.WriteLine("Verbindung geschlossen.");
-        }
+            if (dataReceived == Password)
+            {
+                Trace.WriteLine("Passwort korrekt!");
+                MessageBox.Show("Passwort korrekt!");
+
+                // Sende eine Antwort an den Client
+                string response = "Hallo von Server!";
+                byte[] responseData = Encoding.ASCII.GetBytes(response);
+                networkStream.Write(responseData, 0, responseData.Length);
+
+                // Schließe die Verbindung
+                client.Close();
+                listener.Stop();
+
+                Trace.WriteLine("Verbindung geschlossen.");
+                MessageBox.Show("Verbindung geschlossen.");
+            }
         
+
     }
 }
