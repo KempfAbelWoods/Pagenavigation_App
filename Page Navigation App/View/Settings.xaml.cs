@@ -220,12 +220,11 @@ namespace Page_Navigation_App.View
         {
             try
             {
-                
+                new PDF_Generator().PDF_Generate();
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception);
-                throw;
+                MessageBox.Show(exception.Message);
             }
         }
     }
