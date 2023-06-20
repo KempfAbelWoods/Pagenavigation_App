@@ -90,6 +90,15 @@ namespace Page_Navigation_App.View
                 MessageBox.Show(err.GetException().Message);
             }
         }
+        
+        private void Create_Table_Users(object sender, RoutedEventArgs e)
+        {
+            var err = Db_Users.CreateTable(Paths.sqlite_path);
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+        }
 
         private void Set_BillPath(object sender, RoutedEventArgs e)
         {

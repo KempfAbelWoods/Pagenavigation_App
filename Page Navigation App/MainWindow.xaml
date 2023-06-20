@@ -46,6 +46,7 @@
                 <RowDefinition Height="70"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
+                <Border Background="#272B2F"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="10"></RowDefinition>
@@ -57,13 +58,13 @@
                         <ColumnDefinition Width="50"></ColumnDefinition>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="1" Grid.Column="1">
+                    
+                    <Button Grid.Row="1" Grid.Column="1" Click="Log_in">
                         <Image Source="Images/Users.png"></Image>
                     </Button>
                     
                 </Grid>
                 
-                <Border Background="#272B2F"/>
                 <Border Grid.Row="1" Background="#272B2F"/>
 
                 <StackPanel Grid.Row="1" Height="400"

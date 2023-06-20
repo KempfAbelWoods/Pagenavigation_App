@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Page_Navigation_App.Configs;
 using Page_Navigation_App.DB;
 using Page_Navigation_App.Configs;
+using Page_Navigation_App.Popups;
 
 namespace Page_Navigation_App
 {
@@ -28,6 +29,13 @@ namespace Page_Navigation_App
             InitializeComponent();
             
         }
-        
+
+
+        private void Log_in(object sender, RoutedEventArgs e)
+        {
+            Log_in login = new Log_in();
+            login.Owner = Application.Current.MainWindow;
+            login.ShowDialog();
+        }
     }
 }

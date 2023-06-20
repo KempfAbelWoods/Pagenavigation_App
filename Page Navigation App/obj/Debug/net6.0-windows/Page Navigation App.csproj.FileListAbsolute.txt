@@ -457,3 +457,7 @@ C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Nav
 C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Ressources.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Ressources.g.cs
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Ressources.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Users.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Log_in.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Users.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Log_in.baml
