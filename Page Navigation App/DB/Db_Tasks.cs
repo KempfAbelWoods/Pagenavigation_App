@@ -9,7 +9,7 @@ public class Db_Tasks
 {
     public string ID { get; set; }
     public string Description { get; set; }
-    public Db_Users User { get; set; } //Maschinen auch als Benutzer zuweisen aber einem anderen User unterordnen
+    public string UserID { get; set; } //Maschinen auch als Benutzer zuweisen aber einem anderen User unterordnen
     public float EstimatedHours { get; set; }
     public float ActualHours { get; set; }
     public float Costs { get; set; } //ist der Task im Minus oder plus?

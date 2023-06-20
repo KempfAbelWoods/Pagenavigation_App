@@ -39,7 +39,7 @@ public partial class Edit_Order : Window
                 ID = ID,
                 Description = beschreibung,
                 Customer = kunde,
-                Ressources = ressourcen,
+                RessourcesID = ressourcen,
                 EndDate = date,
             };
             //Spalte mit alten Daten löschen

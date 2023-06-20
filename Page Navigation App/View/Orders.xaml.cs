@@ -54,7 +54,7 @@ namespace Page_Navigation_App.View
 
                 for (int i = 0; i < list.Count; i++)
                 {
-                    members.Add(new Db_Order { ID= list[i].ID, Description = list[i].Description, Ressources = list[i].Ressources, Customer = list[i].Customer, EndDate = list[i].EndDate });
+                    members.Add(new Db_Order { ID= list[i].ID, Description = list[i].Description, RessourcesID = list[i].RessourcesID, Customer = list[i].Customer, EndDate = list[i].EndDate });
                 }
            if (dbread)
             {
@@ -71,7 +71,7 @@ namespace Page_Navigation_App.View
             var (list,err) = RW_Order.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
             if (list.Count==1)
             {
-                Edit_Order editOrder = new Edit_Order(list[0].ID,list[0].Customer,list[0].Description,list[0].Ressources,list[0].EndDate);
+                Edit_Order editOrder = new Edit_Order(list[0].ID,list[0].Customer,list[0].Description,list[0].RessourcesID,list[0].EndDate);
                 editOrder.Owner = Application.Current.MainWindow;
                 editOrder.ShowDialog();
                 Load_Data(true);
@@ -125,7 +125,7 @@ namespace Page_Navigation_App.View
                             }
                             break;
                         case 2:
-                            if (x.Ressources.Contains(textBoxFilter.Text))
+                            if (x.RessourcesID.Contains(textBoxFilter.Text))
                             {
                                 tempMembers.Add(x);
                             }

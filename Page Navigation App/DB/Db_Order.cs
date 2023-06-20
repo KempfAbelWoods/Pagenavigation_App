@@ -11,14 +11,13 @@ public class Db_Order
     
         public string ID { get; set; }
         public string Description { get; set; }
-        public string Ressources { get; set; }
+        public string RessourcesID { get; set; }
         public string Customer { get; set; }
         public string EndDate { get; set; }
         //hier befinden sich nun die Order Details zur Berechnung verschiedenster Dinge
         //TODO einbinden der OrderValue in DB
         public float OrderValue { get; set; }
         // Todo Ressources tauschen durch das hier
-        public List<Db_Ressources> UsedRessources{ get; set; }
         public float ActualCosts { get; set; }
         //Todo DB_Tasks erstellen (Mitarbeiter verknüpfen und dann in Actual Costs mit reinrechnen)
         //public List<DB_Tasks> 
