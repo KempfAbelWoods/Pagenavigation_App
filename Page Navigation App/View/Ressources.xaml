@@ -103,8 +103,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <!-- TODO Edit und Delete Commands für jede Zeile https://dariosantarelli.wordpress.com/2010/11/07/wpf-binding-multiple-command-parameters-using-multibinding/-->
-                                    <Button x:Name="EditCustomer" Style="{StaticResource gridEditButton}"
+                                   <Button x:Name="EditCustomer" Style="{StaticResource gridEditButton}"
                                             Command="ApplicationCommands.New" CommandParameter="{Binding ID}">
                                         <Button.CommandBindings>
                                             <CommandBinding Command="ApplicationCommands.New" Executed="EditRessources" />

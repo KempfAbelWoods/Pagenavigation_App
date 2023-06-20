@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,7 +38,15 @@ public partial class Edit_Ressource : Window
     {
         string ID = ID_Field.Text;
         string name = Name_Field.Text;
-        float costs = float.Parse(Costs_Field.Text);
+        float costs = 0f;
+        try
+        {
+            costs = float.Parse(Costs_Field.Text,CultureInfo.InvariantCulture.NumberFormat);
+        }
+        catch (Exception exception)
+        {
+            MessageBox.Show(exception.Message);
+        }
         bool costtype;
         if (Costtype_Field.SelectedIndex == 1)
         { costtype = true; }
@@ -44,7 +54,7 @@ public partial class Edit_Ressource : Window
         { costtype = false; }
         string ressourcetype = Ressourcetype_Field.Text;
         string description = Description_Field.Text;
-        if (ID!="" && name!="" && name !="" && ressourcetype !="" && description!= "")
+        if (ID!="" && name!="" && name !="" && ressourcetype !="" && description!= "" && costs!=0)
         {
             var data = new Db_Ressources()
             {
@@ -118,7 +128,7 @@ public partial class Edit_Ressource : Window
     private void FloatValidationTextBox(object sender, TextCompositionEventArgs e)
     {
         // TODO irgendwie die scheiß validierung machen
-        Regex regex = new Regex(@"[-+]?[0-9]*\.?[0-9]+");
+        Regex regex = new Regex(@"^\d*\.?\d*$"); //^[-]?([1-9]{1}[0-9]{0,}(\.[0-9]{0,2})?|0(\.[0-9]{0,2})?|\.[0-9]{1,2})$
         e.Handled = !regex.IsMatch(e.Text);
     }
 }

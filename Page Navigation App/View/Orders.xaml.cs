@@ -26,7 +26,7 @@ namespace Page_Navigation_App.View
     /// <summary>
     /// Interaction logic for Orders.xaml
     /// </summary>
-
+    //TODo es soll umschaltbar zwischen Finished ORders und offenen Orders sein
     public partial class Orders : UserControl
     {
         ObservableCollection<Db_Order> members = new ObservableCollection<Db_Order>();
@@ -44,6 +44,7 @@ namespace Page_Navigation_App.View
         /// Lade Daten aus Datenbank in Tabelle
         /// </summary>
         /// <param name="dbread"></param>
+        /// Todo Ressourcen von Order mit DB_Ressources verknüpfen
         void Load_Data(bool dbread)
         { 
             var converter = new BrushConverter();

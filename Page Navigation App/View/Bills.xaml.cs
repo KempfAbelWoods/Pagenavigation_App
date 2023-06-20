@@ -72,8 +72,7 @@ namespace Page_Navigation_App.View
             }
             catch (Exception e)
             {
-                //TODO hier muss irgendwie noch die Exeption abgefange werden ohne das die ganze App abschmiert
-                MessageBox.Show(e.Message);
+               MessageBox.Show(e.Message);
             }
         }
 
