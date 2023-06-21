@@ -129,6 +129,8 @@
     <Resource Include="Images\play_store_512.ico" />
     <None Remove="Images\play_store_512.png" />
     <Resource Include="Images\play_store_512.png" />
+    <None Remove="Images\Users.png" />
+    <Resource Include="Images\Users.png" />
   </ItemGroup>
 
   <ItemGroup>

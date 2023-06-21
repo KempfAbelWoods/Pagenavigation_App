@@ -11,37 +11,48 @@ public partial class Log_in : Window
     public Log_in()
     {
         InitializeComponent();
+        Username_Field.Text = ActualUser.Username;
     }
     
 
     private void Login(object sender, ExecutedRoutedEventArgs e)
     {
-        string Password = Password_Field.Text;
         var (list,err) = Rw_Users.ReadwithUserName(Username_Field.Text, Paths.sqlite_path);
         if (err!=null)
         {
-            MessageBox.Show("Wrong Username or Password");
+            MessageBox.Show("User does not exist");
         }
         if (list.Count==1)
         {
-            if (StayLogged.IsChecked.Value)
+            if (Password_Field.Password == list[0].Password)
             {
-                var data = new Db_Settings
+                if (StayLogged.IsChecked != null && StayLogged.IsChecked.Value)
                 {
-                    ID = "4",
-                    Name = "LoggedUser",
-                    Ressource = list[0].Username,
-                    Comment = "Hier steht der aktuell angemeldete Benutzer, wenn niemand angemeldet ist ist das Feld leer"
+                    var data = new Db_Settings
+                    {
+                        ID = "4",
+                        Name = "LoggedUser",
+                        Ressource = list[0].Username,
+                        Comment = "Hier steht der aktuell angemeldete Benutzer, wenn niemand angemeldet ist ist das Feld leer"
 
-                };
-                var err1 = Rw_Settings.Write(new List<Db_Settings> { data }, Paths.sqlite_path);
-                if (err1 != null)
-                {
-                    MessageBox.Show(err.GetException().Message);
+                    };
+                    var err1 = Rw_Settings.Write(new List<Db_Settings> { data }, Paths.sqlite_path);
+                    if (err1 != null)
+                    {
+                        MessageBox.Show(err.GetException().Message);
+                    }
                 }
+                
+                
+                Set_Users newUser = new Set_Users();
+                newUser.Username = Username_Field.Text;
+                newUser.Password = Password_Field.Password;
+                this.Close();
             }
-            //Todo Globale Variablen mit Login
-
+            else
+            {
+                MessageBox.Show("Wrong Password");
+            }
         }
     }
 
@@ -52,7 +63,8 @@ public partial class Log_in : Window
 
     private void UIElement_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
     {
-        Edit_Users users = new Edit_Users();
+        //TODo Hier muss abgefragt werden ob der angemeldete Benutzer die Rechte hat neue Anzulegen
+        User_Control users = new User_Control();
         users.Owner = Application.Current.MainWindow;
         users.ShowDialog();
     }

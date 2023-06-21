@@ -1,14 +1,11 @@
-﻿<Window x:Class="Page_Navigation_App.Popups.Edit_Users"
+﻿<Window x:Class="Page_Navigation_App.Popups.Edit_User"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Page_Navigation_App.Popups"
         mc:Ignorable="d"
-        Title="Edit_Users" 
-        Height="450" 
-        Width="800"
-        Background="#3f4c61">
+        Title="Edit_User" Height="450" Width="800">
     <Grid>
         
     </Grid>
