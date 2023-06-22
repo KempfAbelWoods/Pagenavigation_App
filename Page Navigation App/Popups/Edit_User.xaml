@@ -27,6 +27,7 @@
                 <RowDefinition Height="0.16*"></RowDefinition>
                 <RowDefinition Height="0.48*"></RowDefinition>
                 <RowDefinition Height="0.16*"></RowDefinition>
+                <RowDefinition Height="0.1*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.05*"></ColumnDefinition>
@@ -75,12 +76,35 @@
                     <ColumnDefinition Width="0.1*"></ColumnDefinition>
                     <ColumnDefinition Width="0.9*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <CheckBox HorizontalAlignment="Left" VerticalAlignment="Center">
+                <!--checkboxes-->
+                <CheckBox x:Name="Readaccess" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <CheckBox.LayoutTransform>
                         <ScaleTransform ScaleX="1.7" ScaleY="1.7"></ScaleTransform>
                     </CheckBox.LayoutTransform>
                 </CheckBox>
+                <CheckBox x:Name="Writeaccess" Grid.Row ="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="1.7" ScaleY="1.7"></ScaleTransform>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="Fullaccess" Grid.Row ="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="1.7" ScaleY="1.7"></ScaleTransform>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <!--Labels-->
+                <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                           FontSize="18" Foreground="White">Read Only Permission</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                           FontSize="18" Foreground="White">Write Permission</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                           FontSize="18" Foreground="White">Full Acess</TextBlock>
+                
             </Grid>
+            <PasswordBox Grid.Column="2" Grid.Row="5" Height="30" x:Name="Password_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" ></PasswordBox>
+            <TextBlock Grid.Column="2" Grid.Row="6" PreviewMouseUp="Hide_Password" PreviewMouseDown="Show_Password" VerticalAlignment="Center" HorizontalAlignment="Right" FontStyle="Oblique" TextDecorations="Underline" Foreground="DodgerBlue" Text="Passwort anzeigen"></TextBlock>
+
+            
             
         </Grid>
         
