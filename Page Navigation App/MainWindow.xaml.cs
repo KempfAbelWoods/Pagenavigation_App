@@ -30,27 +30,21 @@ namespace Page_Navigation_App
         public MainWindow()
         {
             InitializeComponent();
-            if (ActualUser.Username != "")
-            {
-                Username_Field.Text = ActualUser.Username;
-            }
         }
+        
         private void Log_in(object sender, RoutedEventArgs e)
         {
             Log_in login = new Log_in();
             login.Owner = Application.Current.MainWindow;
             login.ShowDialog();
         }
-
-        public static void getuser()
+        
+        private void MainWindow_OnActivated(object sender, EventArgs e)
         {
-            if (ActualUser.Username != "")
+            if (ActualUser.Username !="")
             {
-                //Username_Field.Text = ActualUser.Username;
-                //Todo noch irgendwie schauen das man den Username bei einem Change aktualisiert.
-                //NotifyPropertyChanged https://www.appsloveworld.com/csharp/100/1187/refresh-textbox-when-variable-changes
+                Username_Field.Text = ActualUser.Username; 
             }
         }
-
     }
 }

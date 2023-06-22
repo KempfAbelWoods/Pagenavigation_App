@@ -9,8 +9,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prop="clr-namespace:Page_Navigation_App.Configs"
         xmlns:vm="clr-namespace:Page_Navigation_App.ViewModel"
         xmlns:Menu="clr-namespace:Page_Navigation_App.Utilities"
+        Activated="MainWindow_OnActivated"
         mc:Ignorable="d"
         Icon="Images/1024.ico"
         Title="Timetracking for small Business"
@@ -59,7 +61,8 @@
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Image Grid.Row="1" Grid.Column="1" Source="Images/Users.png" PreviewMouseDown="Log_in"></Image>
-                    <TextBlock x:Name="Username_Field" Grid.Column="2" Grid.Row="1" Foreground="WhiteSmoke" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left" Text="user_not_asigned"></TextBlock>
+                    <TextBlock x:Name="Username_Field" Grid.Column="2" Grid.Row="1" Foreground="WhiteSmoke" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left" Text="no_User_set">
+                    </TextBlock>
                 </Grid>
                 
                 <Border Grid.Row="1" Background="#272B2F"/>

@@ -50,11 +50,8 @@ namespace Page_Navigation_App
                 }
                 else if (list.Count == 1)
                 {
-                    Set_Users newUser = new Set_Users();
-                    newUser.Username = list[0].Username;
-                    newUser.Password = list[0].Password;
-                   // ActualUser.Username = list[0].Username;
-                   // ActualUser.Password = list[0].Password;
+                    ActualUser.Username = list[0].Username;
+                    ActualUser.Password = list[0].Password;
                 }
 
             }

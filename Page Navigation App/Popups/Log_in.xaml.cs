@@ -43,10 +43,8 @@ public partial class Log_in : Window
                     }
                 }
                 
-                
-                Set_Users newUser = new Set_Users();
-                newUser.Username = Username_Field.Text;
-                newUser.Password = Password_Field.Password;
+                ActualUser.Username = Username_Field.Text;
+               ActualUser.Password = Password_Field.Password;
                 this.Close();
             }
             else
