@@ -92,7 +92,6 @@ public partial class Edit_User : Window
         {
             rights = rights + "," + "writeaccess";
         }
-
         if (Fullaccess.IsChecked != null && Fullaccess.IsChecked.Value)
         {
             rights = rights + "," + "fullaccess";
@@ -109,7 +108,7 @@ public partial class Edit_User : Window
         string Role = Role_Field.Text;
         string Rights = Rightstring();
         string Password = Password_Field.Password;
-        if (ID!="" && name!="" && Username !="" && Role !="" && Rights!= "" && Password!= "")
+        if (ID!="" && name!="" && Username !="" && Role !="" && Rights!= "" && Password!= "" && Rights!= null)
         {
             var data = new Db_Users
             {
@@ -139,6 +138,10 @@ public partial class Edit_User : Window
             }
 
             this.Close();
+        }
+        else if (Rights == null)
+        {
+            MessageBox.Show("Every User need to have Only Read Access at least!");
         }
         else
         {
