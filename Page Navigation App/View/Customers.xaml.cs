@@ -53,25 +53,29 @@ namespace Page_Navigation_App.View
         
         void EditCustomer(object sender, ExecutedRoutedEventArgs e)
         {
-
-            var (list,err) = RW_Customer.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
-            if (list.Count==1)
+            if (Userhandling.GrantPermission(1, true))
             {
-                Edit_Customer editCustomer = new Edit_Customer(list[0].ID,list[0].Name,list[0].Adress,list[0].Mail,list[0].Phone);
-                editCustomer.Owner = Application.Current.MainWindow;
-                editCustomer.ShowDialog();
-                Load_Data(true);
+                var (list, err) = RW_Customer.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
+                if (list.Count == 1)
+                {
+                    Edit_Customer editCustomer = new Edit_Customer(list[0].ID, list[0].Name, list[0].Adress,
+                        list[0].Mail, list[0].Phone);
+                    editCustomer.Owner = Application.Current.MainWindow;
+                    editCustomer.ShowDialog();
+                    Load_Data(true);
+                }
             }
         }
         
         void AddCustomer(object sender, RoutedEventArgs e)
         {
-            
-            Edit_Customer editCustomer = new Edit_Customer("","Max Mustermann","adress","max.mustermann@online.de","Phone Number");
-            editCustomer.Owner = Application.Current.MainWindow;
-            editCustomer.ShowDialog();
-            Load_Data(true);
-
+            if (Userhandling.GrantPermission(1,true))
+            {
+              Edit_Customer editCustomer = new Edit_Customer("","Max Mustermann","adress","max.mustermann@online.de","Phone Number");
+                          editCustomer.Owner = Application.Current.MainWindow;
+                          editCustomer.ShowDialog();
+                          Load_Data(true);  
+            }
         }
         
         void DeleteCustomer(object sender, ExecutedRoutedEventArgs e)

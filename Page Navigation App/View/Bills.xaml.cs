@@ -28,13 +28,13 @@ namespace Page_Navigation_App.View
     /// </summary>
     public partial class Bills : UserControl
     {
-        private string SourcePath ="";
+        private string SourcePath = "";
+
         public Bills()
         {
-            
             InitializeComponent();
-            var (data,err) = Rw_Settings.ReadwithID("1",Paths.sqlite_path);
-            if (err!=null)
+            var (data, err) = Rw_Settings.ReadwithID("1", Paths.sqlite_path);
+            if (err != null)
             {
                 MessageBox.Show(err.GetException().Message);
             }
@@ -51,7 +51,6 @@ namespace Page_Navigation_App.View
             {
                 MessageBox.Show("Somehow there exist 2 or more elements in the Database, pls call the support.");
             }
-
         }
 
         public void GetBills(string source)
@@ -61,18 +60,23 @@ namespace Page_Navigation_App.View
                 DirectoryInfo directoryInfo = new DirectoryInfo(source);
                 FileInfo[] files = directoryInfo.GetFiles("*.pdf");
                 ObservableCollection<Sources> Filesource = new ObservableCollection<Sources>();
-                if (files.Length!=0)
+                if (files.Length != 0)
                 {
                     foreach (var file in files)
                     {
-                        Filesource.Add(new Sources{Adress = file.FullName, Name = file.Name, Größe = file.Length.ToString(), Änderungsdatum = file.LastWriteTime.ToString()});
+                        Filesource.Add(new Sources
+                        {
+                            Adress = file.FullName, Name = file.Name, Größe = file.Length.ToString(),
+                            Änderungsdatum = file.LastWriteTime.ToString()
+                        });
                     }
                 }
+
                 PdfDataGrid.ItemsSource = Filesource;
             }
             catch (Exception e)
             {
-               MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -85,12 +89,15 @@ namespace Page_Navigation_App.View
 
         private void DeleteFile(object sender, ExecutedRoutedEventArgs e)
         {
-            Delete_Pdf showBill = new Delete_Pdf(e.Parameter.ToString());
-            showBill.Owner = Application.Current.MainWindow;
-            showBill.ShowDialog();
-            GetBills(SourcePath);
+            if (Userhandling.GrantPermission(1, true))
+            {
+                Delete_Pdf showBill = new Delete_Pdf(e.Parameter.ToString());
+                showBill.Owner = Application.Current.MainWindow;
+                showBill.ShowDialog();
+                GetBills(SourcePath);
+            }
         }
-        
+
         public class Sources
         {
             public string Adress { get; set; }

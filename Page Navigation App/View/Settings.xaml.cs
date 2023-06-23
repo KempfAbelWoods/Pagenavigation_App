@@ -103,48 +103,52 @@ namespace Page_Navigation_App.View
 
         private void Set_BillPath(object sender, RoutedEventArgs e)
         {
-            string Path ="";
-            string correctedPath = "";
-            var ookiiDialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog( );
-            if (ookiiDialog.ShowDialog() == true)
+            if (Userhandling.GrantPermission(1, true))
             {
-                Path = ookiiDialog.SelectedPath;
-                //Spalte mit alten Daten löschen
-                var (list, err1) = Rw_Settings.ReadwithID("1", Paths.sqlite_path);
-                if (err1 != null)
+                string Path = "";
+                string correctedPath = "";
+                var ookiiDialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
+                if (ookiiDialog.ShowDialog() == true)
                 {
-                    MessageBox.Show(err1.GetException().Message);
-                }
+                    Path = ookiiDialog.SelectedPath;
+                    //Spalte mit alten Daten löschen
+                    var (list, err1) = Rw_Settings.ReadwithID("1", Paths.sqlite_path);
+                    if (err1 != null)
+                    {
+                        MessageBox.Show(err1.GetException().Message);
+                    }
 
-                var error = Rw_Settings.Delete(list, Paths.sqlite_path);
-                if (error != null)
-                {
-                    MessageBox.Show(error.GetException().Message);
-                }
+                    var error = Rw_Settings.Delete(list, Paths.sqlite_path);
+                    if (error != null)
+                    {
+                        MessageBox.Show(error.GetException().Message);
+                    }
 
-                //Spalte mit neuen Daten speichern
-                var data = new Db_Settings
-                {
-                    ID = "1",
-                    Name = "Billpath",
-                    Ressource = Path,
-                    Comment = "Pfad zum Ablegen der Rechnungspdfs"
+                    //Spalte mit neuen Daten speichern
+                    var data = new Db_Settings
+                    {
+                        ID = "1",
+                        Name = "Billpath",
+                        Ressource = Path,
+                        Comment = "Pfad zum Ablegen der Rechnungspdfs"
 
-                };
-                var err = Rw_Settings.Write(new List<Db_Settings> { data }, Paths.sqlite_path);
-                if (err != null)
-                {
-                    MessageBox.Show(err.GetException().Message);
-                }
-                else
-                {
-                    PDFPaths.Text = Path;
+                    };
+                    var err = Rw_Settings.Write(new List<Db_Settings> { data }, Paths.sqlite_path);
+                    if (err != null)
+                    {
+                        MessageBox.Show(err.GetException().Message);
+                    }
+                    else
+                    {
+                        PDFPaths.Text = Path;
+                    }
                 }
             }
         }
 
         private void Set_Password(object sender, RoutedEventArgs e)
         {
+            //TODO wird rausgeschmissen später
             string SetPassword = SocketPassword.Text;
             //Spalte mit alten Daten löschen
             var (list, err1) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
@@ -179,52 +183,63 @@ namespace Page_Navigation_App.View
 
         private void Set_SocketIp(object sender, RoutedEventArgs e)
         {
-            string SetIpAddress = SocketIpAddress.Text;
-            //Spalte mit alten Daten löschen
-            var (list, err1) = Rw_Settings.ReadwithID("3", Paths.sqlite_path);
-            if (err1 != null)
+            if (Userhandling.GrantPermission(2, true))
             {
-                MessageBox.Show(err1.GetException().Message);
-            }
-            var error = Rw_Settings.Delete(list,Paths.sqlite_path);
-            if (error != null)
-            {
-                MessageBox.Show(error.GetException().Message);
-            }
-            //Spalte mit neuen Daten speichern
-            var data = new Db_Settings
-            {
-                ID = "3",
-                Name = "Socket IP",
-                Ressource = SetIpAddress,
-                Comment = "IP der Socket Verbindung"
+                string SetIpAddress = SocketIpAddress.Text;
+                //Spalte mit alten Daten löschen
+                var (list, err1) = Rw_Settings.ReadwithID("3", Paths.sqlite_path);
+                if (err1 != null)
+                {
+                    MessageBox.Show(err1.GetException().Message);
+                }
 
-            };
-            var err = Rw_Settings.Write(new List<Db_Settings>{data},Paths.sqlite_path);
-            if (err!=null)
-            {
-                MessageBox.Show(err.GetException().Message);
-            }
-            else
-            {
-                SocketIpAddress.Text = SetIpAddress;
+                var error = Rw_Settings.Delete(list, Paths.sqlite_path);
+                if (error != null)
+                {
+                    MessageBox.Show(error.GetException().Message);
+                }
+
+                //Spalte mit neuen Daten speichern
+                var data = new Db_Settings
+                {
+                    ID = "3",
+                    Name = "Socket IP",
+                    Ressource = SetIpAddress,
+                    Comment = "IP der Socket Verbindung"
+
+                };
+                var err = Rw_Settings.Write(new List<Db_Settings> { data }, Paths.sqlite_path);
+                if (err != null)
+                {
+                    MessageBox.Show(err.GetException().Message);
+                }
+                else
+                {
+                    SocketIpAddress.Text = SetIpAddress;
+                }
             }
         }
 
         private void Start_Server(object sender, RoutedEventArgs e)
         {
-            Server.SocketServer();
+            if (Userhandling.GrantPermission(2, true))
+            {
+                Server.SocketServer();
+            }
         }
 
         private void Start_create_PDF(object sender, RoutedEventArgs e)
         {
-            try
+            if (Userhandling.GrantPermission(1, true))
             {
-                new PDF_Generator().PDF_Generate();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
+                try
+                {
+                    new PDF_Generator().PDF_Generate();
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
             }
         }
     }

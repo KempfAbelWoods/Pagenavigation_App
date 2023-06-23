@@ -67,35 +67,41 @@ namespace Page_Navigation_App.View
         
         void EditRessources(object sender, ExecutedRoutedEventArgs e)
         {
-
-            var (list,err) = Rw_Ressources.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
-            if (list.Count==1)
+            if (Userhandling.GrantPermission(1, true))
             {
-                Edit_Ressource editRessources = new Edit_Ressource(list[0].ID,list[0].Description,list[0].Name,list[0].Ressourcetype,list[0].Costs,list[0].Costtype);
+                var (list, err) = Rw_Ressources.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
+                if (list.Count == 1)
+                {
+                    Edit_Ressource editRessources = new Edit_Ressource(list[0].ID, list[0].Description, list[0].Name,
+                        list[0].Ressourcetype, list[0].Costs, list[0].Costtype);
+                    editRessources.Owner = Application.Current.MainWindow;
+                    editRessources.ShowDialog();
+                    Load_Data(true);
+                }
+            }
+        }
+        
+        void AddRessources(object sender, RoutedEventArgs e)
+        {
+            if (Userhandling.GrantPermission(1, true))
+            {
+                Edit_Ressource editRessources = new Edit_Ressource("", "Description", "Name", "Machine", 0, true);
                 editRessources.Owner = Application.Current.MainWindow;
                 editRessources.ShowDialog();
                 Load_Data(true);
             }
         }
         
-        void AddRessources(object sender, RoutedEventArgs e)
-        {
-            
-            Edit_Ressource editRessources = new Edit_Ressource("","Description","Name","Machine",0, true);
-            editRessources.Owner = Application.Current.MainWindow;
-            editRessources.ShowDialog();
-            Load_Data(true);
-
-        }
-        
         void DeleteRessources(object sender, ExecutedRoutedEventArgs e)
         {
-            //hier auch noch Kundennamen mitgeben
-            Delete_Ressource deleteRessources = new Delete_Ressource(e.Parameter.ToString());
-            deleteRessources.Owner = Application.Current.MainWindow;
-            deleteRessources.ShowDialog();
-            Load_Data(true);
-
+            if (Userhandling.GrantPermission(1, true))
+            {
+                //hier auch noch Kundennamen mitgeben
+                Delete_Ressource deleteRessources = new Delete_Ressource(e.Parameter.ToString());
+                deleteRessources.Owner = Application.Current.MainWindow;
+                deleteRessources.ShowDialog();
+                Load_Data(true);
+            }
         }
 
         private void TextBoxFilter_OnTextChanged(object sender, TextChangedEventArgs e)
