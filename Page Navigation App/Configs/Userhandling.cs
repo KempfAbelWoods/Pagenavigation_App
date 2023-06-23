@@ -31,7 +31,10 @@ public static class Userhandling
         }
         if (data.Count == 1)
         {
-            string[] permissions = data[0].Rights.Split(",");
+            if (data[0].Rights !=null && data[0].Rights !="")
+            {
+                string[] permissions = data[0].Rights.Split(",");
+            
             foreach (var permission in permissions)
             {
                 switch (neededrights)
@@ -55,6 +58,7 @@ public static class Userhandling
                         }
                         break;
                 }
+            }
             }
 
             if (enablemessage)
