@@ -13,16 +13,21 @@ public partial class Log_in : Window
         InitializeComponent();
         Username_Field.Text = ActualUser.Username;
     }
-    
+
 
     private void Login(object sender, ExecutedRoutedEventArgs e)
     {
-        var (list,err) = Rw_Users.ReadwithUserName(Username_Field.Text, Paths.sqlite_path);
-        if (err!=null)
+        var (list, err) = Rw_Users.ReadwithUserName(Username_Field.Text, Paths.sqlite_path);
+        if (err != null)
+        {
+            MessageBox.Show(err.GetException().Message);
+        }
+        else if (list.Count == 0)
         {
             MessageBox.Show("User does not exist");
         }
-        if (list.Count==1)
+
+        if (list.Count == 1)
         {
             if (Password_Field.Password == list[0].Password)
             {
@@ -33,18 +38,33 @@ public partial class Log_in : Window
                         ID = "4",
                         Name = "LoggedUser",
                         Ressource = list[0].Username,
-                        Comment = "Hier steht der aktuell angemeldete Benutzer, wenn niemand angemeldet ist ist das Feld leer"
-
+                        Comment =
+                            "Hier steht der aktuell angemeldete Benutzer, wenn niemand angemeldet ist ist das Feld leer"
                     };
+                    //alte Zeile löschen
+                    var (Row, err2) = Rw_Settings.ReadwithID("4", Paths.sqlite_path);
+                    if (err2 != null)
+                    {
+                        MessageBox.Show(err2.GetException().Message);
+                    }
+                    if (Row.Count == 1)
+                    {
+                        var error = Rw_Settings.Delete(Row, Paths.sqlite_path);
+                        if (error != null)
+                        {
+                            MessageBox.Show(error.GetException().Message);
+                        }
+                    }
+                    //neue Zeile einfügen
                     var err1 = Rw_Settings.Write(new List<Db_Settings> { data }, Paths.sqlite_path);
                     if (err1 != null)
                     {
                         MessageBox.Show(err.GetException().Message);
                     }
                 }
-                
+
                 ActualUser.Username = Username_Field.Text;
-               ActualUser.Password = Password_Field.Password;
+                ActualUser.Password = Password_Field.Password;
                 this.Close();
             }
             else

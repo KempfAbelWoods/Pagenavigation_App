@@ -115,8 +115,8 @@ public partial class Edit_User : Window
             {
                 ID = ID,
                 Name = name,
-                Username = Role,
-                Role = Username,
+                Username = Username,
+                Role = Role,
                 Rights = Rights,
                 Password = Password,
             };

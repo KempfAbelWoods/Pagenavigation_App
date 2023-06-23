@@ -58,7 +58,7 @@ public partial class User_Control : Window
         void AddUser(object sender, RoutedEventArgs e)
         {
             
-            Edit_User editUser = new Edit_User("","Max Mustermann","mmustermann","Administrator","readonly","ABCqwerl144");
+            Edit_User editUser = new Edit_User("","Max Mustermann","mmustermann","Administrator","readonly","");
             editUser.Owner = Application.Current.MainWindow;
             editUser.ShowDialog();
             Load_Data(true);
