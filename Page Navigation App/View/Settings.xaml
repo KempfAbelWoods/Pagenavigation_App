@@ -51,14 +51,16 @@
                 <RowDefinition Height="0.25*"/>
                 <RowDefinition Height="0.25*"/>
                 <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
             </Grid.RowDefinitions>
             <Button Grid.Row="0" Click="Create_Table_Settings" Background="Green" Height="20" Width="200">Settings löschen / einfügen</Button>
             <Button Grid.Row="1" Click="Create_Table_Customer" Background="Blue" Height="20" Width="200">Customer löschen / einfügen</Button>
             <Button Grid.Row="2" Click="Create_Table_Order" Background="red" Height="20" Width="200">Order löschen / einfügen</Button>
             <Button Grid.Row="3" Click="Create_Table_Ressource" Background="Yellow" Height="20" Width="200">Ressource löschen / einfügen</Button>
             <Button Grid.Row="4" Click="Create_Table_Users" Background="Orange" Height="20" Width="200">Benutzer löschen / einfügen</Button>
-            <Button Grid.Row="5" Click="Start_Server" Background="red" Height="20" Width="200">Server</Button>
-            <Button Grid.Row="6" Click="Start_create_PDF" Background="DeepPink" Height="20" Width="200">PDF_erstellen</Button>
+            <Button Grid.Row="5" Click="Create_Table_Tasks" Background="Blue" Height="20" Width="200">Task löschen / einfügen</Button>
+            <Button Grid.Row="6" Click="Start_Server" Background="red" Height="20" Width="200">Server</Button>
+            <Button Grid.Row="7" Click="Start_create_PDF" Background="DeepPink" Height="20" Width="200">PDF_erstellen</Button>
         </Grid>
         
     </Grid>

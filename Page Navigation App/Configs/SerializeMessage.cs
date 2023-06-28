@@ -5,7 +5,6 @@ using Page_Navigation_App.DB;
 using Page_Navigation_App.Helper;
 
 namespace Page_Navigation_App.Configs;
-
 public class SerializeMessage
 {
     public List<Db_Tasks> Tasks { get; set; }
