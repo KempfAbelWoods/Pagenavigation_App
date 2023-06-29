@@ -41,13 +41,13 @@ public class Server
             listener.Start();
 
             // Warte auf eine eingehende Verbindung
-            TcpClient client = listener.AcceptTcpClient();
+            TcpClient client = await listener.AcceptTcpClientAsync();
 
             // Erstelle ein NetworkStream-Objekt für die Kommunikation
             NetworkStream networkStream = client.GetStream();
 
             // Lese die Daten vom Client
-            int passwordRead = networkStream.Read(buffer, 0, buffer.Length);
+            int passwordRead = await networkStream.ReadAsync(buffer, 0, buffer.Length);
             string dataReceived = Encoding.ASCII.GetString(buffer, 0, passwordRead);
             
             //Passwort auslesen
@@ -76,7 +76,7 @@ public class Server
                 ConnectionHelper.SendMessage(response);
                 
                 byte[] responseData = Encoding.ASCII.GetBytes(response);
-                networkStream.Write(responseData, 0, responseData.Length);
+                await networkStream.WriteAsync(responseData, 0, responseData.Length);
 
                 // Schließe die Verbindung
                 client.Close();
