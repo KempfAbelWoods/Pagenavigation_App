@@ -51,7 +51,7 @@ namespace Page_Navigation_App.ViewModel
         {
             if (Userhandling.GrantPermission(0, true))
             {
-                CurrentView = new ProductVM();
+                CurrentView = new TasksVM();
             }
         }
 

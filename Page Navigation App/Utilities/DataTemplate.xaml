@@ -11,8 +11,8 @@
         <view:Customers />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:ProductVM}">
-        <view:Reserve />
+    <DataTemplate DataType="{x:Type vm:TasksVM}">
+        <view:Tasks />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:OrderVM}">

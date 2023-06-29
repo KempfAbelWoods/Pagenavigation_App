@@ -254,9 +254,7 @@ D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\P
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Page Navigation App.genruntimeconfig.cache
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\ref\Page Navigation App.dll
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.g.cs
-D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.g.cs
 D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.baml
-D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.g.cs
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Reserve.g.cs
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Bills.baml
@@ -650,3 +648,9 @@ C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Nav
 C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_User.baml
 C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Log_in.baml
 C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\User_Control.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Tasks.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Tasks.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Tasks.g.cs
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Delete_Tasks.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Edit_Tasks.baml
+D:\Codedateien\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\View\Tasks.baml

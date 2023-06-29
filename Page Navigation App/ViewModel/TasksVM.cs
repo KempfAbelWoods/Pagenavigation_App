@@ -7,7 +7,7 @@ using Page_Navigation_App.Model;
 
 namespace Page_Navigation_App.ViewModel
 {
-    class ProductVM : Utilities.ViewModelBase
+    class TasksVM : Utilities.ViewModelBase
     {
         private readonly PageModel _pageModel;
         public string ProductAvailability
@@ -16,7 +16,7 @@ namespace Page_Navigation_App.ViewModel
             set { _pageModel.ProductStatus = value; OnPropertyChanged(); }
         }
 
-        public ProductVM()
+        public TasksVM()
         {
             _pageModel = new PageModel();
             ProductAvailability = "Out of Stock";
