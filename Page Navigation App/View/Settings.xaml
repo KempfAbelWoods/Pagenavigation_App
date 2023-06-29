@@ -25,6 +25,7 @@
                 <RowDefinition Height="0.33*"/>
                 <RowDefinition Height="0.33*"/>
                 <RowDefinition Height="0.33*"/>
+                <RowDefinition Height="0.33*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.05*"></ColumnDefinition>
@@ -40,6 +41,8 @@
             <TextBox  Grid.Row="1" Grid.Column="3" Height="30" Background="DarkGray" Name="SocketPassword" VerticalAlignment="Center" FontSize="18"></TextBox>
             <Button  Grid.Row="2" Grid.Column="1" Height="30" Click="Set_SocketIp" FontSize="18">Set Socket IP</Button>
             <TextBox Grid.Row="2" Grid.Column="3" Height="30" Background="DarkGray" Name="SocketIpAddress" VerticalAlignment="Center" FontSize="18"></TextBox>
+            <Button  Grid.Row="3" Grid.Column="1" Height="30" Click="Get_Code" FontSize="18">Get Random Code</Button>
+            <TextBox Grid.Row="3" Grid.Column="3" Height="30" Background="DarkGray" Name="Code" VerticalAlignment="Center" FontSize="18"></TextBox>
         </Grid>
         
         <Grid Grid.Row="1">

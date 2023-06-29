@@ -51,6 +51,7 @@ public class Server
             string dataReceived = Encoding.ASCII.GetString(buffer, 0, passwordRead);
             
             //Passwort auslesen
+            //TODO hier nicht Passwort von Settings lesen sondern in der DB nach User suchen und dem sein PW abfragen!!!!
             var (list1, err2) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
             if (list1.Count == 1)
             {
@@ -67,12 +68,12 @@ public class Server
 
                 // Sende eine Antwort an den Client
                 
-                var (response, err) =  SerializeMessage.SendMessage(Paths.sqlite_path);
+                var (response, err) =  ConnectionHelper.SendMessage(Paths.sqlite_path);
                 if (err != null)
                 {
                     MessageBox.Show(err.GetException().Message);
                 }
-                SerializeMessage.SendMessage(response);
+                ConnectionHelper.SendMessage(response);
                 
                 byte[] responseData = Encoding.ASCII.GetBytes(response);
                 networkStream.Write(responseData, 0, responseData.Length);

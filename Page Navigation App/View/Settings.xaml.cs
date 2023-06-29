@@ -251,5 +251,15 @@ namespace Page_Navigation_App.View
                 }
             }
         }
+
+        private void Get_Code(object sender, RoutedEventArgs e)
+        {
+            var (code, err) = ConnectionHelper.RandomString(8);
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+            Code.Text = code;
+        }
     }
 }
