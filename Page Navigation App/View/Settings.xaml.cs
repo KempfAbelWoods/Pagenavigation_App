@@ -260,6 +260,7 @@ namespace Page_Navigation_App.View
                 MessageBox.Show(err.GetException().Message);
             }
             Code.Text = code;
+            Paths.ConnectionCode = code;
         }
     }
 }
