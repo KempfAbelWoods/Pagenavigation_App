@@ -5,8 +5,82 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Page_Navigation_App.Popups"
         mc:Ignorable="d"
-        Title="Edit_Tasks" Height="450" Width="800">
+        Title="Edit_Tasks" 
+        Height="600" 
+        Width="500"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        Background="#3f4c61"
+        ResizeMode="NoResize">
     <Grid>
+            <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
         
+        <!-- Popup Inhalt-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.16*"></RowDefinition>
+                <RowDefinition Height="0.16*"></RowDefinition>
+                <RowDefinition Height="0.16*"></RowDefinition>
+                <RowDefinition Height="0.16*"></RowDefinition>
+                <RowDefinition Height="0.16*"></RowDefinition>
+                <RowDefinition Height="0.16*"></RowDefinition>
+                <RowDefinition Height="0.4*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                <ColumnDefinition Width="0.05*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+             <!-- Labels -->
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                       FontSize="18" Foreground="White" >ID:</TextBlock>
+             <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                        FontSize="18" Foreground="White">Order:</TextBlock>
+             <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                        FontSize="18" Foreground="White">Username:</TextBlock>
+             <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                        FontSize="18" Foreground="White">Estimated Hours:</TextBlock>
+             <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                        FontSize="18" Foreground="White">Actual Hours:</TextBlock>
+             <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                        FontSize="18" Foreground="White">Costs:</TextBlock>
+             <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                        FontSize="18" Foreground="White">Description:</TextBlock>
+            
+             <!-- Input Fields -->
+             <TextBox  PreviewTextInput="NumberValidationTextBox" Grid.Column="2" Height="30" x:Name="ID_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" TextChanged="ID_Field_OnTextChanged"></TextBox>
+             <ComboBox Grid.Column="2" Grid.Row="1" Height="30" x:Name="Order_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" ></ComboBox>
+             <ComboBox Grid.Column="2" Grid.Row="2" Height="30" x:Name="User_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" ></ComboBox>
+             <TextBox  PreviewTextInput="FloatValidationTextBox" Grid.Column="2" Grid.Row="3" Height="30" x:Name="Estimate_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
+             <TextBox  IsReadOnly="True" PreviewTextInput="FloatValidationTextBox" Grid.Column="2" Grid.Row="4" Height="30" x:Name="Actual_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
+             <TextBox  PreviewTextInput="FloatValidationTextBox" Grid.Column="2" Grid.Row="5" Height="30" x:Name="Costs_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
+
+             <TextBox Grid.Column="2" Grid.Row="6" Height="120" x:Name="Description_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
+
+        </Grid>
+        
+        <!-- Fußzeile mit Save und Cancel-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button  x:Name="Save" Grid.Row="1" Command="ApplicationCommands.Close" Grid.Column="0" Content="Save" Style="{StaticResource PopupButton}" HorizontalAlignment="Center">
+                <Button.CommandBindings>
+                    <CommandBinding Command="ApplicationCommands.Close" Executed="Save_and_Close_Window"/>
+                </Button.CommandBindings>
+            </Button>
+        
+            <Button x:Name="Close" Grid.Row="1" Command="ApplicationCommands.Close" Grid.Column="1" Content="Cancel" Style="{StaticResource PopupButton}" HorizontalAlignment="Center">
+                <Button.CommandBindings>
+                    <CommandBinding Command="ApplicationCommands.Close" Executed="Close_Window"/>
+                </Button.CommandBindings>
+            </Button>
+        </Grid>
+
     </Grid>
 </Window>
