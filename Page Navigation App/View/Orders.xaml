@@ -63,7 +63,6 @@
                     <ComboBoxItem Content="ID" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
                     <ComboBoxItem IsSelected="True" Content="Auftragsbeschr" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
                     <ComboBoxItem Content="Ressourcen" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
-                    <ComboBoxItem Content="End Date" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
                     <ComboBoxItem Content="Customer" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
                 </ComboBox>
                 

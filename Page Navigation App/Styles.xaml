@@ -195,7 +195,7 @@
            TargetType="TextBlock"
            BasedOn="{StaticResource C104Style}">
         <Setter Property="Text"
-                Value="87.2k" />
+                Value="{Binding BillValue, Source={StaticResource Dashboardstyle}}" />
     </Style>
 
     <Style x:Key="C204Style_Desktop"
@@ -209,7 +209,7 @@
         <Setter Property="FontSize"
                 Value="28" />
         <Setter Property="Text"
-                Value="87.2k" />
+                Value="{Binding BillValue, Source={StaticResource Dashboardstyle}}" />
         <Setter Property="FontFamily"
                 Value="Fonts/#Saira Regular" />
         <Setter Property="Margin"
@@ -275,7 +275,7 @@
            TargetType="TextBlock"
            BasedOn="{StaticResource C104Style}">
         <Setter Property="Text"
-                Value="12.6k" />
+                Value="{Binding OpenTasks, Source={StaticResource Dashboardstyle}}" />
     </Style>
 
     <Style x:Key="Card304Style"
@@ -303,7 +303,7 @@
         <Setter Property="FontSize"
                 Value="28" />
         <Setter Property="Text"
-                Value="12.6k" />
+                Value="{Binding OpenTasks, Source={StaticResource Dashboardstyle}}" />
         <Setter Property="FontFamily"
                 Value="Fonts/#Saira Regular" />
         <Setter Property="Margin"
@@ -362,7 +362,7 @@
            TargetType="TextBlock"
            BasedOn="{StaticResource C104Style}">
         <Setter Property="Text"
-                Value="92.8k" />
+                Value="{Binding Customernumber, Source={StaticResource Dashboardstyle}}" />
     </Style>
 
     <Style x:Key="Card404Style"
@@ -390,7 +390,7 @@
         <Setter Property="FontSize"
                 Value="28" />
         <Setter Property="Text"
-                Value="92.8k" />
+                Value="{Binding Customernumber, Source={StaticResource Dashboardstyle}}" />
         <Setter Property="FontFamily"
                 Value="Fonts/#Saira Regular" />
         <Setter Property="Margin"
@@ -561,7 +561,7 @@
         <Setter Property="TextWrapping"
                 Value="Wrap" />
         <Setter Property="Text"
-                Value="Satz" />
+                Value="{Binding ReadyBills, Source={StaticResource Dashboardstyle}}" />
         <Setter Property="Margin"
                 Value="20,0,0,0" />
     </Style>
@@ -578,7 +578,7 @@
         <Setter Property="TextWrapping"
                 Value="Wrap" />
         <Setter Property="Text"
-                Value="Satz" />
+                Value="{Binding ReadyBills, Source={StaticResource Dashboardstyle}}" />
         <Setter Property="Margin"
                 Value="40,0,100,0" />
 
@@ -598,7 +598,7 @@
         <Setter Property="TextAlignment"
                 Value="Center" />
         <Setter Property="Text"
-                Value="Satz" />
+                Value="{Binding ReadyBills, Source={StaticResource Dashboardstyle}}" />
         <Setter Property="Margin"
                 Value="10,5,10,15" />
 
