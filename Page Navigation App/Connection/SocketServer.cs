@@ -53,7 +53,29 @@ public class Server
         string dataReceived = Encoding.ASCII.GetString(buffer, 0, ReadReceived);
         //Empfangene Daten auswerten
         //TODO hier nicht Passwort von Settings lesen sondern in der DB nach User suchen und dem sein PW abfragen!!!!
-        if (dataReceived != "")
+        if (dataReceived == Paths.ConnectionCode)
+        {
+            // Sende Users und Tasks an den Client
+
+            var (response, err) = ConnectionHelper.SendMessage(Paths.sqlite_path);
+            if (err != null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+
+            ConnectionHelper.SendMessage(response);
+
+            byte[] responseData = Encoding.ASCII.GetBytes(response);
+            await networkStream.WriteAsync(responseData, 0, responseData.Length);
+
+            // Schließe die Verbindung
+            client.Close();
+            listener.Stop();
+
+            Trace.WriteLine("Verbindung geschlossen.");
+            MessageBox.Show("Verbindung geschlossen.");
+        }
+        else if (dataReceived != "")
         {
             var (list1, err2) = Rw_Users.ReadwithUserName(dataReceived, Paths.sqlite_path);
             if (list1.Count == 1)
@@ -82,31 +104,6 @@ public class Server
             if (err2 != null)
             {
                 MessageBox.Show(err2.GetException().Message);
-            }
-        }
-        else
-        {
-            if (dataReceived == Paths.ConnectionCode)
-            {
-                // Sende Users und Tasks an den Client
-
-                var (response, err) = ConnectionHelper.SendMessage(Paths.sqlite_path);
-                if (err != null)
-                {
-                    MessageBox.Show(err.GetException().Message);
-                }
-
-                ConnectionHelper.SendMessage(response);
-
-                byte[] responseData = Encoding.ASCII.GetBytes(response);
-                await networkStream.WriteAsync(responseData, 0, responseData.Length);
-
-                // Schließe die Verbindung
-                client.Close();
-                listener.Stop();
-
-                Trace.WriteLine("Verbindung geschlossen.");
-                MessageBox.Show("Verbindung geschlossen.");
             }
         }
     }
