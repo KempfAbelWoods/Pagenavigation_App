@@ -549,7 +549,7 @@
 
     </Style>
 
-    <Style x:Key="C504Style"
+    <!--<Style x:Key="C504Style"
            TargetType="TextBlock">
 
         <Setter Property="Foreground"
@@ -564,9 +564,30 @@
                 Value="{Binding ReadyBills, Source={StaticResource Dashboardstyle}}" />
         <Setter Property="Margin"
                 Value="20,0,0,0" />
-    </Style>
+    </Style> -->
+        
+        <Style x:Key="C504Style"
+               TargetType="DataGrid">
 
-    <Style x:Key="C504Style_Desktop"
+                <Setter Property="Foreground"
+                        Value="#ACB4BD" />
+                <Setter Property="RowStyle"
+                        Value="{DynamicResource DataGridRowStyle1}"></Setter>
+                <Setter Property="ColumnHeaderStyle"
+                        Value="{DynamicResource DataGridColumnHeaderStyle1}"></Setter>
+                <Setter Property="CellStyle"
+                        Value="{DynamicResource DataGridCellStyle1}"></Setter>
+                <Setter Property="FontSize"
+                        Value="16" />
+                <Setter Property="FontFamily"
+                        Value="Fonts/#Open Sans Regular" />
+                <Setter Property="ItemsSource"
+                        Value="{Binding ReadyBills, Source={StaticResource Dashboardstyle}}" />
+                <Setter Property="Margin"
+                        Value="20,0,0,0" />
+        </Style>
+
+   <!-- <Style x:Key="C504Style_Desktop"
            TargetType="TextBlock">
 
         <Setter Property="Foreground"
@@ -582,9 +603,29 @@
         <Setter Property="Margin"
                 Value="40,0,100,0" />
 
-    </Style>
+    </Style> -->
+        <Style x:Key="C504Style_Desktop"
+               TargetType="DataGrid">
 
-    <Style x:Key="C504Style_Mobile"
+                <Setter Property="Foreground"
+                        Value="#ACB4BD" />
+                <Setter Property="RowStyle"
+                        Value="{DynamicResource DataGridRowStyle1}"></Setter>
+                <Setter Property="ColumnHeaderStyle"
+                        Value="{DynamicResource DataGridColumnHeaderStyle1}"></Setter>
+                <Setter Property="CellStyle"
+                        Value="{DynamicResource DataGridCellStyle1}"></Setter>
+                <Setter Property="FontSize"
+                        Value="22" />
+                <Setter Property="FontFamily"
+                        Value="Fonts/#Open Sans Regular" />
+                <Setter Property="ItemsSource"
+                        Value="{Binding ReadyBills, Source={StaticResource Dashboardstyle}}" />
+                <Setter Property="Margin"
+                        Value="40,0,100,0" />
+        </Style>
+
+   <!-- <Style x:Key="C504Style_Mobile"
            TargetType="TextBlock">
 
         <Setter Property="Foreground"
@@ -602,7 +643,28 @@
         <Setter Property="Margin"
                 Value="10,5,10,15" />
 
-    </Style>
+    </Style> -->
+        
+        <Style x:Key="C504Style_Mobile"
+               TargetType="DataGrid">
+
+                <Setter Property="Foreground"
+                        Value="#ACB4BD" />
+                <Setter Property="RowStyle"
+                        Value="{DynamicResource DataGridRowStyle1}"></Setter>
+                <Setter Property="ColumnHeaderStyle"
+                        Value="{DynamicResource DataGridColumnHeaderStyle1}"></Setter>
+                <Setter Property="CellStyle"
+                        Value="{DynamicResource DataGridCellStyle1}"></Setter>
+                <Setter Property="FontSize"
+                        Value="14" />
+                <Setter Property="FontFamily"
+                        Value="Fonts/#Open Sans Regular" />
+                <Setter Property="ItemsSource"
+                        Value="{Binding ReadyBills, Source={StaticResource Dashboardstyle}}" />
+                <Setter Property="Margin"
+                        Value="10,5,10,15" />
+        </Style>
 
     <Style x:Key="C506Style"
            TargetType="Border">
@@ -2194,8 +2256,8 @@
                            Grid.Row="2"
                            Grid.Column="0"
                            Style="{StaticResource C503Style}">
-
-                    <TextBlock x:Name="ContentText"
+                        <!--Todo Achtung hier is Änderung-->
+                    <DataGrid x:Name="ContentText"
                                Style="{StaticResource C504Style}" />
 
                 </WrapPanel>
@@ -2339,7 +2401,7 @@
                            Grid.Column="0"
                            Style="{StaticResource C503Style_Desktop}">
 
-                    <TextBlock x:Name="ContentText"
+                    <DataGrid x:Name="ContentText"
                                Style="{StaticResource C504Style_Desktop}" />
 
                 </WrapPanel>
@@ -2484,7 +2546,7 @@
                            Grid.Column="0"
                            Style="{StaticResource C503Style_Mobile}">
 
-                    <TextBlock x:Name="ContentText"
+                    <DataGrid x:Name="ContentText"
                                Style="{StaticResource C504Style_Mobile}" />
 
                 </WrapPanel>

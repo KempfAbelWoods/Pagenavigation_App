@@ -28,7 +28,7 @@ namespace Page_Navigation_App
             MessageBox.Show("An unhandled exception just occurred: " + e.Exception.Message + " You need to restart the Application", "Fatal Error",
                 MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
-            Process.Start(Process.GetCurrentProcess().MainModule.FileName);
+          //  Process.Start(Process.GetCurrentProcess().MainModule.FileName);
             //Harter Exit
             Environment.Exit(0);
         }
