@@ -100,6 +100,12 @@ public class Rw_Tasks
         var where = $"Username='{Username}'";
         return Read(where, dataSource);
     }
+    
+    public static (List<Db_Tasks>, Error) ReadwithOrderID(string OrderID, string dataSource)
+    {
+        var where = $"OrderId='{OrderID}'";
+        return Read(where, dataSource);
+    }
 
     public static (List<Db_Tasks>, Error) Read(string where, string dataSource)
     {

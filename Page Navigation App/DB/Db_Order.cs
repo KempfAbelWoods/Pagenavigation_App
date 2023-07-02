@@ -11,7 +11,6 @@ public class Db_Order
     
         public string ID { get; set; }
         public string Description { get; set; }
-        public string RessourcesID { get; set; }
         public string Customer { get; set; }
        //TODO Datetime picker
         public string EndDate { get; set; }

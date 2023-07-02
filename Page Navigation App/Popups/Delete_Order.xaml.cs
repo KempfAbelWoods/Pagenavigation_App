@@ -18,20 +18,42 @@ public partial class Delete_Order : Window
 
     private void Delete_Order_Btn(object sender, ExecutedRoutedEventArgs e)
     {
-        var data = new Db_Order()
+        if (CheckOrders())
         {
-            ID = Initial_ID,
-        };
-        var err = RW_Order.Delete(new List<Db_Order> { data },Paths.sqlite_path);
-        if (err!=null)
-        {
-            MessageBox.Show(err.GetException().Message);
+            var data = new Db_Order()
+            {
+                ID = Initial_ID,
+            };
+            var err = RW_Order.Delete(new List<Db_Order> { data },Paths.sqlite_path);
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+            this.Close();
         }
-        this.Close();
     }
 
     private void Close_Window(object sender, ExecutedRoutedEventArgs e)
     {
         this.Close();
+    }
+
+    private bool CheckOrders()
+    {
+        bool Deletable = true;
+
+        var (list, err) = Rw_Tasks.ReadwithOrderID(Initial_ID, Paths.sqlite_path);
+        if (err!=null)
+        {
+            MessageBox.Show(err.GetException().Message);
+        }
+
+        if (list.Count>0)
+        {
+            Deletable = false;
+            MessageBox.Show("Order can't be deleted, cause it has unfinished Tasks.");
+        }
+        
+        return Deletable;
     }
 }

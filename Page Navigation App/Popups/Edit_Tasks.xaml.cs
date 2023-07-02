@@ -13,12 +13,12 @@ namespace Page_Navigation_App.Popups;
 public partial class Edit_Tasks : Window
 {
     private string Initial_ID;
-    public Edit_Tasks(string ID, string orderID, string Description, string Username, float EstimatedHours, float ActualHours, float Costs)
+    public Edit_Tasks(string ID, string orderID, string Description, string Username, float EstimatedHours, float ActualHours, float Costs, string Ressource)
     {
         Initial_ID = ID;
         InitializeComponent();
         
-        Loaddata(Username,orderID);
+        Loaddata(Username,orderID,Ressource);
         ID_Field.Text = ID;
         //Order_Field.Text = orderID;
         Description_Field.Text = Description;
@@ -33,7 +33,7 @@ public partial class Edit_Tasks : Window
         this.Close();
     }
 
-    private void Loaddata(string username, string orderId)
+    private void Loaddata(string username, string orderId, string Ressource)
     {
         //alle Daten aus DB laden
         var (orders, error) = RW_Order.Read("", Paths.sqlite_path);
@@ -46,6 +46,11 @@ public partial class Edit_Tasks : Window
         {
             MessageBox.Show(err.GetException().Message);
         }
+        var (ressources, err1) = Rw_Ressources.Read("", Paths.sqlite_path);
+        if (err1!=null)
+        {
+            MessageBox.Show(err1.GetException().Message);
+        }
         //Daten in Combobox laden
         //Todo hier noch Details einblenden
         foreach (var order in orders)
@@ -56,7 +61,12 @@ public partial class Edit_Tasks : Window
         {
             User_Field.Items.Add(User.Username);
         }
+        foreach (var ressource in ressources)
+        {
+            Ressource_Field.Items.Add(ressource.Name);
+        }
 
+        Ressource_Field.SelectedItem = Ressource;
         User_Field.SelectedItem = username;
         Order_Field.SelectedItem = orderId;
 
@@ -68,6 +78,7 @@ public partial class Edit_Tasks : Window
         string orderID = Order_Field.Text;
         string Username = User_Field.Text;
         string description = Description_Field.Text;
+        string Ressource = Ressource_Field.Text;
         float actualhours = 0f;
         float Estimatehours = 0f;
         float costs = 0f;
@@ -86,11 +97,12 @@ public partial class Edit_Tasks : Window
             var data = new Db_Tasks()
             {
                 ID = ID,
-                orderID = orderID,
+                OrderId = orderID,
                 Username = Username,
                 ActualHours = actualhours,
                 EstimatedHours = Estimatehours,
                 Costs = costs,
+                Ressource = Ressource,
                 Description = description
             };
             //Spalte mit alten Daten löschen

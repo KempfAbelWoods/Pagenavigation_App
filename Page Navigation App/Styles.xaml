@@ -2520,14 +2520,14 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition x:Name="Responsive_Image"
-                                   Height="180" />
+                   <!-- <RowDefinition x:Name="Responsive_Image"
+                                   Height="80" /> -->
                     <RowDefinition x:Name="title"
                                    Height="120" />
                     <RowDefinition x:Name="body"
-                                   Height="110" />
-                    <RowDefinition x:Name="button"
-                                   Height="60" />
+                                   Height="350" />
+             <!--       <RowDefinition x:Name="button"
+                                   Height="60" /> -->
 
                 </Grid.RowDefinitions>
 
@@ -2551,14 +2551,14 @@
 
                 </WrapPanel>
 
-                <Viewbox  Grid.Column="0"
+              <!--  <Viewbox  Grid.Column="0"
                           Grid.Row="0">
                     <Image Source="Images/img_transaction.png"
                            Stretch="None"
                            Margin="10,50,10,0" />
-                </Viewbox>
+                </Viewbox> -->
 
-                <Button Grid.Row="3">
+             <!--   <Button Grid.Row="3">
 
                     <Button.Style>
 
@@ -2639,7 +2639,7 @@
 
                     </Button.Style>
 
-                </Button>
+                </Button> -->
 
             </Grid>
 

@@ -62,7 +62,6 @@
                           VerticalContentAlignment="Center" SelectionChanged="SearchFor_OnSelectionChanged">
                     <ComboBoxItem Content="ID" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
                     <ComboBoxItem IsSelected="True" Content="Auftragsbeschr" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
-                    <ComboBoxItem Content="Ressourcen" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
                     <ComboBoxItem Content="Customer" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
                 </ComboBox>
                 
@@ -95,9 +94,10 @@
                     <DataGridTextColumn x:Name="OrderID" Header="ID" IsReadOnly="True" CanUserResize="False"
                                         Width="auto" Binding="{Binding ID}" />
                     <DataGridTextColumn Header="Auftragsbeschreibung" Binding="{Binding Description}" IsReadOnly="True" Width="*" />
-                    <DataGridTextColumn Header="Ressourcen" Binding="{Binding Ressources}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="End Datum" Binding="{Binding EndDate}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="Customer" Binding="{Binding Customer}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="OrderValue" Binding="{Binding OrderValue}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="ActualCosts" Binding="{Binding ActualCosts}" IsReadOnly="True" Width="*" />
                     <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

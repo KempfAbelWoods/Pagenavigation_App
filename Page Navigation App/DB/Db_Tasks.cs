@@ -8,9 +8,11 @@ namespace Page_Navigation_App.DB;
 public class Db_Tasks
 {
     public string ID { get; set; }
-    public string orderID { get; set; }
+    //TODo wenn Order geändert wird muss auch das auch hier geändert werden
+    public string OrderId { get; set; }
     public string Description { get; set; }
-    public string Username { get; set; } //Maschinen auch als Benutzer zuweisen aber einem anderen User unterordnen
+    public string Ressource { get; set; }
+    public string Username { get; set; }
     public float EstimatedHours { get; set; }
     public float ActualHours { get; set; }
     public float Costs { get; set; } //ist der Task im Minus oder plus?

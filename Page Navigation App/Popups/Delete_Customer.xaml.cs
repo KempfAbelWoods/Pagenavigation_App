@@ -19,20 +19,51 @@ public partial class Delete_Customer : Window
 
     private void Delete_Customer_Btn(object sender, ExecutedRoutedEventArgs e)
     {
-        var data = new Db_Customer()
+        if (CheckCustomers())
         {
-            ID = Initial_ID,
-        };
-        var err = RW_Customer.Delete(new List<Db_Customer> { data },Paths.sqlite_path);
-        if (err!=null)
-        {
-            MessageBox.Show(err.GetException().Message);
+            var data = new Db_Customer()
+            {
+                ID = Initial_ID,
+            };
+            var err = RW_Customer.Delete(new List<Db_Customer> { data }, Paths.sqlite_path);
+            if (err != null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+
+            this.Close();
         }
-        this.Close();
     }
 
     private void Close_Window(object sender, ExecutedRoutedEventArgs e)
     {
         this.Close();
+    }
+    
+    private bool CheckCustomers()
+    {
+        bool Deletable = true;
+
+        var (data, error) = RW_Customer.ReadwithID(Initial_ID, Paths.sqlite_path);
+        if (error!=null)
+        {
+            MessageBox.Show(error.GetException().Message);
+        }
+
+        string Name = data[0].Name;
+
+        var (list, err) = RW_Order.ReadwithCustomer(Name, Paths.sqlite_path);
+        if (err!=null)
+        {
+            MessageBox.Show(err.GetException().Message);
+        }
+
+        if (list.Count>0)
+        {
+            Deletable = false;
+            MessageBox.Show("Customer can't be deleted, cause it has unfinished Orders.");
+        }
+        
+        return Deletable;
     }
 }

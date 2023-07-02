@@ -95,7 +95,8 @@
                     <DataGridTextColumn x:Name="TaskID" Header="ID" IsReadOnly="True" CanUserResize="False"
                                         Width="auto" Binding="{Binding ID}" />
                     <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True" Width="*" />
-                    <DataGridTextColumn Header="orderID" Binding="{Binding orderID}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="OrderId" Binding="{Binding OrderId}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="Ressource" Binding="{Binding Ressource}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="Username" Binding="{Binding Username}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="EstimatedHours" Binding="{Binding EstimatedHours}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="ActualHours" Binding="{Binding ActualHours}" IsReadOnly="True" Width="*" />

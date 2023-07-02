@@ -40,15 +40,14 @@ namespace Page_Navigation_App.View
         /// </summary>
         /// <param name="dbread"></param>
            void Load_Data(bool dbread)
-        { 
-            var converter = new BrushConverter();
+        {
             tasks.Clear();
             
             var (list, err) = Rw_Tasks.Read("",Paths.sqlite_path);
 
                 for (int i = 0; i < list.Count; i++)
                 {
-                    tasks.Add(new Db_Tasks { ID= list[i].ID, Description = list[i].Description, orderID = list[i].orderID, Username = list[i].Username, EstimatedHours = list[i].EstimatedHours, ActualHours = list[i].ActualHours, Costs = list[i].Costs});
+                    tasks.Add(new Db_Tasks { ID= list[i].ID, Description = list[i].Description, OrderId = list[i].OrderId, Username = list[i].Username, EstimatedHours = list[i].EstimatedHours, ActualHours = list[i].ActualHours, Costs = list[i].Costs, Ressource = list[i].Ressource});
                 }
            if (dbread)
             {
@@ -66,8 +65,8 @@ namespace Page_Navigation_App.View
                 var (list, err) = Rw_Tasks.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
                 if (list.Count == 1)
                 {
-                    Edit_Tasks editTasks = new Edit_Tasks(list[0].ID, list[0].orderID, list[0].Description,
-                        list[0].Username, list[0].EstimatedHours, list[0].ActualHours, list[0].Costs);
+                    Edit_Tasks editTasks = new Edit_Tasks(list[0].ID, list[0].OrderId, list[0].Description,
+                        list[0].Username, list[0].EstimatedHours, list[0].ActualHours, list[0].Costs, list[0].Ressource);
                     editTasks.Owner = Application.Current.MainWindow;
                     editTasks.ShowDialog();
                     Load_Data(true);
@@ -79,7 +78,7 @@ namespace Page_Navigation_App.View
         {
             if (Userhandling.GrantPermission(1, true))
             {
-                Edit_Tasks editTasks = new Edit_Tasks("", "", "Description", "User", 1,1,1);
+                Edit_Tasks editTasks = new Edit_Tasks("", "", "Description", "User", 1,1,1,"");
                 editTasks.Owner = Application.Current.MainWindow;
                 editTasks.ShowDialog();
                 Load_Data(true);
@@ -125,7 +124,7 @@ namespace Page_Navigation_App.View
                             }
                             break;
                         case 2:
-                            if (x.orderID.Contains(textBoxFilter.Text))
+                            if (x.OrderId.Contains(textBoxFilter.Text))
                             {
                                 tempMembers.Add(x);
                             }
