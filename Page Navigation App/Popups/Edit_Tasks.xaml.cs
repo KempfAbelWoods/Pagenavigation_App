@@ -13,11 +13,14 @@ namespace Page_Navigation_App.Popups;
 public partial class Edit_Tasks : Window
 {
     private string Initial_ID;
-    public Edit_Tasks(string ID, string orderID, string Description, string Username, float EstimatedHours, float ActualHours, float Costs, string Ressource)
+    public Edit_Tasks(string ID, string orderID, string Description, string Username, float EstimatedHours, float ActualHours, float Costs, string Ressource, bool IDenable)
     {
         Initial_ID = ID;
         InitializeComponent();
-        
+        if (!IDenable)
+        { ID_Field.IsReadOnly = true; }
+        else
+        { ID_Field.IsReadOnly = false; }
         Loaddata(Username,orderID,Ressource);
         ID_Field.Text = ID;
         //Order_Field.Text = orderID;
@@ -63,7 +66,7 @@ public partial class Edit_Tasks : Window
         }
         foreach (var ressource in ressources)
         {
-            Ressource_Field.Items.Add(ressource.Name);
+            Ressource_Field.Items.Add(ressource.ID);
         }
 
         Ressource_Field.SelectedItem = Ressource;
@@ -92,7 +95,7 @@ public partial class Edit_Tasks : Window
         {
             MessageBox.Show(exception.Message);
         }
-        if (ID!="" && orderID!="" && Username !="" && actualhours !=0 && description!= "" && costs!=0 && Estimatehours!=0)
+        if (ID!="" && orderID!="" && Username !="" && actualhours !=0 && description!= "" && costs!=0 && Estimatehours!=0 && Ressource!="")
         {
             var data = new Db_Tasks()
             {
@@ -169,5 +172,38 @@ public partial class Edit_Tasks : Window
         // TODO irgendwie die scheiß validierung machen
         Regex regex = new Regex(@"^\d*\.?\d*$"); //^[-]?([1-9]{1}[0-9]{0,}(\.[0-9]{0,2})?|0(\.[0-9]{0,2})?|\.[0-9]{1,2})$
         e.Handled = !regex.IsMatch(e.Text);
+    }
+
+    private void Selection_Changed(object sender, SelectionChangedEventArgs e)
+    {
+        var (ressourcesList,err) = Rw_Ressources.ReadwithID(Ressource_Field.Text, Paths.sqlite_path);
+        if (err!=null)
+        {
+            MessageBox.Show(err.GetException().Message);
+        }
+        if (ressourcesList.Count!=0)
+        {
+            Ressource_Text.Text = ressourcesList[0].Name;
+        }
+        
+        var (orderList,err1) = RW_Order.ReadwithID(Order_Field.Text, Paths.sqlite_path);
+        if (err1!=null)
+        {
+            MessageBox.Show(err1.GetException().Message);
+        }
+        if (orderList.Count!=0)
+        {
+            Order_Text.Text = orderList[0].Description;
+        }
+        
+        var (userList,err2) = Rw_Users.ReadwithUserName(User_Field.Text, Paths.sqlite_path);
+        if (err2!=null)
+        {
+            MessageBox.Show(err2.GetException().Message);
+        }
+        if (userList.Count!=0)
+        {
+            User_Text.Text = userList[0].Name;
+        }
     }
 }

@@ -102,7 +102,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="EditCustomer" Style="{StaticResource gridEditButton}"
+                                    <Button x:Name="EditOrder" Style="{StaticResource gridEditButton}"
                                             Command="ApplicationCommands.New" CommandParameter="{Binding ID}">
                                         <Button.CommandBindings>
                                             <CommandBinding Command="ApplicationCommands.New" Executed="EditOrder" />
@@ -110,13 +110,22 @@
                                         <Icon:PackIconMaterial Kind="PencilOutline"
                                                                Style="{StaticResource gridButtonIcon}" />
                                     </Button>
-                                    <Button x:Name="DeleteCustomer" Margin="5 0 0 0"
+                                    <Button x:Name="DeleteOrder" Margin="5 0 0 0"
                                             Style="{StaticResource gridRemoveButton}" Command="ApplicationCommands.New"
                                             CommandParameter="{Binding ID}">
                                         <Button.CommandBindings>
                                             <CommandBinding Command="ApplicationCommands.New" Executed="DeleteOrder" />
                                         </Button.CommandBindings>
                                         <Icon:PackIconMaterial Kind="DeleteOutline"
+                                                               Style="{StaticResource gridButtonIcon}" />
+                                    </Button>
+                                    <Button x:Name="FinishOrder" Margin="5 0 0 0"
+                                            Style="{StaticResource gridFinishButton}" Command="ApplicationCommands.New"
+                                            CommandParameter="{Binding ID}">
+                                        <Button.CommandBindings>
+                                            <CommandBinding Command="ApplicationCommands.New" Executed="FinishOrder" />
+                                        </Button.CommandBindings>
+                                        <Icon:PackIconMaterial Kind="Check"
                                                                Style="{StaticResource gridButtonIcon}" />
                                     </Button>
                                 </StackPanel>

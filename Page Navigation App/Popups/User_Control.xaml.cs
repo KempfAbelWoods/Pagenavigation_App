@@ -48,7 +48,7 @@ public partial class User_Control : Window
             var (list,err) = Rw_Users.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
             if (list.Count==1)
             {
-                Edit_User editUser = new Edit_User(list[0].ID,list[0].Name,list[0].Username,list[0].Role,list[0].Rights,list[0].Password);
+                Edit_User editUser = new Edit_User(list[0].ID,list[0].Name,list[0].Username,list[0].Role,list[0].Rights,list[0].Password, false);
                 editUser.Owner = Application.Current.MainWindow;
                 editUser.ShowDialog();
                 Load_Data(true);
@@ -58,7 +58,7 @@ public partial class User_Control : Window
         void AddUser(object sender, RoutedEventArgs e)
         {
             
-            Edit_User editUser = new Edit_User("","Max Mustermann","mmustermann","Administrator","readonly","");
+            Edit_User editUser = new Edit_User("","Max Mustermann","mmustermann","Administrator","readonly","", true);
             editUser.Owner = Application.Current.MainWindow;
             editUser.ShowDialog();
             Load_Data(true);

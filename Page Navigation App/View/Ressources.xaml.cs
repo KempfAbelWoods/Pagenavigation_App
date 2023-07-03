@@ -73,7 +73,7 @@ namespace Page_Navigation_App.View
                 if (list.Count == 1)
                 {
                     Edit_Ressource editRessources = new Edit_Ressource(list[0].ID, list[0].Description, list[0].Name,
-                        list[0].Ressourcetype, list[0].Costs, list[0].Costtype);
+                        list[0].Ressourcetype, list[0].Costs, list[0].Costtype, false);
                     editRessources.Owner = Application.Current.MainWindow;
                     editRessources.ShowDialog();
                     Load_Data(true);
@@ -85,7 +85,7 @@ namespace Page_Navigation_App.View
         {
             if (Userhandling.GrantPermission(1, true))
             {
-                Edit_Ressource editRessources = new Edit_Ressource("", "Description", "Name", "Machine", 0, true);
+                Edit_Ressource editRessources = new Edit_Ressource("", "Description", "Name", "Machine", 0, true, true);
                 editRessources.Owner = Application.Current.MainWindow;
                 editRessources.ShowDialog();
                 Load_Data(true);

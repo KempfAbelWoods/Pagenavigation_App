@@ -15,10 +15,14 @@ public partial class Edit_Order : Window
 {
     private string Initial_ID;
     
-    public Edit_Order(string Order_ID, string kunde, string beschreibung, string date, float OrderValue, float ActualCosts)
+    public Edit_Order(string Order_ID, string kunde, string beschreibung, string date, float OrderValue, float ActualCosts, bool IDenable)
     {
         Initial_ID = Order_ID;
         InitializeComponent();
+        if (!IDenable)
+        { ID_Field.IsReadOnly = true; }
+        else
+        { ID_Field.IsReadOnly = false; }
         ID_Field.Text = Order_ID;
         Loaddata(kunde);
         Beschreibung_Field.Text = beschreibung;

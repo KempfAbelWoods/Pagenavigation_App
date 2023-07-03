@@ -57,7 +57,7 @@ namespace Page_Navigation_App.View
                 if (list.Count == 1)
                 {
                     Edit_Customer editCustomer = new Edit_Customer(list[0].ID, list[0].Name, list[0].Adress,
-                        list[0].Mail, list[0].Phone);
+                        list[0].Mail, list[0].Phone, false);
                     editCustomer.Owner = Application.Current.MainWindow;
                     editCustomer.ShowDialog();
                     Load_Data(true);
@@ -69,7 +69,7 @@ namespace Page_Navigation_App.View
         {
             if (Userhandling.GrantPermission(1,true))
             {
-              Edit_Customer editCustomer = new Edit_Customer("","Max Mustermann","adress","max.mustermann@online.de","Phone Number");
+              Edit_Customer editCustomer = new Edit_Customer("","Max Mustermann","adress","max.mustermann@online.de","Phone Number", true);
                           editCustomer.Owner = Application.Current.MainWindow;
                           editCustomer.ShowDialog();
                           Load_Data(true);  
