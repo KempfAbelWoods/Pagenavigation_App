@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text.Json;
 using System.Windows.Forms;
 using Page_Navigation_App.Configs;
 using Page_Navigation_App.DB;
@@ -17,16 +19,17 @@ public class Server
     public async static void SocketServer()
     {
         byte[] buffer = new byte[1024];
-        string Password = "";
-        string Username = "";
-        //string response = "";
+        byte[] responseData;
+        int readReceived;
+        string dataReceived;
+        string freigabe;
+        string setIpAddress = "";
 
-        string SetIpAddress = "";
         //IP Adresse auslesen
         var (list, err1) = Rw_Settings.ReadwithID("3", Paths.sqlite_path);
         if (list.Count == 1)
         {
-            SetIpAddress = list[0].Ressource;
+            setIpAddress = list[0].Ressource;
         }
 
         if (err1 != null)
@@ -35,7 +38,7 @@ public class Server
         }
 
         // IP-Adresse des Servers
-        IPAddress ipAddress = IPAddress.Parse(SetIpAddress);
+        IPAddress ipAddress = IPAddress.Parse(setIpAddress);
 
         // Erstelle einen TCP/IP-Socket
         TcpListener listener = new TcpListener(ipAddress, Port);
@@ -47,13 +50,49 @@ public class Server
         // Erstelle ein NetworkStream-Objekt für die Kommunikation
         NetworkStream networkStream = client.GetStream();
 
+        // Connection Code überprüfen und anschließend Freigabe senden
+        readReceived = await networkStream.ReadAsync(buffer, 0, buffer.Length);
+        dataReceived = Encoding.ASCII.GetString(buffer, 0, readReceived);
+        if (dataReceived == Paths.ConnectionCode)
+        {
+            // Hier Freigabe schicken
+            freigabe = "Freigabe";
+            responseData = Encoding.ASCII.GetBytes(freigabe);
+            await networkStream.WriteAsync(responseData, 0, responseData.Length);
+        }
+        else if (dataReceived == "")
+        {
+            var (list1, err2) = Rw_Users.ReadwithUserName(dataReceived, Paths.sqlite_path);
+            if (list1.Count == 1)
+            {
+                // Hier Freigabe schicken
+                freigabe = "Freigabe";
+                responseData = Encoding.ASCII.GetBytes(freigabe);
+                await networkStream.WriteAsync(responseData, 0, responseData.Length);
+            }
+            else if (list1.Count == 0)
+            {
+                freigabe = "Falscher User";
+                responseData = Encoding.ASCII.GetBytes(freigabe);
+                await networkStream.WriteAsync(responseData, 0, responseData.Length);
+            }
 
-        // Lese die Daten vom Client
-        int ReadReceived = await networkStream.ReadAsync(buffer, 0, buffer.Length);
-        string dataReceived = Encoding.ASCII.GetString(buffer, 0, ReadReceived);
+            if (err2 != null)
+            {
+                MessageBox.Show(err2.GetException().Message);
+            }
+        }
+
+        // Lese die Tasks Daten vom Client
+        readReceived = await networkStream.ReadAsync(buffer, 0, buffer.Length);
+        dataReceived = Encoding.ASCII.GetString(buffer, 0, readReceived);
+        var Taskslist = new ConnectionHelper().Tasks;
+        Taskslist = JsonSerializer.Deserialize<List<Db_Tasks>>(dataReceived);
+        Rw_Tasks.Write(Taskslist, Paths.sqlite_path);
+        
         //Empfangene Daten auswerten
         //TODO hier nicht Passwort von Settings lesen sondern in der DB nach User suchen und dem sein PW abfragen!!!!
-        if (dataReceived == Paths.ConnectionCode)
+        if (dataReceived != "")
         {
             // Sende Users und Tasks an den Client
 
@@ -65,7 +104,7 @@ public class Server
 
             ConnectionHelper.SendMessage(response);
 
-            byte[] responseData = Encoding.ASCII.GetBytes(response);
+            responseData = Encoding.ASCII.GetBytes(response);
             await networkStream.WriteAsync(responseData, 0, responseData.Length);
 
             // Schließe die Verbindung
@@ -75,7 +114,7 @@ public class Server
             Trace.WriteLine("Verbindung geschlossen.");
             MessageBox.Show("Verbindung geschlossen.");
         }
-        else if (dataReceived != "")
+        else if (dataReceived == "")
         {
             var (list1, err2) = Rw_Users.ReadwithUserName(dataReceived, Paths.sqlite_path);
             if (list1.Count == 1)
@@ -90,7 +129,7 @@ public class Server
 
                 ConnectionHelper.SendMessage(response);
 
-                byte[] responseData = Encoding.ASCII.GetBytes(response);
+                responseData = Encoding.ASCII.GetBytes(response);
                 await networkStream.WriteAsync(responseData, 0, responseData.Length);
 
                 // Schließe die Verbindung
