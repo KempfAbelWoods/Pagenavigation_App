@@ -56,9 +56,12 @@
             
              <!-- Input Fields -->
              <TextBox  PreviewTextInput="NumberValidationTextBox" Grid.Column="2" Height="30" x:Name="ID_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" TextChanged="ID_Field_OnTextChanged"></TextBox>
-             <ComboBox Grid.Column="2" Grid.Row="1" Height="30" x:Name="Order_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" ></ComboBox>
-             <ComboBox Grid.Column="2" Grid.Row="2" Height="30" x:Name="User_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" ></ComboBox>
-             <ComboBox Grid.Column="2" Grid.Row="3" Height="30" x:Name="Ressource_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" ></ComboBox>
+             <ComboBox SelectionChanged="Selection_Changed" Grid.Column="2" Grid.Row="1" Height="30" Width="50" HorizontalAlignment="Left" x:Name="Order_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" ></ComboBox>
+             <ComboBox SelectionChanged="Selection_Changed" Grid.Column="2" Grid.Row="2" Height="30" Width="50" HorizontalAlignment="Left" x:Name="User_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" ></ComboBox>
+             <ComboBox SelectionChanged="Selection_Changed" Grid.Column="2" Grid.Row="3" Height="30" Width="50" HorizontalAlignment="Left" x:Name="Ressource_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" ></ComboBox>
+             <TextBox  IsReadOnly="True" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="1" Height="30" Width="230" x:Name="Order_Text" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
+             <TextBox  IsReadOnly="True" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="2" Height="30" Width="230" x:Name="User_Text" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
+             <TextBox  IsReadOnly="True" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="3" Height="30" Width="230" x:Name="Ressource_Text" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
              <TextBox  PreviewTextInput="FloatValidationTextBox" Grid.Column="2" Grid.Row="4" Height="30" x:Name="Estimate_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
              <TextBox  IsReadOnly="True" PreviewTextInput="FloatValidationTextBox" Grid.Column="2" Grid.Row="5" Height="30" x:Name="Actual_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>
              <TextBox  PreviewTextInput="FloatValidationTextBox" Grid.Column="2" Grid.Row="6" Height="30" x:Name="Costs_Field" FontSize="18" FontFamily="Fonts/#Saira SemiBold" TextAlignment="Center" ></TextBox>

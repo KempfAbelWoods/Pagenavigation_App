@@ -13,12 +13,16 @@ public partial class Edit_User : Window
 {
     
     private string Initial_ID;
-    public Edit_User(string ID, string name, string username, string role, string rights, string password)
+    public Edit_User(string ID, string name, string username, string role, string rights, string password, bool IDenable)
     {
         //Todo verwaltung von Rechten evtl. als string mit Trennzeichen übergeben
         //Todo überprüfen ob Nutzername schon vergeben
         Initial_ID = ID;
         InitializeComponent();
+        if (!IDenable)
+        { ID_Field.IsReadOnly = true; }
+        else
+        { ID_Field.IsReadOnly = false; }
         ID_Field.Text = ID;
         Name_Field.Text = name;
         Username_Field.Text = username;
@@ -90,11 +94,11 @@ public partial class Edit_User : Window
         }
         if (Writeaccess.IsChecked != null && Writeaccess.IsChecked.Value)
         {
-            rights = rights + "," + "writeaccess";
+            rights = "readaccess,writeaccess";
         }
         if (Fullaccess.IsChecked != null && Fullaccess.IsChecked.Value)
         {
-            rights = rights + "," + "fullaccess";
+            rights = "readaccess,writeaccess,fullaccess";
         }
 
         return rights;

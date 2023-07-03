@@ -66,7 +66,7 @@ namespace Page_Navigation_App.View
                 if (list.Count == 1)
                 {
                     Edit_Tasks editTasks = new Edit_Tasks(list[0].ID, list[0].OrderId, list[0].Description,
-                        list[0].Username, list[0].EstimatedHours, list[0].ActualHours, list[0].Costs, list[0].Ressource);
+                        list[0].Username, list[0].EstimatedHours, list[0].ActualHours, list[0].Costs, list[0].Ressource, false);
                     editTasks.Owner = Application.Current.MainWindow;
                     editTasks.ShowDialog();
                     Load_Data(true);
@@ -78,7 +78,7 @@ namespace Page_Navigation_App.View
         {
             if (Userhandling.GrantPermission(1, true))
             {
-                Edit_Tasks editTasks = new Edit_Tasks("", "", "Description", "User", 1,1,1,"");
+                Edit_Tasks editTasks = new Edit_Tasks("", "", "Description", "User", 1,1,1,"", true);
                 editTasks.Owner = Application.Current.MainWindow;
                 editTasks.ShowDialog();
                 Load_Data(true);

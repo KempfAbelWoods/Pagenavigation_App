@@ -17,10 +17,14 @@ namespace Page_Navigation_App.Popups;
 public partial class Edit_Customer : Window
 {
     private string Initial_ID;
-    public Edit_Customer(string Customer_ID, string name, string adress, string mail, string phone)
+    public Edit_Customer(string Customer_ID, string name, string adress, string mail, string phone, bool IDenable)
     {
         Initial_ID = Customer_ID;
         InitializeComponent();
+        if (!IDenable)
+        { ID_Field.IsReadOnly = true; }
+        else
+        { ID_Field.IsReadOnly = false; }
         ID_Field.Text = Customer_ID;
         Name_Field.Text = name;
         Adress_Field.Text = adress;

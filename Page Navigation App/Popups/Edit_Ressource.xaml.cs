@@ -14,10 +14,14 @@ public partial class Edit_Ressource : Window
 {
     private string Initial_ID;
     
-    public Edit_Ressource(string Ressource_ID, string Description, string Name, string Ressourcetype, float costs, bool Costtype)
+    public Edit_Ressource(string Ressource_ID, string Description, string Name, string Ressourcetype, float costs, bool Costtype, bool IDenable)
     {
         Initial_ID = Ressource_ID;
         InitializeComponent();
+        if (!IDenable)
+        { ID_Field.IsReadOnly = true; }
+        else
+        { ID_Field.IsReadOnly = false; }
         ID_Field.Text = Ressource_ID;
         Name_Field.Text = Name;
         Description_Field.Text = Description;

@@ -47,13 +47,6 @@ namespace Page_Navigation_App.View
             else if (ipdata.Count == 1) SocketIpAddress.Text = ipdata[0].Ressource;
             else SocketIpAddress.Text = "Somehow there exist 2 or more elements in the Database, pls call the support"; 
             
-            //Passwort
-            var (passworddata,err2) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
-            //errorhandling
-            if (err2!=null) SocketPassword.Text = "You need to create a Table in your Database first.";
-            else if (passworddata.Count == 0) SocketPassword.Text = "No Password specified";
-            else if (passworddata.Count == 1) SocketPassword.Text = passworddata[0].Ressource;
-            else SocketPassword.Text = "Somehow there exist 2 or more elements in the Database, pls call the support"; 
         }
 
         private void Create_Table_Customer(object sender, RoutedEventArgs e)
@@ -154,41 +147,7 @@ namespace Page_Navigation_App.View
                 }
             }
         }
-
-        private void Set_Password(object sender, RoutedEventArgs e)
-        {
-            //TODO wird rausgeschmissen später
-            string SetPassword = SocketPassword.Text;
-            //Spalte mit alten Daten löschen
-            var (list, err1) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
-            if (err1 != null)
-            {
-                MessageBox.Show(err1.GetException().Message);
-            }
-            var error = Rw_Settings.Delete(list,Paths.sqlite_path);
-            if (error != null)
-            {
-                MessageBox.Show(error.GetException().Message);
-            }
-            //Spalte mit neuen Daten speichern
-            var data = new Db_Settings
-            {
-                ID = "2",
-                Name = "Password",
-                Ressource = SetPassword,
-                Comment = "Passwort für Datenaustausch"
-
-            };
-            var err = Rw_Settings.Write(new List<Db_Settings>{data},Paths.sqlite_path);
-            if (err!=null)
-            {
-                MessageBox.Show(err.GetException().Message);
-            }
-            else
-            {
-                SocketPassword.Text = SetPassword;
-            }
-        }
+        
 
         private void Set_SocketIp(object sender, RoutedEventArgs e)
         {
