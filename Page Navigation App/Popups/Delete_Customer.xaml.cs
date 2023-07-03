@@ -50,9 +50,9 @@ public partial class Delete_Customer : Window
             MessageBox.Show(error.GetException().Message);
         }
 
-        string Name = data[0].Name;
+        string ID = data[0].ID;
 
-        var (list, err) = RW_Order.ReadwithCustomer(Name, Paths.sqlite_path);
+        var (list, err) = RW_Order.ReadwithCustomer(ID, Paths.sqlite_path);
         if (err!=null)
         {
             MessageBox.Show(err.GetException().Message);

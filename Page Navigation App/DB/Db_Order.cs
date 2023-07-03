@@ -11,7 +11,7 @@ public class Db_Order
     
         public string ID { get; set; }
         public string Description { get; set; }
-        public string Customer { get; set; }
+        public string CustomerID { get; set; }
        //TODO Datetime picker
         public string EndDate { get; set; }
         //hier befinden sich nun die Order Details zur Berechnung verschiedenster Dinge

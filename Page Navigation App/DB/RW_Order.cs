@@ -102,7 +102,7 @@ public class RW_Order
     }
     public static (List<Db_Order>, Error) ReadwithCustomer(string Name, string dataSource)
     {
-        var where = $"Customer='{Name}'";
+        var where = $"CustomerID='{Name}'";
         return Read(where, dataSource);
     }
     

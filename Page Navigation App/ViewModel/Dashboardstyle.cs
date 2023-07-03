@@ -18,15 +18,15 @@ public class Dashboardstyle
     public Dashboardstyle()
     {
         //hier dann alle Daten aus Datenbank lesen die im Dashboard angezeigt werden sollen
-        Orders = GetOrders();
+        //Orders = GetOrders();
         BillValue = "gesamt";
-        //OpenTasks = GetTasks();
+        OpenTasks = GetTasks();
         Customernumber = GetCustomers();
-        (ReadyBills,var err) = RW_Order.Read("", Paths.sqlite_path);
-        if (err!=null)
-        {
-            MessageBox.Show(err.GetException().ToString());
-        }
+        //(ReadyBills,var err) = RW_Order.Read("", Paths.sqlite_path);
+       // if (err!=null)
+       // {
+        //    MessageBox.Show(err.GetException().ToString());
+       // }
     }
 
     public string GetCustomers()

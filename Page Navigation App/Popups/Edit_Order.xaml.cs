@@ -40,7 +40,7 @@ public partial class Edit_Order : Window
         //Todo hier noch Details einblenden
         foreach (var customer in Customers)
         {
-            Kunde_Field.Items.Add(customer.Name);
+            Kunde_Field.Items.Add(customer.ID);
         }
         Kunde_Field.SelectedItem = Kunde;
 
@@ -71,7 +71,7 @@ public partial class Edit_Order : Window
             {
                 ID = ID,
                 Description = beschreibung,
-                Customer = kunde,
+                CustomerID = kunde,
                 EndDate = date,
                 OrderValue = OrderValue,
                 ActualCosts = ActualCosts

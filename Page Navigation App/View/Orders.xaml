@@ -95,7 +95,7 @@
                                         Width="auto" Binding="{Binding ID}" />
                     <DataGridTextColumn Header="Auftragsbeschreibung" Binding="{Binding Description}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="End Datum" Binding="{Binding EndDate}" IsReadOnly="True" Width="*" />
-                    <DataGridTextColumn Header="Customer" Binding="{Binding Customer}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="CustomerID" Binding="{Binding CustomerID}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="OrderValue" Binding="{Binding OrderValue}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="ActualCosts" Binding="{Binding ActualCosts}" IsReadOnly="True" Width="*" />
                     <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">

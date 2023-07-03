@@ -54,7 +54,7 @@ namespace Page_Navigation_App.View
 
                 for (int i = 0; i < list.Count; i++)
                 {
-                    members.Add(new Db_Order { ID= list[i].ID, Description = list[i].Description, Customer = list[i].Customer, EndDate = list[i].EndDate });
+                    members.Add(new Db_Order { ID= list[i].ID, Description = list[i].Description, CustomerID = list[i].CustomerID, EndDate = list[i].EndDate });
                 }
            if (dbread)
             {
@@ -72,7 +72,7 @@ namespace Page_Navigation_App.View
                 var (list, err) = RW_Order.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
                 if (list.Count == 1)
                 {
-                    Edit_Order editOrder = new Edit_Order(list[0].ID, list[0].Customer, list[0].Description, list[0].EndDate,list[0].OrderValue,list[0].ActualCosts);
+                    Edit_Order editOrder = new Edit_Order(list[0].ID, list[0].CustomerID, list[0].Description, list[0].EndDate,list[0].OrderValue,list[0].ActualCosts);
                     editOrder.Owner = Application.Current.MainWindow;
                     editOrder.ShowDialog();
                     Load_Data(true);
@@ -130,7 +130,7 @@ namespace Page_Navigation_App.View
                             }
                             break;
                         case 2:
-                            if (x.Customer.Contains(textBoxFilter.Text))
+                            if (x.CustomerID.Contains(textBoxFilter.Text))
                             {
                                 tempMembers.Add(x);
                             }
