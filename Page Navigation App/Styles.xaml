@@ -6,7 +6,8 @@
 
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Page_Navigation_App.ViewModel">
+                    xmlns:local="clr-namespace:Page_Navigation_App.ViewModel"
+                    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
         <!--#region Card 1-->
         <local:Dashboardstyle x:Key="Dashboardstyle"></local:Dashboardstyle>
         
@@ -2225,25 +2226,20 @@
                 <Grid.ColumnDefinitions>
 
                     <ColumnDefinition Width="2*" />
-                    <ColumnDefinition x:Name="ResponsiveImageColumn"
-                                      Width="1*" />
 
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition x:Name="Responsive_Image"
-                                   Height="0*" />
-                    <RowDefinition x:Name="title"
-                                   Height="1.5*" />
+                        <RowDefinition x:Name="title"
+                                       Height="0.5*" />
                     <RowDefinition x:Name="body"
                                    Height="1*" />
-                    <RowDefinition x:Name="button"
-                                   Height="1*" />
+
 
                 </Grid.RowDefinitions>
 
                 <WrapPanel Name="TitleWrap"
-                           Grid.Row="1"
+                           Grid.Row="0"
                            Grid.Column="0"
                            Style="{StaticResource C501Style}">
 
@@ -2253,106 +2249,24 @@
                 </WrapPanel>
 
                 <WrapPanel x:Name="ContentWrap"
-                           Grid.Row="2"
+                           Grid.Row="1"
                            Grid.Column="0"
                            Style="{StaticResource C503Style}">
-                        <!--Todo Achtung hier is Änderung-->
-                    <DataGrid x:Name="ContentText"
-                               Style="{StaticResource C504Style}" />
+                        <lvc:CartesianChart Series="{Binding SeriesCollection, Source={ StaticResource Dashboardstyle}}" LegendLocation="Right"
+                                            Height="150" Width="700">
+                                <lvc:CartesianChart.AxisX>
+                                        <lvc:Axis Title="Time" 
+                                                  Labels="{Binding Labels, Source={StaticResource Dashboardstyle}}" 
+                                                  Separator="{x:Static lvc:DefaultAxes.CleanSeparator}" />
+                                </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                        <lvc:Axis Title="FinishedTasks" LabelFormatter="{Binding Formatter, Source={ StaticResource Dashboardstyle}}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+                        <!-- <DataGrid x:Name="ContentText"
+                                  Style="{StaticResource C504Style}" /> -->
 
                 </WrapPanel>
-
-                <Viewbox  Grid.Column="1"
-                          Grid.Row="0"
-                          Grid.RowSpan="4">
-                    <Image Source="Images/img_transaction.png"
-                           Stretch="None"
-                           Margin="50" />
-                </Viewbox>
-
-                <Button Grid.Row="3">
-
-                    <Button.Style>
-
-                        <Style TargetType="{x:Type Button}">
-
-                            <Setter Property="Height"
-                                    Value="40" />
-                            <Setter Property="Background"
-                                    Value="#FFDD00" />
-                            <Setter Property="Width"
-                                    Value="120" />
-                            <Setter Property="HorizontalAlignment"
-                                    Value="Left" />
-                            <Setter Property="VerticalAlignment"
-                                    Value="Top" />
-                            <Setter Property="Margin"
-                                    Value="40,10,0,0" />
-
-
-                            <Setter Property="Template">
-
-                                <Setter.Value>
-
-                                    <ControlTemplate TargetType="{x:Type Button}">
-
-                                        <Border x:Name="border"
-                                                BorderThickness="0"
-                                                Background="#FFDD00"
-                                                CornerRadius="20">
-
-                                            <TextBlock x:Name="BtnText"
-                                                       Text="GET STARTED"
-                                                       Foreground="#292F34"
-                                                       FontSize="12"
-                                                       VerticalAlignment="Center"
-                                                       HorizontalAlignment="Center"
-                                                       FontFamily="Fonts/#Open Sans SemiBold" />
-
-                                        </Border>
-
-                                        <ControlTemplate.Triggers>
-
-                                            <Trigger Property="IsMouseOver"
-                                                     Value="True">
-
-                                                <Setter Property="Background"
-                                                        TargetName="border"
-                                                        Value="#292F34" />
-
-                                                <Setter Property="Foreground"
-                                                        TargetName="BtnText"
-                                                        Value="#FFFFFF" />
-
-
-                                            </Trigger>
-
-                                            <Trigger Property="IsPressed"
-                                                     Value="True">
-
-                                                <Setter Property="Background"
-                                                        TargetName="border"
-                                                        Value="#FFDD00" />
-
-                                                <Setter Property="Foreground"
-                                                        TargetName="BtnText"
-                                                        Value="#292F34" />
-
-                                            </Trigger>
-
-                                        </ControlTemplate.Triggers>
-
-                                    </ControlTemplate>
-
-                                </Setter.Value>
-
-                            </Setter>
-
-                        </Style>
-
-                    </Button.Style>
-
-                </Button>
 
             </Grid>
 
@@ -2365,30 +2279,18 @@
         <Border  Style="{StaticResource C5Style_Desktop}">
 
             <Grid>
-
-                <Grid.ColumnDefinitions>
-
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition x:Name="ResponsiveImageColumn"
-                                      Width="1*" />
-
-                </Grid.ColumnDefinitions>
+                    
 
                 <Grid.RowDefinitions>
-                    <RowDefinition x:Name="Responsive_Image"
-                                   Height="0*" />
-                    <RowDefinition x:Name="title"
-                                   Height="1.5*" />
+                        <RowDefinition x:Name="title"
+                                               Height="0.5*" />
                     <RowDefinition x:Name="body"
-                                   Height="1*" />
-                    <RowDefinition x:Name="button"
                                    Height="1*" />
 
                 </Grid.RowDefinitions>
 
                 <WrapPanel Name="TitleWrap"
-                           Grid.Row="1"
-                           Grid.Column="0"
+                           Grid.Row="0"
                            Style="{StaticResource C501Style}">
 
                     <TextBlock x:Name="TitleText"
@@ -2397,107 +2299,25 @@
                 </WrapPanel>
 
                 <WrapPanel x:Name="ContentWrap"
-                           Grid.Row="2"
-                           Grid.Column="0"
+                           Grid.Row="1"
                            Style="{StaticResource C503Style_Desktop}">
+                        <lvc:CartesianChart Series="{Binding SeriesCollection, Source={ StaticResource Dashboardstyle}}" LegendLocation="Right"
+                                            Height="250" Width="1000">
+                                <lvc:CartesianChart.AxisX>
+                                        <lvc:Axis Title="Time" 
+                                                  Labels="{Binding Labels, Source={StaticResource Dashboardstyle}}" 
+                                                  Separator="{x:Static lvc:DefaultAxes.CleanSeparator}" />
+                                </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                        <lvc:Axis Title="FinishedTasks" LabelFormatter="{Binding Formatter, Source={ StaticResource Dashboardstyle}}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
 
-                    <DataGrid x:Name="ContentText"
-                               Style="{StaticResource C504Style_Desktop}" />
+                     <!--   <DataGrid x:Name="ContentText"
+                                  Style="{StaticResource C504Style_Desktop}" /> -->
 
                 </WrapPanel>
-
-                <Viewbox  Grid.Column="1"
-                          Grid.Row="0"
-                          Grid.RowSpan="4">
-                    <Image Source="Images/img_transaction.png"
-                           Stretch="None"
-                           Margin="50" />
-                </Viewbox>
-
-                <Button Grid.Row="3">
-
-                    <Button.Style>
-
-                        <Style TargetType="{x:Type Button}">
-
-                            <Setter Property="Height"
-                                    Value="50" />
-                            <Setter Property="Background"
-                                    Value="#FFDD00" />
-                            <Setter Property="Width"
-                                    Value="150" />
-                            <Setter Property="HorizontalAlignment"
-                                    Value="Left" />
-                            <Setter Property="VerticalAlignment"
-                                    Value="Top" />
-                            <Setter Property="Margin"
-                                    Value="60,10,0,0" />
-
-
-                            <Setter Property="Template">
-
-                                <Setter.Value>
-
-                                    <ControlTemplate TargetType="{x:Type Button}">
-
-                                        <Border x:Name="border"
-                                                BorderThickness="0"
-                                                Background="#FFDD00"
-                                                CornerRadius="25">
-
-                                            <TextBlock x:Name="BtnText"
-                                                       Text="GET STARTED"
-                                                       Foreground="#292F34"
-                                                       FontSize="14"
-                                                       VerticalAlignment="Center"
-                                                       HorizontalAlignment="Center"
-                                                       FontFamily="Fonts/#Open Sans SemiBold" />
-
-                                        </Border>
-
-                                        <ControlTemplate.Triggers>
-
-                                            <Trigger Property="IsMouseOver"
-                                                     Value="True">
-
-                                                <Setter Property="Background"
-                                                        TargetName="border"
-                                                        Value="#292F34" />
-
-                                                <Setter Property="Foreground"
-                                                        TargetName="BtnText"
-                                                        Value="#FFFFFF" />
-
-
-                                            </Trigger>
-
-                                            <Trigger Property="IsPressed"
-                                                     Value="True">
-
-                                                <Setter Property="Background"
-                                                        TargetName="border"
-                                                        Value="#FFDD00" />
-
-                                                <Setter Property="Foreground"
-                                                        TargetName="BtnText"
-                                                        Value="#292F34" />
-
-
-                                            </Trigger>
-
-                                        </ControlTemplate.Triggers>
-
-                                    </ControlTemplate>
-
-                                </Setter.Value>
-
-                            </Setter>
-
-                        </Style>
-
-                    </Button.Style>
-
-                </Button>
+                    
 
             </Grid>
 
@@ -2520,19 +2340,15 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                   <!-- <RowDefinition x:Name="Responsive_Image"
-                                   Height="80" /> -->
-                    <RowDefinition x:Name="title"
-                                   Height="120" />
+                        <RowDefinition x:Name="title"
+                                       Height="120" />
                     <RowDefinition x:Name="body"
                                    Height="350" />
-             <!--       <RowDefinition x:Name="button"
-                                   Height="60" /> -->
 
                 </Grid.RowDefinitions>
 
                 <WrapPanel Name="TitleWrap"
-                           Grid.Row="1"
+                           Grid.Row="0"
                            Grid.Column="0"
                            Style="{StaticResource C501Style_Mobile}">
 
@@ -2542,104 +2358,24 @@
                 </WrapPanel>
 
                 <WrapPanel x:Name="ContentWrap"
-                           Grid.Row="2"
+                           Grid.Row="1"
                            Grid.Column="0"
                            Style="{StaticResource C503Style_Mobile}">
-
-                    <DataGrid x:Name="ContentText"
-                               Style="{StaticResource C504Style_Mobile}" />
+                        <lvc:CartesianChart Series="{Binding SeriesCollection, Source={ StaticResource Dashboardstyle}}" LegendLocation="bottom"
+                                            Height="250" Width="400">
+                                <lvc:CartesianChart.AxisX>
+                                        <lvc:Axis Title="Time" 
+                                                  Labels="{Binding Labels, Source={StaticResource Dashboardstyle}}" 
+                                                  Separator="{x:Static lvc:DefaultAxes.CleanSeparator}" />
+                                </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                        <lvc:Axis Title="FinishedTasks" LabelFormatter="{Binding Formatter, Source={ StaticResource Dashboardstyle}}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+              <!--      <DataGrid x:Name="ContentText"
+                               Style="{StaticResource C504Style_Mobile}" /> -->
 
                 </WrapPanel>
-
-              <!--  <Viewbox  Grid.Column="0"
-                          Grid.Row="0">
-                    <Image Source="Images/img_transaction.png"
-                           Stretch="None"
-                           Margin="10,50,10,0" />
-                </Viewbox> -->
-
-             <!--   <Button Grid.Row="3">
-
-                    <Button.Style>
-
-                        <Style TargetType="{x:Type Button}">
-
-                            <Setter Property="Height"
-                                    Value="40" />
-                            <Setter Property="Background"
-                                    Value="#FFDD00" />
-                            <Setter Property="Width"
-                                    Value="120" />
-                            <Setter Property="HorizontalAlignment"
-                                    Value="Center" />
-                            <Setter Property="VerticalAlignment"
-                                    Value="Top" />
-                            <Setter Property="Margin"
-                                    Value="0,0,0,10" />
-
-
-                            <Setter Property="Template">
-
-                                <Setter.Value>
-
-                                    <ControlTemplate TargetType="{x:Type Button}">
-
-                                        <Border x:Name="border"
-                                                BorderThickness="0"
-                                                Background="#FFDD00"
-                                                CornerRadius="20">
-
-                                            <TextBlock x:Name="BtnText"
-                                                       Text="GET STARTED"
-                                                       Foreground="#292F34"
-                                                       FontSize="12"
-                                                       VerticalAlignment="Center"
-                                                       HorizontalAlignment="Center"
-                                                       FontFamily="Fonts/#Open Sans SemiBold" />
-
-                                        </Border>
-
-                                        <ControlTemplate.Triggers>
-
-                                            <Trigger Property="IsMouseOver"
-                                                     Value="True">
-
-                                                <Setter Property="Background"
-                                                        TargetName="border"
-                                                        Value="#292F34" />
-
-                                                <Setter Property="Foreground"
-                                                        TargetName="BtnText"
-                                                        Value="#FFFFFF" />
-
-                                            </Trigger>
-
-                                            <Trigger Property="IsPressed"
-                                                     Value="True">
-
-                                                <Setter Property="Background"
-                                                        TargetName="border"
-                                                        Value="#FFDD00" />
-
-                                                <Setter Property="Foreground"
-                                                        TargetName="BtnText"
-                                                        Value="#292F34" />
-
-                                            </Trigger>
-
-                                        </ControlTemplate.Triggers>
-
-                                    </ControlTemplate>
-
-                                </Setter.Value>
-
-                            </Setter>
-
-                        </Style>
-
-                    </Button.Style>
-
-                </Button> -->
 
             </Grid>
 
