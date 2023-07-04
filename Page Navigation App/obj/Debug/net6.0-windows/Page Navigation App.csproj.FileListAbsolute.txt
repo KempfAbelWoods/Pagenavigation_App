@@ -668,3 +668,7 @@ C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Nav
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Finish_Order.baml
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\LiveCharts.dll
 C:\Users\david.kempf\Documents\Projekte\Projektlabor\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\LiveCharts.dll
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\bin\Debug\net6.0-windows\LiveCharts.Wpf.dll
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Finish_Order.g.cs
+C:\Users\Sean\Documents\Hochschule\Projektlabor\Code\Pagenavigation_App\Page Navigation App\obj\Debug\net6.0-windows\Popups\Finish_Order.baml
