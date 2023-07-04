@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using LiveCharts;
+using LiveCharts.Wpf;
 using Page_Navigation_App.Configs;
 using Page_Navigation_App.DB;
 using Page_Navigation_App.Helper;
@@ -14,20 +17,55 @@ public class Dashboardstyle
     public string OpenTasks { get; set; }
     public string Customernumber { get; set; }
     public List<Db_Order> ReadyBills { get; set; }
+    public SeriesCollection SeriesCollection { get; set; }
+    public string[] Labels { get; set; }
+    public Func<double, string> Formatter { get; set; }
 
     public Dashboardstyle()
     {
         //hier dann alle Daten aus Datenbank lesen die im Dashboard angezeigt werden sollen
-        //Orders = GetOrders();
+        Orders = "Anzahl: "+GetOrders();
         BillValue = "gesamt";
-        OpenTasks = GetTasks();
-        Customernumber = GetCustomers();
-        //(ReadyBills,var err) = RW_Order.Read("", Paths.sqlite_path);
-       // if (err!=null)
-       // {
-        //    MessageBox.Show(err.GetException().ToString());
-       // }
+        OpenTasks = "Anzahl: "+GetTasks();
+        Customernumber = "Anzahl: "+GetCustomers();
+        (ReadyBills,var err) = RW_Order.Read("", Paths.sqlite_path);
+        if (err!=null)
+        {
+            MessageBox.Show(err.GetException().ToString());
+        }
+        
+        SeriesCollection = new SeriesCollection()
+        {               
+            new StackedColumnSeries
+            {
+                Values = new ChartValues<double> {4, 5, 6, 8},
+                StackMode = StackMode.Values, // this is not necessary, values is the default stack mode
+                DataLabels = true
+            },
+            new StackedColumnSeries
+            {
+                Values = new ChartValues<double> {2, 5, 6, 7},
+                StackMode = StackMode.Values,
+                DataLabels = true
+            }
+
+        };
+        //adding series updates and animates the chart
+        SeriesCollection.Add(new StackedColumnSeries
+        {
+            Values = new ChartValues<double> {6, 2, 7},
+            StackMode = StackMode.Values,
+            DataLabels = true
+        });
+        
+        //adding values also updates and animates
+        SeriesCollection[2].Values.Add(4d);
+ 
+        Labels = new[] {"Chrome", "Mozilla", "Opera", "IE"};
+        Formatter = value => value + " Mill";
+
     }
+    
 
     public string GetCustomers()
     {
