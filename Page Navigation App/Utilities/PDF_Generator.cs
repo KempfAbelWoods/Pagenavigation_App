@@ -102,7 +102,8 @@ public  class PDF_Generator
 
 
             }
-            outputDocument.Save(data[0].Ressource)
+            //Todo Dateinamen generieren und mit übergeben
+            outputDocument.Save(data[0].Ressource+"\\output.pdf")
 
         ;
         }
