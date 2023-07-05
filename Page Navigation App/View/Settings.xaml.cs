@@ -18,7 +18,9 @@ using Microsoft.Win32;
 using Page_Navigation_App.Configs;
 using Page_Navigation_App.Connection;
 using Page_Navigation_App.DB;
+using Page_Navigation_App.Popups;
 using Page_Navigation_App.Utilities;
+using Path = System.IO.Path;
 
 namespace Page_Navigation_App.View
 {
@@ -39,10 +41,18 @@ namespace Page_Navigation_App.View
             else if (data.Count == 1) PDFPaths.Text = data[0].Ressource;
             else PDFPaths.Text = "Somehow there exist 2 or more elements in the Database, pls call the support"; 
             
-            //IP-Adress
-            var (ipdata,err1) = Rw_Settings.ReadwithID("3", Paths.sqlite_path);
+            //Vorlage-Path
+            var (pdfdata,err1) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
             //errorhandling
-            if (err1!=null) SocketIpAddress.Text = "You need to create a Table in your Database first.";
+            if (err1!=null) Vorlagepath.Text = "You need to create a Table in your Database first.";
+            else if (pdfdata.Count == 0) Vorlagepath.Text = "No File specified";
+            else if (pdfdata.Count == 1) Vorlagepath.Text = pdfdata[0].Ressource;
+            else Vorlagepath.Text = "Somehow there exist 2 or more elements in the Database, pls call the support"; 
+            
+            //IP-Adress
+            var (ipdata,err2) = Rw_Settings.ReadwithID("3", Paths.sqlite_path);
+            //errorhandling
+            if (err2!=null) SocketIpAddress.Text = "You need to create a Table in your Database first.";
             else if (ipdata.Count == 0) SocketIpAddress.Text = "No IP specified";
             else if (ipdata.Count == 1) SocketIpAddress.Text = ipdata[0].Ressource;
             else SocketIpAddress.Text = "Somehow there exist 2 or more elements in the Database, pls call the support"; 
@@ -108,7 +118,6 @@ namespace Page_Navigation_App.View
             if (Userhandling.GrantPermission(1, true))
             {
                 string Path = "";
-                string correctedPath = "";
                 var ookiiDialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
                 if (ookiiDialog.ShowDialog() == true)
                 {
@@ -195,21 +204,7 @@ namespace Page_Navigation_App.View
                 Server.SocketServer();
             }
         }
-
-        private void Start_create_PDF(object sender, RoutedEventArgs e)
-        {
-            if (Userhandling.GrantPermission(1, true))
-            {
-                try
-                {
-                    new PDF_Generator().PDF_Generate();
-                }
-                catch (Exception exception)
-                {
-                    MessageBox.Show(exception.Message);
-                }
-            }
-        }
+        
 
         private void Get_Code(object sender, RoutedEventArgs e)
         {
@@ -220,6 +215,76 @@ namespace Page_Navigation_App.View
             }
             Code.Text = code;
             Paths.ConnectionCode = code;
+        }
+
+        private void Set_ModelPdf(object sender, RoutedEventArgs e)
+        {
+            if (Userhandling.GrantPermission(1, true))
+            {
+                string Path = "";
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    Path = System.IO.Path.GetFullPath(openFileDialog.FileName);
+                    
+                    //Spalte mit alten Daten löschen
+                    var (list, err1) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
+                    if (err1 != null)
+                    {
+                        MessageBox.Show(err1.GetException().Message);
+                    }
+
+                    var error = Rw_Settings.Delete(list, Paths.sqlite_path);
+                    if (error != null)
+                    {
+                        MessageBox.Show(error.GetException().Message);
+                    }
+
+                    //Spalte mit neuen Daten speichern
+                    var data = new Db_Settings
+                    {
+                        ID = "2",
+                        Name = "PDFModelpath",
+                        Ressource = Path,
+                        Comment = "Pfad zum Laden der Vorlagenpdf"
+
+                    };
+                    var err = Rw_Settings.Write(new List<Db_Settings> { data }, Paths.sqlite_path);
+                    if (err != null)
+                    {
+                        MessageBox.Show(err.GetException().Message);
+                    }
+                    else
+                    {
+                        Vorlagepath.Text = Path;
+                    }
+                }
+            }
+        }
+
+        private void PreviewPDF(object sender, RoutedEventArgs e)
+        {
+            string examplepath = "..//..//..//data";
+
+            if (Userhandling.GrantPermission(1, true))
+            {
+                try
+                {
+                    new PDF_Generator().PDF_Generate("example", examplepath,"",DateTime.Now.ToString());
+
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+
+
+                //Nach Generierung ansehen
+                Show_Bill showBill = new Show_Bill(Path.GetFullPath(examplepath + "//example.pdf"));
+                showBill.Owner = Application.Current.MainWindow;
+                showBill.ShowDialog();
+            }
         }
     }
 }

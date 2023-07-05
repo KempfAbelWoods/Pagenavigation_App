@@ -18,7 +18,10 @@ public partial class Edit_Tasks : Window
         Initial_ID = ID;
         InitializeComponent();
         if (!IDenable)
-        { ID_Field.IsReadOnly = true; }
+        {
+            ID_Field.IsReadOnly = true;
+            Costs_Field.IsReadOnly = true;
+        }
         else
         { ID_Field.IsReadOnly = false; }
         Loaddata(Username,orderID,Ressource);

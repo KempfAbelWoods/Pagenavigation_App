@@ -8,7 +8,6 @@ namespace Page_Navigation_App.DB;
 public class Db_Tasks
 {
     public string ID { get; set; }
-    //TODo wenn Order geändert wird muss auch das auch hier geändert werden
     public string OrderId { get; set; }
     public string Description { get; set; }
     public string Ressource { get; set; }

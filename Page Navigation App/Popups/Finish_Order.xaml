@@ -6,18 +6,22 @@
         xmlns:local="clr-namespace:Page_Navigation_App.Popups"
         mc:Ignorable="d"
         Title="Finish_Order" 
-        Height="200"
+        Height="300"
         Width="400"
         WindowStartupLocation="CenterOwner"
         ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        WindowStyle="None"
         Background="#3f4c61">
     <Grid>
         
         
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"></RowDefinition>
-            <RowDefinition Height="0.25*"></RowDefinition>
-            <RowDefinition Height="0.4*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
             <RowDefinition Height="0.1*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -27,21 +31,27 @@
         <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
                    FontSize="18" Foreground="White"
                    Name="Order"></TextBlock>
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                   FontSize="18" Foreground="White"
+                   >Specifiy the Delivery Date:</TextBlock>
+        <DatePicker Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
+                   FontSize="18" Foreground="White"
+                   Name="Date"></DatePicker>
 
         <!-- Fußzeile mit Save und Cancel-->
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
                 <ColumnDefinition Width="0.5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="1" Command="ApplicationCommands.Close" Grid.Column="0" Content="Execute"
+            <Button Command="ApplicationCommands.Close" Grid.Column="0" Content="Execute"
                     Style="{StaticResource PopupButton}" HorizontalAlignment="Center">
                 <Button.CommandBindings>
                     <CommandBinding Command="ApplicationCommands.Close" Executed="FinishOrder" />
                 </Button.CommandBindings>
             </Button>
 
-            <Button Grid.Row="1" Command="ApplicationCommands.Close" Grid.Column="1" Content="Cancel"
+            <Button Command="ApplicationCommands.Close" Grid.Column="1" Content="Cancel"
                     Style="{StaticResource PopupButton}" HorizontalAlignment="Center">
                 <Button.CommandBindings>
                     <CommandBinding Command="ApplicationCommands.Close" Executed="Close_Window" />

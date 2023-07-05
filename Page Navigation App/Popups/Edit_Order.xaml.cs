@@ -55,7 +55,7 @@ public partial class Edit_Order : Window
         string ID = ID_Field.Text;
         string kunde = Kunde_Field.Text;
         string beschreibung = Beschreibung_Field.Text;
-        string date = Enddatum_Field.Text;
+        string date = Enddatum_Field.SelectedDate.ToString();
         float OrderValue = 0f;
         float ActualCosts = 0f;
         

@@ -44,7 +44,6 @@ namespace Page_Navigation_App.View
         /// Lade Daten aus Datenbank in Tabelle
         /// </summary>
         /// <param name="dbread"></param>
-        /// Todo Ressourcen von Order mit DB_Ressources verknüpfen
         void Load_Data(bool dbread)
         { 
             var converter = new BrushConverter();
