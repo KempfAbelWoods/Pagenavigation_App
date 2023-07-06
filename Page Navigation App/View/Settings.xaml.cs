@@ -112,6 +112,14 @@ namespace Page_Navigation_App.View
                 MessageBox.Show(err.GetException().Message);
             }
         }
+        private void Create_Finish_order(object sender, RoutedEventArgs e)
+        {
+            var err = Db_FinishedOrders.CreateTable(Paths.sqlite_path);
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+        }
 
         private void Set_BillPath(object sender, RoutedEventArgs e)
         {

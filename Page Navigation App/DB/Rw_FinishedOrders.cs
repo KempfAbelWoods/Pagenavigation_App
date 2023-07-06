@@ -6,12 +6,12 @@ using SQLite;
 
 namespace Page_Navigation_App.DB;
 
-public class Rw_Tasks
+public class Rw_FinishedOrders
 {
-     /// <summary>
+    /// <summary>
     /// Reihen in DB schreiben
     /// </summary>
-    public static Error Write(List<Db_Tasks> rows, string dataSource)
+    public static Error Write(List<Db_FinishedOrders> rows, string dataSource)
     {
         SQLiteConnection conn = null;
 
@@ -24,11 +24,11 @@ public class Rw_Tasks
                 string where = $"WHERE ID='{row.ID}'";
 
                 // pruefen ob Item vorhanden ist
-                var item = conn.Query<Db_Tasks>($"SELECT * FROM {nameof(Db_Tasks)} {where}").FirstOrDefault();
+                var item = conn.Query<Db_FinishedOrders>($"SELECT * FROM {nameof(Db_FinishedOrders)} {where}").FirstOrDefault();
                 if (item != null)
                 {
                     // schon vorhanden, loeschen
-                    conn.Execute($"DELETE FROM {nameof(Db_Tasks)} {where}");
+                    conn.Execute($"DELETE FROM {nameof(Db_FinishedOrders)} {where}");
                 }
 
                 conn.Insert(row);
@@ -52,7 +52,7 @@ public class Rw_Tasks
     /// <param name="rows"></param>
     /// <param name="dataSource"></param>
     /// <returns></returns>
-    public static Error Delete(List<Db_Tasks> rows, string dataSource)
+    public static Error Delete(List<Db_FinishedOrders> rows, string dataSource)
     {
         
         SQLiteConnection conn = null;
@@ -66,11 +66,11 @@ public class Rw_Tasks
                 string where = $"WHERE ID='{row.ID}'";
 
                 // pruefen ob Item vorhanden ist
-                var item = conn.Query<Db_Tasks>($"SELECT * FROM {nameof(Db_Tasks)} {where}").FirstOrDefault();
+                var item = conn.Query<Db_FinishedOrders>($"SELECT * FROM {nameof(Db_FinishedOrders)} {where}").FirstOrDefault();
                 if (item != null)
                 {
                     // schon vorhanden, loeschen
-                    conn.Execute($"DELETE FROM {nameof(Db_Tasks)} {where}");
+                    conn.Execute($"DELETE FROM {nameof(Db_FinishedOrders)} {where}");
                 }
             }
             return null;
@@ -87,32 +87,21 @@ public class Rw_Tasks
     }
    
     /// <summary>
-    /// Reihen mit ID lesen
+    /// Reihen mit SerialNumber lesen
     /// </summary>
-    public static (List<Db_Tasks>, Error) ReadwithID(string ID, string dataSource)
+    public static (List<Db_FinishedOrders>, Error) ReadwithID(string ID, string dataSource)
     {
         var where = $"ID='{ID}'";
         return Read(where, dataSource);
     }
-    public static (List<Db_Tasks>, Error) ReadwithUser(string Username, string dataSource)
+    
+    public static (List<Db_FinishedOrders>, Error) ReadwithCustomer(string Name, string dataSource)
     {
-        var where = $"Username='{Username}'";
+        var where = $"CustomerID='{Name}'";
         return Read(where, dataSource);
     }
     
-    public static (List<Db_Tasks>, Error) ReadwithOrderID(string OrderID, string dataSource)
-    {
-        var where = $"OrderId='{OrderID}'";
-        return Read(where, dataSource);
-    }
-    
-    public static (List<Db_Tasks>, Error) ReadwithRessourceID(string ressourceID, string dataSource)
-    {
-        var where = $"Ressource='{ressourceID}'";
-        return Read(where, dataSource);
-    }
-
-    public static (List<Db_Tasks>, Error) Read(string where, string dataSource)
+    public static (List<Db_FinishedOrders>, Error) Read(string where, string dataSource)
     {
         SQLiteConnection conn = null;
 
@@ -120,17 +109,17 @@ public class Rw_Tasks
         {
             conn = new SQLiteConnection(dataSource);
 
-            string query = $"SELECT * FROM {nameof(Db_Tasks)} ";
+            string query = $"SELECT * FROM {nameof(Db_FinishedOrders)} ";
             if (where != "")
             {
                 query += "WHERE " + where;
             }
 
-            return (conn.Query<Db_Tasks>(query), null);
+            return (conn.Query<Db_FinishedOrders>(query), null);
         }
         catch (Exception ex)
         {
-            return (new List<Db_Tasks>(), new Error(ex.ToString()));
+            return (new List<Db_FinishedOrders>(), new Error(ex.ToString()));
         }
         finally
         {

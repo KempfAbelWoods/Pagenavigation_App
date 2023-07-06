@@ -22,7 +22,7 @@ public class PDF_Generator
     /// <param name="orderID"> ID of Order to print, if "" the example will be used</param>
     /// /// <param name="deliverydate"> Liederdatum</param>
     //Todo Adresskopf in DB Settings abspeichern (es müssen mehrere Adressen hinterlegbar sein)
-    public void PDF_Generate(string PDFname, string dboutputPath, string orderID, string deliverydate)
+    public byte[] PDF_Generate(string PDFname, string dboutputPath, string orderID, string deliverydate)
     {
         string Position = "Position";
         string Menge = "Menge";
@@ -88,7 +88,7 @@ public class PDF_Generator
                     List<Db_Ressources> ressource = new List<Db_Ressources>();
                     for (int i = 0; i < pos_Anzahl; i++)
                     {
-                        if (orderID != "" && i <= tasklist.Count)
+                        if (orderID != "" && i < tasklist.Count)
                         {
                             (ressource, var err3) = Rw_Ressources.ReadwithID(tasklist[i].Ressource, Paths.sqlite_path);
                             if (err3 != null)
@@ -177,6 +177,13 @@ public class PDF_Generator
                     {
                         outputDocument.Save(dboutputPath + "\\" + PDFname + ".pdf");
                     }
+                    
+                    using (var ms = new MemoryStream())
+                    {
+                        outputDocument.Save(ms);
+                        return ms.ToArray();
+                    }
+
                 }
                 catch (Exception e)
                 {
@@ -188,5 +195,7 @@ public class PDF_Generator
         {
             MessageBox.Show("Somehow there exist 2 or more elements in the Database, pls call the support.");
         }
+
+        return null;
     }
 }

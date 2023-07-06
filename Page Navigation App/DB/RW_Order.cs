@@ -94,12 +94,6 @@ public class RW_Order
         var where = $"ID='{ID}'";
         return Read(where, dataSource);
     }
-    
-    public static (List<Db_Order>, Error) ReadwithName(string Name, string dataSource)
-    {
-        var where = $"Name='{Name}'";
-        return Read(where, dataSource);
-    }
     public static (List<Db_Order>, Error) ReadwithCustomer(string Name, string dataSource)
     {
         var where = $"CustomerID='{Name}'";

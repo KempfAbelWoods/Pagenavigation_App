@@ -1,4 +1,6 @@
-﻿namespace Page_Navigation_App.Helper;
+﻿using System.Windows.Forms;
+
+namespace Page_Navigation_App.Helper;
 
 public class Error
 {
