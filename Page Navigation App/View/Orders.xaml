@@ -38,8 +38,21 @@
 
 
             <!--Page Title-->
-            <TextBlock Text="Orders" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
-                       Foreground="#121518" HorizontalAlignment="Left" />
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Text="Orders" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
+                           Foreground="#121518" HorizontalAlignment="Left" />
+                
+                <Button Grid.Column="1" Style="{StaticResource addButton}" HorizontalAlignment="Center" Click="View_Finished_Orders" >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="View Finished Orders" x:Name="ViewOrders"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
 
             <!--Seprator-->
             <Separator Height="1" Grid.Row="2" Background="#DAE2EA" Margin="0 -1 0 10" />
@@ -58,7 +71,7 @@
                     <TextBox Name="textBoxFilter"  Style="{StaticResource filterTextBox}" TextChanged="TextBoxFilter_OnTextChanged"/>
                 </Grid>
                 
-                <ComboBox Grid.Column="1" x:Name="SearchFor" Width="150" Height="35" HorizontalAlignment="Right" FontSize="15" FontFamily="Fonts/#Saira SemiBold" 
+                <ComboBox Grid.Column="1" x:Name="SearchFor" Width="150" Height="35" HorizontalAlignment="Center" FontSize="15" FontFamily="Fonts/#Saira SemiBold" 
                           VerticalContentAlignment="Center" SelectionChanged="SearchFor_OnSelectionChanged">
                     <ComboBoxItem Content="ID" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
                     <ComboBoxItem IsSelected="True" Content="Auftragsbeschr" FontFamily="Fonts/#Saira SemiBold" FontSize="15"></ComboBoxItem>
@@ -74,6 +87,7 @@
                         <TextBlock Text="Add Order" />
                     </StackPanel>
                 </Button>
+                
             </Grid>
 
 

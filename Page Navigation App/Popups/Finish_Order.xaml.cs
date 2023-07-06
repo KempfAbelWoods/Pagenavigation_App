@@ -43,7 +43,6 @@ public partial class Finish_Order : Window
         if (Date.SelectedDate.HasValue)
         {
             var (Tasks, err) = Rw_Tasks.ReadwithOrderID(InitialID, Paths.sqlite_path);
-            DateTime? deliverydate;
             if (err != null)
             {
                 MessageBox.Show(err.GetException().Message);
@@ -70,7 +69,7 @@ public partial class Finish_Order : Window
                         Description = order[0].Description,
                         CustomerID = order[0].CustomerID,
                         EndDate = DateTime.Now.ToString(),
-                        Costs = order[0].ActualCosts,
+                        OrderValue = order[0].ActualCosts,
                         PDf = pdf
                     };
                     //Spalte mit alten Daten löschen
@@ -97,9 +96,12 @@ public partial class Finish_Order : Window
                     {
                         MessageBox.Show(error1.GetException().Message);
                     }
-                    
                     //Order löschen
-                    //Todo eventuell Order mit 2 Spalten erweitern und dann als abgeschlossen setzen
+                    var err3 = RW_Order.Delete(order, Paths.sqlite_path);
+                    if (err3!=null)
+                    {
+                        MessageBox.Show(err3.GetException().Message);
+                    }
                 }
                 
             }

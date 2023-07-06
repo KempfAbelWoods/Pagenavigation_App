@@ -10,7 +10,7 @@ public class Db_FinishedOrders
     public string Description { get; set; }
     public string CustomerID { get; set; }
     public string EndDate { get; set; }
-    public float Costs { get; set; }
+    public float OrderValue { get; set; }
     public byte[] PDf { get; set; }
     
     public static Error CreateTable(string dataSource)

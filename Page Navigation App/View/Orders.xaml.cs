@@ -31,7 +31,11 @@ namespace Page_Navigation_App.View
     {
         ObservableCollection<Db_Order> members = new ObservableCollection<Db_Order>();
         ObservableCollection<Db_Order> shownmembers = new ObservableCollection<Db_Order>();
+        
+        ObservableCollection<Db_FinishedOrders> members_finished = new ObservableCollection<Db_FinishedOrders>();
+        ObservableCollection<Db_FinishedOrders> shownmembers_finished = new ObservableCollection<Db_FinishedOrders>();
         private int SearchId = 1;
+        private bool showfinish = false;
         public Orders()
         {
             InitializeComponent();
@@ -45,15 +49,17 @@ namespace Page_Navigation_App.View
         /// </summary>
         /// <param name="dbread"></param>
         void Load_Data(bool dbread)
-        { 
-            var converter = new BrushConverter();
+        {
             members.Clear();
             
             var (list, err) = RW_Order.Read("",Paths.sqlite_path);
-
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
                 for (int i = 0; i < list.Count; i++)
                 {
-                    members.Add(new Db_Order { ID= list[i].ID, Description = list[i].Description, CustomerID = list[i].CustomerID, EndDate = list[i].EndDate });
+                    members.Add(new Db_Order { ID= list[i].ID, Description = list[i].Description, CustomerID = list[i].CustomerID, EndDate = list[i].EndDate, ActualCosts = list[i].ActualCosts, OrderValue = list[i].OrderValue});
                 }
             
            if (dbread)
@@ -63,6 +69,30 @@ namespace Page_Navigation_App.View
             }
 
            ordersDataGrid.ItemsSource = shownmembers;
+        }
+        
+        void Load_Data_finished(bool dbread)
+        {
+            members_finished.Clear();
+            
+            var (list, err) = Rw_FinishedOrders.Read("",Paths.sqlite_path);
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                members_finished.Add(new Db_FinishedOrders() { ID= list[i].ID, Description = list[i].Description, CustomerID = list[i].CustomerID, EndDate = list[i].EndDate, OrderValue = list[i].OrderValue});
+            }
+            
+            if (dbread)
+            {
+                shownmembers_finished = members_finished;
+                textBoxFilter.Text = "";
+            }
+
+            ordersDataGrid.ItemsSource = shownmembers_finished;
         }
         
         void EditOrder(object sender, ExecutedRoutedEventArgs e)
@@ -159,6 +189,24 @@ namespace Page_Navigation_App.View
                 finishOrder.ShowDialog();
                 Load_Data(true);
             }
+        }
+
+        private void View_Finished_Orders(object sender, RoutedEventArgs e)
+        {
+            if (showfinish)
+            {
+                Load_Data(true);
+                ViewOrders.Text = "View Finished Orders";
+                showfinish = false;
+
+            }
+            else
+            {
+                Load_Data_finished(true);
+                ViewOrders.Text = "View actual Orders";
+                showfinish = true;
+            }
+            
         }
     }
     
