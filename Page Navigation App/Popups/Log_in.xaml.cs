@@ -11,65 +11,88 @@ public partial class Log_in : Window
     public Log_in()
     {
         InitializeComponent();
+        if (ActualUser.Username!="")
+        { Save.Content = "Logout"; }
+        else
+        { Save.Content = "Login"; }
         Username_Field.Text = ActualUser.Username;
     }
 
 
     private void Login(object sender, ExecutedRoutedEventArgs e)
     {
-        var (list, err) = Rw_Users.ReadwithUserName(Username_Field.Text, Paths.sqlite_path);
-        if (err != null)
+        if (ActualUser.Username == "")
         {
-            MessageBox.Show(err.GetException().Message);
-        }
-        else if (list.Count == 0)
-        {
-            MessageBox.Show("User does not exist");
-        }
-
-        if (list.Count == 1)
-        {
-            if (Password_Field.Password == list[0].Password)
+            var (list, err) = Rw_Users.ReadwithUserName(Username_Field.Text, Paths.sqlite_path);
+            if (err != null)
             {
-                if (StayLogged.IsChecked != null && StayLogged.IsChecked.Value)
+                MessageBox.Show(err.GetException().Message);
+            }
+            else if (list.Count == 0)
+            {
+                MessageBox.Show("User does not exist");
+            }
+
+            if (list.Count == 1)
+            {
+                if (Password_Field.Password == list[0].Password)
                 {
-                    var data = new Db_Settings
+                    if (StayLogged.IsChecked != null && StayLogged.IsChecked.Value)
                     {
-                        ID = "4",
-                        Name = "LoggedUser",
-                        Ressource = list[0].Username,
-                        Comment =
-                            "Hier steht der aktuell angemeldete Benutzer, wenn niemand angemeldet ist ist das Feld leer"
-                    };
-                    //alte Zeile löschen
-                    var (Row, err2) = Rw_Settings.ReadwithID("4", Paths.sqlite_path);
-                    if (err2 != null)
-                    {
-                        MessageBox.Show(err2.GetException().Message);
-                    }
-                    if (Row.Count == 1)
-                    {
-                        var error = Rw_Settings.Delete(Row, Paths.sqlite_path);
-                        if (error != null)
+                        var data = new Db_Settings
                         {
-                            MessageBox.Show(error.GetException().Message);
+                            ID = "4",
+                            Name = "LoggedUser",
+                            Ressource = list[0].Username,
+                            Comment =
+                                "Hier steht der aktuell angemeldete Benutzer, wenn niemand angemeldet ist ist das Feld leer"
+                        };
+                        Delete_User_Settings();
+
+                        //neue Zeile einfügen
+                        var err1 = Rw_Settings.Write(new List<Db_Settings> { data }, Paths.sqlite_path);
+                        if (err1 != null)
+                        {
+                            MessageBox.Show(err.GetException().Message);
                         }
                     }
-                    //neue Zeile einfügen
-                    var err1 = Rw_Settings.Write(new List<Db_Settings> { data }, Paths.sqlite_path);
-                    if (err1 != null)
-                    {
-                        MessageBox.Show(err.GetException().Message);
-                    }
-                }
 
-                ActualUser.Username = Username_Field.Text;
-                ActualUser.Password = Password_Field.Password;
-                this.Close();
+                    ActualUser.Username = Username_Field.Text;
+                    ActualUser.Password = Password_Field.Password;
+                    Save.Content = "Logout";
+                    Username_Field.Text = ActualUser.Username;
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Password");
+                }
             }
-            else
+        }
+        else
+        {
+            ActualUser.Username = "";
+            ActualUser.Password = "";
+            Save.Content = "Login";
+            Username_Field.Text = ActualUser.Username;
+            Delete_User_Settings();
+        }
+    }
+
+    private void Delete_User_Settings()
+    {
+        //alte Zeile löschen
+        var (Row, err2) = Rw_Settings.ReadwithID("4", Paths.sqlite_path);
+        if (err2 != null)
+        {
+            MessageBox.Show(err2.GetException().Message);
+        }
+
+        if (Row.Count == 1)
+        {
+            var error = Rw_Settings.Delete(Row, Paths.sqlite_path);
+            if (error != null)
             {
-                MessageBox.Show("Wrong Password");
+                MessageBox.Show(error.GetException().Message);
             }
         }
     }
@@ -81,7 +104,7 @@ public partial class Log_in : Window
 
     private void UIElement_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
     {
-        //TODo Hier muss abgefragt werden ob der angemeldete Benutzer die Rechte hat neue Anzulegen
+       
         User_Control users = new User_Control();
         users.Owner = Application.Current.MainWindow;
         users.ShowDialog();

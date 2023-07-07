@@ -41,10 +41,9 @@ namespace Page_Navigation_App
         
         private void MainWindow_OnActivated(object sender, EventArgs e)
         {
-            if (ActualUser.Username !="")
-            {
+
                 Username_Field.Text = ActualUser.Username; 
-            }
+            
         }
     }
 }

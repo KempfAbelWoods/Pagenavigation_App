@@ -13,11 +13,13 @@ public partial class Edit_User : Window
 {
     
     private string Initial_ID;
+    private string Initial_Username;
     public Edit_User(string ID, string name, string username, string role, string rights, string password, bool IDenable)
     {
         //Todo verwaltung von Rechten evtl. als string mit Trennzeichen übergeben
         //Todo überprüfen ob Nutzername schon vergeben
         Initial_ID = ID;
+        Initial_Username = username;
         InitializeComponent();
         if (!IDenable)
         { ID_Field.IsReadOnly = true; }
@@ -39,6 +41,10 @@ public partial class Edit_User : Window
         {
             //check if ID is already in Database
             var (data,err) =Rw_Users.ReadwithID(ID, Paths.sqlite_path);
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
             if (data.Count !=0)
             {
                 Save.IsEnabled = false;
@@ -53,6 +59,38 @@ public partial class Edit_User : Window
         }
 
         if (ID == Initial_ID)
+        {
+            Save.Content = "Save";
+            Save.IsEnabled = true;
+        }
+    }
+    
+    private void Username_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        string username = Username_Field.Text;
+        
+        if (username != "" && (Initial_Username == "" || username != Initial_Username))
+        {
+            //check if username is already in Database
+            var (data,err) =Rw_Users.ReadwithUserName(username, Paths.sqlite_path);
+            if (err!=null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+            if (data.Count !=0)
+            {
+                Save.IsEnabled = false;
+                Save.Content = "Username already used";
+                Username_Field.ToolTip = "Username already used";
+            }
+            else
+            {
+                Save.Content = "Save";
+                Save.IsEnabled = true;
+            }
+        }
+
+        if (username == Initial_Username)
         {
             Save.Content = "Save";
             Save.IsEnabled = true;

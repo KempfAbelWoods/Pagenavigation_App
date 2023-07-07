@@ -12,7 +12,7 @@ public static class Userhandling
     /// Gibt zurück ob der angemeldete Benutzer die Rechte für die Aktion besitzt
     /// </summary>
     /// <param name="neededrights">Integer: 0=read/1=write/2=fullaccess</param>
-    /// <param name="enablemessage">Integer: get a Message if wanted</param>
+    /// <param name="enablemessage">bool: get a Message if wanted</param>
     /// <returns>bool: 1=Access granted/ 0=no acess</returns>
     public static bool GrantPermission(int neededrights, bool enablemessage)
     {

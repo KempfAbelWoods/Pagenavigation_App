@@ -57,22 +57,26 @@ public partial class User_Control : Window
         
         void AddUser(object sender, RoutedEventArgs e)
         {
-            
-            Edit_User editUser = new Edit_User("","Max Mustermann","mmustermann","Administrator","readonly","", true);
-            editUser.Owner = Application.Current.MainWindow;
-            editUser.ShowDialog();
-            Load_Data(true);
-
+            if (Userhandling.GrantPermission(2, true))
+            {
+                Edit_User editUser = new Edit_User("", "Max Mustermann", "mmustermann", "Administrator", "readonly", "",
+                    true);
+                editUser.Owner = Application.Current.MainWindow;
+                editUser.ShowDialog();
+                Load_Data(true);
+            }
         }
         
         void DeleteUser(object sender, ExecutedRoutedEventArgs e)
         {
-            //hier auch noch Kundennamen mitgeben
-            Delete_User deleteUser = new Delete_User(e.Parameter.ToString());
-            deleteUser.Owner = Application.Current.MainWindow;
-            deleteUser.ShowDialog();
-            Load_Data(true);
-
+            if (Userhandling.GrantPermission(2, true))
+            {
+                //hier auch noch Kundennamen mitgeben
+                Delete_User deleteUser = new Delete_User(e.Parameter.ToString());
+                deleteUser.Owner = Application.Current.MainWindow;
+                deleteUser.ShowDialog();
+                Load_Data(true);
+            }
         }
 
         private void TextBoxFilter_OnTextChanged(object sender, TextChangedEventArgs e)
