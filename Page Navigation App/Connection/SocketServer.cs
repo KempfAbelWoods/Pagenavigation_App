@@ -60,7 +60,7 @@ public class Server
             responseData = Encoding.ASCII.GetBytes(freigabe);
             await networkStream.WriteAsync(responseData, 0, responseData.Length);
         }
-        else if (dataReceived == "")
+        else
         {
             var (list1, err2) = Rw_Users.ReadwithUserName(dataReceived, Paths.sqlite_path);
             if (list1.Count == 1)
