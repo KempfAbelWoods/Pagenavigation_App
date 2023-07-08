@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Printing.Interop;
 using System.Windows.Forms;
 using LiveCharts;
@@ -40,7 +41,7 @@ public class Dashboardstyle
         (ReadyBills, var err) = RW_Order.Read("", Paths.sqlite_path);
         if (err != null)
         {
-            MessageBox.Show(err.GetException().ToString());
+           Trace.WriteLine(err.GetException().ToString());
         }
 
         PrintChart();
@@ -58,16 +59,6 @@ public class Dashboardstyle
         {
             
             Labels[i - 1] = "0" + actualmonth.ToString() + "/" + actualyear.ToString();
-            if (actualmonth-i<=0)
-            {
-                actualyear--;
-                
-                actualmonth = 12 +(actualmonth-i);
-            }
-            else
-            {
-                actualmonth--;
-            }
             float costs = 0;
             foreach (var member in data)
             {
@@ -78,13 +69,31 @@ public class Dashboardstyle
                 }
             }
             chartvalue.Add(costs);
+            if (actualmonth-i<=0)
+            {
+                actualyear--;
+                
+                actualmonth = 12 +(actualmonth-i);
+            }
+            else
+            {
+                actualmonth--;
+            }
         }
         
+        ChartValues<double> charts = new ChartValues<double>();
+        if (chartvalue.Count==4)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                charts.Add(chartvalue[3-i]);
+            }
+        }
         SeriesCollection = new SeriesCollection()
         {
             new StackedColumnSeries
             {
-                Values = chartvalue,
+                Values = charts,
                 StackMode = StackMode.Values, // this is not necessary, values is the default stack mode
                 DataLabels = true,
                 
@@ -101,13 +110,13 @@ public class Dashboardstyle
     {
         List<ChartData> charts = new List<ChartData>();
         var (list, err) = Rw_FinishedOrders.Read("", Paths.sqlite_path);
-        charts.Clear();
         if (err != null)
         {
-            MessageBox.Show(err.GetException().ToString());
+            Trace.WriteLine(err.GetException().ToString());
         }
         try
         {
+            charts.Clear();
             foreach (var chart in list)
             {
                 var data = new ChartData()
@@ -122,8 +131,7 @@ public class Dashboardstyle
         }
         catch (Exception e)
         {
-            System.Windows.MessageBox.Show(e.Message);
-            throw;
+            Trace.WriteLine(e.Message);
         }
         return (charts);
     }
@@ -136,7 +144,7 @@ public class Dashboardstyle
         var (list, err) = RW_Customer.Read("", Paths.sqlite_path);
         if (err != null)
         {
-            MessageBox.Show(err.GetException().Message);
+            Trace.WriteLine(err.GetException().Message);
         }
 
         for (var i = 0; i < list.Count; i++)
@@ -157,7 +165,7 @@ public class Dashboardstyle
         var (list, err) = Rw_Tasks.Read("", Paths.sqlite_path);
         if (err != null)
         {
-            MessageBox.Show(err.GetException().Message);
+            Trace.WriteLine(err.GetException().Message);
         }
 
         for (var i = 0; i < list.Count; i++)
@@ -178,7 +186,7 @@ public class Dashboardstyle
         var (list, err) = RW_Order.Read("", Paths.sqlite_path);
         if (err != null)
         {
-            MessageBox.Show(err.GetException().Message);
+            Trace.WriteLine(err.GetException().Message);
         }
 
         for (var i = 0; i < list.Count; i++)
