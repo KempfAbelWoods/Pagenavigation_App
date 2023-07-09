@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Page_Navigation_App.Utilities;
 using System.Windows.Input;
 using Page_Navigation_App.Configs;
+using Page_Navigation_App.DB;
 
 namespace Page_Navigation_App.ViewModel
 {
@@ -67,7 +70,22 @@ namespace Page_Navigation_App.ViewModel
         {
             if (Userhandling.GrantPermission(0, true))
             {
-                CurrentView = new Bills();
+                var (data, err) = Rw_Settings.ReadwithID("1", Paths.sqlite_path);
+                if (err != null)
+                {
+                    MessageBox.Show(err.GetException().Message);
+                }
+                if (data.Count==1)
+                {
+                    if (Directory.Exists(data[0].Ressource))
+                    {
+                        CurrentView = new Bills();
+                    }
+                    else
+                    {
+                        MessageBox.Show("The Given Bill-Directory does not exist!"); 
+                    }
+                }
             }
         }
 

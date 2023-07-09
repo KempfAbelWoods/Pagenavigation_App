@@ -10,6 +10,7 @@
                     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
         <!--#region Card 1-->
         <local:Dashboardstyle x:Key="Dashboardstyle"></local:Dashboardstyle>
+
         
         <Style x:Key="C101Style"
                TargetType="Border">
@@ -104,8 +105,8 @@
                 Value="Left" />
         <Setter Property="FontSize"
                 Value="22" />
-        <Setter Property="Text"
-                Value="{Binding Orders, Source={StaticResource Dashboardstyle}}" />
+            <Setter Property="Text"
+                    Value="{Binding Orders, Source={StaticResource Dashboardstyle}}" />
         <Setter Property="FontFamily"
                 Value="Fonts/#Saira Regular" />
         <Setter Property="Margin"
@@ -464,7 +465,7 @@
         <Setter Property="Foreground"
                 Value="#DCE0E4" />
         <Setter Property="Text"
-                Value="Bills" />
+                Value="Sales Volume" />
         <Setter Property="FontSize"
                 Value="28" />
         <Setter Property="TextWrapping"
@@ -482,7 +483,7 @@
         <Setter Property="Foreground"
                 Value="#DCE0E4" />
         <Setter Property="Text"
-                Value="Bills" />
+                Value="Sales Volume" />
         <Setter Property="FontSize"
                 Value="44" />
         <Setter Property="TextWrapping"
@@ -500,7 +501,7 @@
         <Setter Property="Foreground"
                 Value="#DCE0E4" />
         <Setter Property="Text"
-                Value="Bills" />
+                Value="Sales Volume" />
         <Setter Property="FontSize"
                 Value="26" />
         <Setter Property="TextWrapping"

@@ -62,6 +62,8 @@ public partial class Edit_Tasks : Window
         foreach (var order in orders)
         {
             Order_Field.Items.Add(order.ID);
+            //Todo Combobox als Template mit beschreibungen und so
+            //Order_Field.Items.Add(new Comboboxobject(){ID = order.ID, Name = order.Description});
         }
         foreach (var User in users)
         {
@@ -188,7 +190,6 @@ public partial class Edit_Tasks : Window
         {
             Ressource_Text.Text = ressourcesList[0].Name;
         }
-        
         var (orderList,err1) = RW_Order.ReadwithID(Order_Field.Text, Paths.sqlite_path);
         if (err1!=null)
         {
@@ -209,4 +210,9 @@ public partial class Edit_Tasks : Window
             User_Text.Text = userList[0].Name;
         }
     }
+}
+public class Comboboxobject
+{
+    public String ID { get; set; } = "";
+    public String Name { get; set; } = "";
 }
