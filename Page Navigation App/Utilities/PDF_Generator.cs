@@ -31,7 +31,7 @@ public class PDF_Generator
         string Gesamtpreis = "Gesamtpreis";
         string Rechnungsnummer = "Rechnungsnummer"; //Todo irgendwie übergeben
         string Lieferdatum = deliverydate;
-        string Rechnungsdatum = DateTime.Now.ToString();
+        string Rechnungsdatum = DateTime.Now.ToString("dd.MM.yyyy");
         string[] Adresse = { "Name", "Straße", "PLZ+Ort" };
         int pos_Anzahl = 13;
         float Preis = 0;

@@ -65,7 +65,6 @@ public class Dashboardstyle
                 if (actualmonth == member.month && actualyear==member.year)
                 {
                     costs += member.costs;
-                    //todo verbesserungen, passt ned vom auslesen her
                 }
             }
             chartvalue.Add(costs);

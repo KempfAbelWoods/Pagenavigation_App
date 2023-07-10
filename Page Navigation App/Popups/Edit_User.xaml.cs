@@ -16,8 +16,6 @@ public partial class Edit_User : Window
     private string Initial_Username;
     public Edit_User(string ID, string name, string username, string role, string rights, string password, bool IDenable)
     {
-        //Todo verwaltung von Rechten evtl. als string mit Trennzeichen übergeben
-        //Todo überprüfen ob Nutzername schon vergeben
         Initial_ID = ID;
         Initial_Username = username;
         InitializeComponent();

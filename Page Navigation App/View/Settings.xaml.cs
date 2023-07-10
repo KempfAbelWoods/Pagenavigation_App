@@ -279,7 +279,7 @@ namespace Page_Navigation_App.View
             {
                 try
                 {
-                    new PDF_Generator().PDF_Generate("example", examplepath,"",DateTime.Now.ToString());
+                    new PDF_Generator().PDF_Generate("example", examplepath,"",DateTime.Now.ToString("dd.MM.yyyy"));
 
                 }
                 catch (Exception exception)

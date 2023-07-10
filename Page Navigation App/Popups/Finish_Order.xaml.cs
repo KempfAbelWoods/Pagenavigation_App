@@ -67,7 +67,6 @@ public partial class Finish_Order : Window
                         ID = order[0].ID,
                         Description = order[0].Description,
                         CustomerID = order[0].CustomerID,
-                        //todo zeit rauswerfen ToString("MMMM dd, yyyy")
                         EndDate = DateTime.Now.ToString("dd.MM.yyyy"),
                         OrderValue = order[0].ActualCosts,
                         PDf = pdf

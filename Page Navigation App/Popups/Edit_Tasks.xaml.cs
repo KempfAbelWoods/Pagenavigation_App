@@ -13,6 +13,8 @@ namespace Page_Navigation_App.Popups;
 public partial class Edit_Tasks : Window
 {
     private string Initial_ID;
+    private List<string>  _ordernames = new List<string>();
+    private List<string> _ressourcedescriptions  = new List<string>();
     public Edit_Tasks(string ID, string orderID, string Description, string Username, float EstimatedHours, float ActualHours, float Costs, string Ressource, bool IDenable)
     {
         Initial_ID = ID;
@@ -62,16 +64,16 @@ public partial class Edit_Tasks : Window
         foreach (var order in orders)
         {
             Order_Field.Items.Add(order.ID);
-            //Todo Combobox als Template mit beschreibungen und so
-            //Order_Field.Items.Add(new Comboboxobject(){ID = order.ID, Name = order.Description});
+            _ordernames.Add(order.Description);
         }
-        foreach (var User in users)
+        foreach (var user in users)
         {
-            User_Field.Items.Add(User.Username);
+            User_Field.Items.Add(user.Username);
         }
         foreach (var ressource in ressources)
         {
             Ressource_Field.Items.Add(ressource.ID);
+            _ressourcedescriptions.Add(ressource.Name);
         }
 
         Ressource_Field.SelectedItem = Ressource;
@@ -83,34 +85,34 @@ public partial class Edit_Tasks : Window
     private void Save_and_Close_Window(object sender, ExecutedRoutedEventArgs e)
     {
         string ID = ID_Field.Text;
-        string orderID = Order_Field.Text;
-        string Username = User_Field.Text;
+        string orderId = Order_Field.Text;
+        string username = User_Field.Text;
         string description = Description_Field.Text;
-        string Ressource = Ressource_Field.Text;
+        string ressource = Ressource_Field.Text;
         float actualhours = 0f;
-        float Estimatehours = 0f;
+        float estimatehours = 0f;
         float costs = 0f;
         try
         {
             actualhours = float.Parse(Actual_Field.Text,CultureInfo.InvariantCulture.NumberFormat);
-            Estimatehours = float.Parse(Estimate_Field.Text,CultureInfo.InvariantCulture.NumberFormat);
+            estimatehours = float.Parse(Estimate_Field.Text,CultureInfo.InvariantCulture.NumberFormat);
             costs = float.Parse(Costs_Field.Text,CultureInfo.InvariantCulture.NumberFormat);
         }
         catch (Exception exception)
         {
             MessageBox.Show(exception.Message);
         }
-        if (ID!="" && orderID!="" && Username !="" && actualhours !=0 && description!= "" && costs!=0 && Estimatehours!=0 && Ressource!="")
+        if (ID!="" && orderId!="" && username !="" && actualhours !=0 && description!= "" && costs!=0 && estimatehours!=0 && ressource!="")
         {
             var data = new Db_Tasks()
             {
                 ID = ID,
-                OrderId = orderID,
-                Username = Username,
+                OrderId = orderId,
+                Username = username,
                 ActualHours = actualhours,
-                EstimatedHours = Estimatehours,
+                EstimatedHours = estimatehours,
                 Costs = costs,
-                Ressource = Ressource,
+                Ressource = ressource,
                 Description = description
             };
             //Spalte mit alten Daten löschen
@@ -181,34 +183,17 @@ public partial class Edit_Tasks : Window
 
     private void Selection_Changed(object sender, SelectionChangedEventArgs e)
     {
-        var (ressourcesList,err) = Rw_Ressources.ReadwithID(Ressource_Field.Text, Paths.sqlite_path);
-        if (err!=null)
+        if (_ordernames.Count>=Order_Field.SelectedIndex && Order_Field.SelectedIndex>=0)
         {
-            MessageBox.Show(err.GetException().Message);
+            Order_Text.Text = _ordernames[Order_Field.SelectedIndex];
         }
-        if (ressourcesList.Count!=0)
+
+        if (_ressourcedescriptions.Count>=Ressource_Field.SelectedIndex && Ressource_Field.SelectedIndex>=0)
         {
-            Ressource_Text.Text = ressourcesList[0].Name;
-        }
-        var (orderList,err1) = RW_Order.ReadwithID(Order_Field.Text, Paths.sqlite_path);
-        if (err1!=null)
-        {
-            MessageBox.Show(err1.GetException().Message);
-        }
-        if (orderList.Count!=0)
-        {
-            Order_Text.Text = orderList[0].Description;
+            Ressource_Text.Text = _ressourcedescriptions[Ressource_Field.SelectedIndex];
         }
         
-        var (userList,err2) = Rw_Users.ReadwithUserName(User_Field.Text, Paths.sqlite_path);
-        if (err2!=null)
-        {
-            MessageBox.Show(err2.GetException().Message);
-        }
-        if (userList.Count!=0)
-        {
-            User_Text.Text = userList[0].Name;
-        }
+
     }
 }
 public class Comboboxobject
