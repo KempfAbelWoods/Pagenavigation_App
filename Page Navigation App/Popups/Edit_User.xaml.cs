@@ -146,26 +146,30 @@ public partial class Edit_User : Window
     {
         string ID = ID_Field.Text;
         string name = Name_Field.Text;
-        string Username = Username_Field.Text;
-        string Role = Role_Field.Text;
-        string Rights = Rightstring();
-        string Password = Password_Field.Password;
-        if (ID!="" && name!="" && Username !="" && Role !="" && Rights!= "" && Password!= "" && Rights!= null)
+        string username = Username_Field.Text;
+        string role = Role_Field.Text;
+        string rights = Rightstring();
+        string password = Password_Field.Password;
+        if (ID!="" && name!="" && username !="" && role !="" && rights!= "" && password!= "" && rights!= null)
         {
             var data = new Db_Users
             {
                 ID = ID,
                 Name = name,
-                Username = Username,
-                Role = Role,
-                Rights = Rights,
-                Password = Password,
+                Username = username,
+                Role = role,
+                Rights = rights,
+                Password = password,
             };
             //Spalte mit alten Daten löschen
             var (list, err1) = Rw_Users.ReadwithID(Initial_ID, Paths.sqlite_path);
             if (err1 == null)
             {
                 var error = Rw_Users.Delete(list,Paths.sqlite_path);
+                if (error!=null)
+                {
+                    MessageBox.Show(error.GetException().Message);
+                }
             }
             else
             {
@@ -181,7 +185,7 @@ public partial class Edit_User : Window
 
             this.Close();
         }
-        else if (Rights == null)
+        else if (rights == null)
         {
             MessageBox.Show("Every User need to have Only Read Access at least!");
         }

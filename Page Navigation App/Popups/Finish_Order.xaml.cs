@@ -51,7 +51,6 @@ public partial class Finish_Order : Window
             if (Tasks.Count > 0)
             {
                 var pdf = new PDF_Generator().PDF_Generate(OrderName, "", InitialID, Date.SelectedDate.ToString());
-                //  System.IO.File.WriteAllBytes("C:\\Users\\david.kempf\\Documents\\Projekte\\Projektlabor\\hello.pdf", pdf);
 
                 //Order Auslesen
                 var (order, err1) = RW_Order.ReadwithID(InitialID, Paths.sqlite_path);
@@ -68,7 +67,8 @@ public partial class Finish_Order : Window
                         ID = order[0].ID,
                         Description = order[0].Description,
                         CustomerID = order[0].CustomerID,
-                        EndDate = DateTime.Now.ToString(),
+                        //todo zeit rauswerfen ToString("MMMM dd, yyyy")
+                        EndDate = DateTime.Now.ToString("dd.MM.yyyy"),
                         OrderValue = order[0].ActualCosts,
                         PDf = pdf
                     };

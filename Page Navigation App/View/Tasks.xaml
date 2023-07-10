@@ -98,8 +98,8 @@
                     <DataGridTextColumn Header="OrderId" Binding="{Binding OrderId}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="Ressource" Binding="{Binding Ressource}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="Username" Binding="{Binding Username}" IsReadOnly="True" Width="*" />
-                    <DataGridTextColumn Header="EstimatedHours" Binding="{Binding EstimatedHours}" IsReadOnly="True" Width="*" />
-                    <DataGridTextColumn Header="ActualHours" Binding="{Binding ActualHours}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="EstimatedQty" Binding="{Binding EstimatedHours}" IsReadOnly="True" Width="*" />
+                    <DataGridTextColumn Header="ActualQty" Binding="{Binding ActualHours}" IsReadOnly="True" Width="*" />
                     <DataGridTextColumn Header="Costs" Binding="{Binding Costs}" IsReadOnly="True" Width="*" />
                     <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
