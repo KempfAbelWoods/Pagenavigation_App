@@ -18,6 +18,7 @@ namespace Page_Navigation_App.View
         ObservableCollection<Db_Customer> members = new ObservableCollection<Db_Customer>();
         ObservableCollection<Db_Customer> shownmembers = new ObservableCollection<Db_Customer>();
         private int SearchId = 1;
+
         public Customers()
         {
             InitializeComponent();
@@ -29,26 +30,35 @@ namespace Page_Navigation_App.View
         /// </summary>
         /// <param name="dbread"></param>
         void Load_Data(bool dbread)
-        { 
+        {
             var converter = new BrushConverter();
             members.Clear();
-            
-            var (list, err) = RW_Customer.Read("",Paths.sqlite_path);
 
-                for (int i = 0; i < list.Count; i++)
+            var (list, err) = RW_Customer.Read("", Paths.sqlite_path);
+            if (err != null)
+            {
+                MessageBox.Show(err.GetException().Message);
+            }
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                var color = (Brush)converter.ConvertFromString(list[i].BgColor);
+                members.Add(new Db_Customer
                 {
-                    var color =(Brush)converter.ConvertFromString(list[i].BgColor);
-                      members.Add(new Db_Customer { ID = list[i].ID, Character = list[i].Character, BgColor = list[i].BgColor, Name = list[i].Name, Adress = list[i].Adress, Mail = list[i].Mail, Phone = list[i].Phone }); 
-                }
-           if (dbread)
+                    ID = list[i].ID, Character = list[i].Character, BgColor = list[i].BgColor, Name = list[i].Name,
+                    Adress = list[i].Adress, Mail = list[i].Mail, Phone = list[i].Phone
+                });
+            }
+
+            if (dbread)
             {
                 shownmembers = members;
                 textBoxFilter.Text = "";
             }
 
-           membersDataGrid.ItemsSource = shownmembers;
+            membersDataGrid.ItemsSource = shownmembers;
         }
-        
+
         void EditCustomer(object sender, ExecutedRoutedEventArgs e)
         {
             if (Userhandling.GrantPermission(1, true))
@@ -64,18 +74,19 @@ namespace Page_Navigation_App.View
                 }
             }
         }
-        
+
         void AddCustomer(object sender, RoutedEventArgs e)
         {
-            if (Userhandling.GrantPermission(1,true))
+            if (Userhandling.GrantPermission(1, true))
             {
-              Edit_Customer editCustomer = new Edit_Customer("","Max Mustermann","adress","max.mustermann@online.de","Phone Number", true);
-                          editCustomer.Owner = Application.Current.MainWindow;
-                          editCustomer.ShowDialog();
-                          Load_Data(true);  
+                Edit_Customer editCustomer = new Edit_Customer("", "Max Mustermann", "adress",
+                    "max.mustermann@online.de", "Phone Number", true);
+                editCustomer.Owner = Application.Current.MainWindow;
+                editCustomer.ShowDialog();
+                Load_Data(true);
             }
         }
-        
+
         void DeleteCustomer(object sender, ExecutedRoutedEventArgs e)
         {
             //hier auch noch Kundennamen mitgeben
@@ -83,20 +94,19 @@ namespace Page_Navigation_App.View
             deleteCustomer.Owner = Application.Current.MainWindow;
             deleteCustomer.ShowDialog();
             Load_Data(true);
-
         }
 
         private void TextBoxFilter_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             ObservableCollection<Db_Customer> tempMembers = new ObservableCollection<Db_Customer>();
             tempMembers.Clear();
-            if (textBoxFilter.Text=="")
+            if (textBoxFilter.Text == "")
             {
                 tempMembers = members;
             }
             else
             {
-                foreach (var  x in members)
+                foreach (var x in members)
                 {
                     switch (SearchId)
                     {
@@ -105,38 +115,43 @@ namespace Page_Navigation_App.View
                             {
                                 tempMembers.Add(x);
                             }
+
                             break;
                         case 1:
                             if (x.Name.Contains(textBoxFilter.Text))
                             {
                                 tempMembers.Add(x);
                             }
+
                             break;
                         case 2:
                             if (x.Adress.Contains(textBoxFilter.Text))
                             {
                                 tempMembers.Add(x);
                             }
+
                             break;
                         case 3:
                             if (x.Mail.Contains(textBoxFilter.Text))
                             {
                                 tempMembers.Add(x);
                             }
+
                             break;
                         case 4:
                             if (x.Phone.Contains(textBoxFilter.Text))
                             {
                                 tempMembers.Add(x);
                             }
+
                             break;
-                        
                     }
                 }
             }
+
             shownmembers.Clear();
             shownmembers = tempMembers;
-            
+
             Load_Data(false);
         }
 
@@ -145,9 +160,4 @@ namespace Page_Navigation_App.View
             SearchId = SearchFor.SelectedIndex;
         }
     }
-
-
-    
-
-
 }

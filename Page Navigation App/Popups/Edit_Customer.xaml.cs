@@ -41,6 +41,7 @@ public partial class Edit_Customer : Window
         string phone = Phone_Field.Text;
         if (ID!="" && name!="" && adress !="" && mail !="" && phone!= "")
         {
+            //Definition der zu schreibenden Reihe
             var data = new Db_Customer
             {
                 ID = ID,
@@ -56,6 +57,10 @@ public partial class Edit_Customer : Window
             if (err1 == null)
             {
                 var error = RW_Customer.Delete(list,Paths.sqlite_path);
+                if (error!=null)
+                {
+                    MessageBox.Show(error.GetException().Message);
+                }
             }
             else
             {
