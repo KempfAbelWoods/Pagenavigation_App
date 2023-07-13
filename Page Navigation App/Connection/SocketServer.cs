@@ -91,7 +91,6 @@ public class Server
         Rw_Tasks.Write(Taskslist, Paths.sqlite_path);
         
         //Empfangene Daten auswerten
-        //TODO hier nicht Passwort von Settings lesen sondern in der DB nach User suchen und dem sein PW abfragen!!!!
         if (dataReceived != "")
         {
             // Sende Users und Tasks an den Client
@@ -110,8 +109,7 @@ public class Server
             // Schließe die Verbindung
             client.Close();
             listener.Stop();
-
-            Trace.WriteLine("Verbindung geschlossen.");
+            
             MessageBox.Show("Verbindung geschlossen.");
         }
         else if (dataReceived == "")
@@ -135,8 +133,7 @@ public class Server
                 // Schließe die Verbindung
                 client.Close();
                 listener.Stop();
-
-                Trace.WriteLine("Verbindung geschlossen.");
+                
                 MessageBox.Show("Verbindung geschlossen.");
             }
 
