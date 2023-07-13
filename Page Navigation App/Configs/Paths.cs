@@ -6,7 +6,6 @@ public static class Paths
 {
     public const string sqlite_path = "../../../data/data.sqlite"; //"/identifier.sqlite"; //  /Page Navigation App/data/data.sqlite;
     public static string ConnectionCode = "";
-
 }
 
 public static class ActualUser

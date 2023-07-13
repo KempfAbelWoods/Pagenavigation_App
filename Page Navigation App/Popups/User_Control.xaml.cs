@@ -44,14 +44,17 @@ public partial class User_Control : Window
         
         void EditUser(object sender, ExecutedRoutedEventArgs e)
         {
-
-            var (list,err) = Rw_Users.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
-            if (list.Count==1)
+            if (Userhandling.GrantPermission(2, true))
             {
-                Edit_User editUser = new Edit_User(list[0].ID,list[0].Name,list[0].Username,list[0].Role,list[0].Rights,list[0].Password, false);
-                editUser.Owner = Application.Current.MainWindow;
-                editUser.ShowDialog();
-                Load_Data(true);
+                var (list, err) = Rw_Users.ReadwithID(e.Parameter.ToString(), Paths.sqlite_path);
+                if (list.Count == 1)
+                {
+                    Edit_User editUser = new Edit_User(list[0].ID, list[0].Name, list[0].Username, list[0].Role,
+                        list[0].Rights, list[0].Password, false);
+                    editUser.Owner = Application.Current.MainWindow;
+                    editUser.ShowDialog();
+                    Load_Data(true);
+                }
             }
         }
         

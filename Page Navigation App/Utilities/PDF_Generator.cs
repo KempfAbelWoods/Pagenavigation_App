@@ -32,10 +32,11 @@ public class PDF_Generator
         string Rechnungsnummer = "Rechnungsnummer"; //Todo irgendwie übergeben
         string Lieferdatum = deliverydate;
         string Rechnungsdatum = DateTime.Now.ToString("dd.MM.yyyy");
-        string[] Adresse = { "Name", "Straße", "PLZ+Ort" };
+        string[] Adresse = { "Name", "Straße", "PLZ+Ort" }; //Todo Eingabemaske für Kopf erstellen
         int pos_Anzahl = 13;
         float Preis = 0;
 
+        //einlesen des Ausgabepfads
         var (data, err) = Rw_Settings.ReadwithID("1", Paths.sqlite_path);
         if (err != null)
         {
@@ -45,8 +46,10 @@ public class PDF_Generator
         {
             MessageBox.Show("No Directory for Pdf Files set");
         }
-        else if (data.Count == 1)
+        //wenn Eintrag vorhanden und Pfad existiert dann starten
+        else if (data.Count == 1 && Directory.Exists(data[0].Ressource))
         {
+            //Vorlagenpdf Pfad einlesen
             var (pdfmodel, err1) = Rw_Settings.ReadwithID("2", Paths.sqlite_path);
             if (err1 != null)
             {
@@ -54,10 +57,12 @@ public class PDF_Generator
             }
             else if (pdfmodel.Count == 0)
             {
-                MessageBox.Show("No Directory for Pdf Files set");
+                MessageBox.Show("No File for Pdf presentation set");
             }
-            else if (pdfmodel.Count == 1)
+            //Wenn Eintrag vorhanden und File existiert
+            else if (pdfmodel.Count == 1 && File.Exists(pdfmodel[0].Ressource))
             {
+                //Dokument öffnen
                 PdfDocument document = PdfReader.Open(pdfmodel[0].Ressource,
                     PdfDocumentOpenMode.Import);
                 PdfDocument outputDocument = new PdfDocument();
@@ -74,6 +79,7 @@ public class PDF_Generator
                     XFont font = new XFont("Verdana", 10);
                     XFont fontgroß = new XFont("Verdana", 20);
 
+                    //Taskliste für Bestellung einlesen
                     var (tasklist, err2) = Rw_Tasks.ReadwithOrderID(orderID, Paths.sqlite_path);
                     if (err2 != null)
                     {
@@ -86,11 +92,13 @@ public class PDF_Generator
                     }
 
                     List<Db_Ressources> ressource = new List<Db_Ressources>();
+                    //für jeden Task eine Position anlegen
                     for (int i = 0; i < pos_Anzahl; i++)
                     {
                         if (orderID != "" && i < tasklist.Count)
                         {
-                            (ressource, var err3) = Rw_Ressources.ReadwithID(tasklist[i].Ressource, Paths.sqlite_path);
+                            (ressource, var err3) =
+                                Rw_Ressources.ReadwithID(tasklist[i].Ressource, Paths.sqlite_path);
                             if (err3 != null)
                             {
                                 MessageBox.Show(err3.GetException().Message);
@@ -177,23 +185,26 @@ public class PDF_Generator
                     {
                         outputDocument.Save(dboutputPath + "\\" + PDFname + ".pdf");
                     }
-                    
+                    //PDf als Bytearray zurückgeben
                     using (var ms = new MemoryStream())
                     {
                         outputDocument.Save(ms);
                         return ms.ToArray();
                     }
-
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show(e.Message);
                 }
             }
+            else
+            {
+                MessageBox.Show("File does not exist");
+            }
         }
         else
         {
-            MessageBox.Show("Somehow there exist 2 or more elements in the Database, pls call the support.");
+            MessageBox.Show("Path does not exist");
         }
 
         return null;

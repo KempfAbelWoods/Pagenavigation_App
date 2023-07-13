@@ -29,6 +29,7 @@ public partial class Edit_User : Window
         Role_Field.Text = role;
         Password_Field.Password = password;
         checkboxes(rights);
+        //Todo Passwort darf nicht zu sehen sein
     }
     
     private void ID_Field_OnTextChanged(object sender, TextChangedEventArgs e)
