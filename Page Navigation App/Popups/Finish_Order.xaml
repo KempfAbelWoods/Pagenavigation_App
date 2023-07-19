@@ -35,8 +35,8 @@
                    FontSize="18" Foreground="White"
                    >Specifiy the Delivery Date:</TextBlock>
         <DatePicker Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center"  FontFamily="Fonts/#Saira SemiBold"
-                   FontSize="18" Foreground="White"
-                   Name="Date"></DatePicker>
+                   FontSize="18" 
+                   x:Name="Date"></DatePicker>
 
         <!-- Fußzeile mit Save und Cancel-->
         <Grid Grid.Row="4">
