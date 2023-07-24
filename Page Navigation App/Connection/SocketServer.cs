@@ -18,7 +18,7 @@ public class Server
 
     public async static void SocketServer()
     {
-        byte[] buffer = new byte[1024];
+        byte[] buffer = new byte[2048];
         byte[] responseData;
         int readReceived;
         string dataReceived;
